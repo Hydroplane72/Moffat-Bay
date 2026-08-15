@@ -1,6 +1,11 @@
 # Introduction
  
 ## 1.1 Purpose
+The **Technical Design Document (TDD)** defines the architectural and functional requirements for the **Moffat Bay Lodge Reservation System**.
+
+This document serves as a technical blueprint for the team by detailing terminology, user personas, and work estimations.
+
+The primary objective is to deliver a seamless, responsive, and secure web application that enables prospective guests to explore lodge attractions, register customer accounts, check room availability, compare room rates, and manage reservations efficiently.
 
 ## 1.2 Terminology
 
