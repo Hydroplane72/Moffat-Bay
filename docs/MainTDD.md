@@ -8,6 +8,11 @@ This document serves as a technical blueprint for the team by detailing terminol
 The primary objective is to deliver a seamless, responsive, and secure web application that enables prospective guests to explore lodge attractions, register customer accounts, check room availability, compare room rates, and manage reservations efficiently.
 
 ## 1.2 Terminology
+| Terms / Abbreviations | Description |
+| ---- | ---- |
+| Moffat Bay Lodge | The business and web application entity for which the reservation system is built for. |
+| TDD | Technical Design Document - A document detailing software workflows and technical implementation plans. |
+| WIP | Work in Process - A DevOps metric limiting active tasks to optimize workflow efficiency and reduce context switching. |
 
 ## 1.3 User Personas
 Each User Persona is it's own file. Each Persona should have at least 3 user stories.
