@@ -1,13 +1,18 @@
-# Persona 1: Name - The Vacation Planner
+# Persona 1: Lucia Collins - Vacation Planner
 
 ## Characteristics
 
+- **Tech Comfort**: Moderate - frequently uses web browsers, travel sites, mobile apps, etc. 
 
-Tech Comfort: Moderate 
+- **Goals**: 
+    - Quickly and easily browse lodge information, room pricing, and nearby island attractions without hassle.
+    - Register for an account securely to save travel details and prepare bookings.
+    - Compare room options clearly and transparently, without needing to login
 
-Goals: Quickly browse lodge info, compare room options, book a vacation without hassle.
-
-Frustrations: Complicated registration, unclear pricing, slow websites.
+- **Frustrations**:
+    - Being forced to create an account before seeing room rates or availability.
+    - Confusing checkout flows and unclear pricing
+    - Slow-loading websites, missing or conflicting room details
 
 
 ## User Stories: 
