@@ -16,11 +16,9 @@
 
 
 ## User Stories: 
-If possible, please create the user stories in Github as new issues: This way we can create subtasks for each user story and track our progress in the project better. Then put the link to the issue here.
-
-1.
-2.
-3.
+1. **Story #1** - As a vacation planner, I want to explore lodge amentities and island attractions (hiking, kayaking, whale watching) without logging in, so I can evaluate if Moffat Bay fits my family's trip preferences.
+2. **Story #2** - As a guest planning a trip, I want to view room types, guest capacities, and price rates upfront on the reservation page, so I can select an option that fits my budget.
+3. **Story #3** - As a busy mother, I want to navigate the Lodge's webpages easily and intuitively, so I don't waste time or grow frustrated at confusing layouts.
 
 
 
