@@ -56,7 +56,7 @@ These are selected high-priority core user stories from each persona, each broke
 3. [ ] Implement front-end filtering logic to toggle room view by room size - 2 Hours
 4. [ ] Wire accurate checkout pricing based on selected nights - 2 Hours
 
-### Priority 3: Account Log In (Story 2.3)
+### Priority 3: Place Reservation while logged in (Story 2.3)
 - **Assigned Persona:** [Persona 2: Returning Guest](UserPersona2.md)
 - **Total Estimated Hours:** 11 Hours
 1. [ ] Create the reservation form - 2 Hours
@@ -69,9 +69,12 @@ These are selected high-priority core user stories from each persona, each broke
 8. [ ] Test the reservation process - 2 Hours
 
 #### Remaining User Stories (in priority order)
-- **#**: 
-- **#**: 
-- **#**: 
+- **2.1**: Quick User Login
+- **3.2**: Reservation Confirmation
+- **2.2**: Past Reservation Lookup/History
+- **1.1**: View Public Attractions and Amentities
+- **3.3**: Mobile Viewport and Responsive UI Design
+- **1.3**: UI/UX Navigation Polish
 
 # Design
 
