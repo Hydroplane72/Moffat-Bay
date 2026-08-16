@@ -24,4 +24,14 @@ Occupation: Small Business Owner
 # Top Priority
 - As a returning guest, I want to make a new reservation while logged in so that I can quickly confirm another stay at Moffat Bay Lodge.
 
-## 
+## Development Steps and Story Hours
+1. Create the reservation form	2
+2. Add form validation	1
+3. Verify that the user is logged in before allowing a reservation	1
+4. Create the database table for reservations	1
+5. Connect the reservation form to the database	2
+6. Add a reservation confirmation button	1
+7, Save the reservation to the database	1
+8. Test the reservation process - Hours	2
+
+Total Hours:	11 hours
