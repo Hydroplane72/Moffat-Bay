@@ -11,8 +11,8 @@ Goals: Log in fast, view past reservations, book repeat stays.
 Frustrations: Forgetting reservation IDs, slow login, poor mobile experience.
 
 ## User Stories: 
-If possible, please create the user stories in Github as new issues: This way we can create subtasks for each user story and track our progress in the project better. Then put the link to the issue here.
 
-1.
-2.
-3.
+1. As a returning guest, I want to log in quickly so that I can access my account without having to create a new profile every time I visit the website..
+2. As a returning guest, I want to view my previous reservations so that I can easily reference my past stays and plan future trips.
+3. As a returning guest, I want to make a new reservation while logged in so that I can quickly confirm another stay at Moffat Bay Lodge.
+4. As a returning guest, I want the reservation process to work well on my phone so that I can book a vacation from any device.
