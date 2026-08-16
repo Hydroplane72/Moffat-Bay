@@ -22,7 +22,7 @@ Occupation: Small Business Owner
 4. As a returning guest, I want the reservation process to work well on my phone so that I can book a vacation from any device.
 
 # Top Priority
-- As a returning guest, I want to make a new reservation while logged in so that I can quickly confirm another stay at Moffat Bay Lodge.
+- #3: As a returning guest, I want to make a new reservation while logged in so that I can quickly confirm another stay at Moffat Bay Lodge.
 
 ## Development Steps and Story Hours
 1. Create the reservation form - 2 Hours
