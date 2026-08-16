@@ -14,15 +14,6 @@
     - Slow-loading pages, broken forms, or inconsistent room information.
     - Complicated registration requirements and password rules.
 
-
-
-
-Tech Comfort: High
-
-Goals: Explore attractions, learn about the lodge, register easily, feel secure.
-
-Frustrations: Confusing password rules, unclear navigation, broken forms.
-
 ## User Stories: 
 
 
@@ -31,3 +22,19 @@ Frustrations: Confusing password rules, unclear navigation, broken forms.
 3. As a first-time visitor, I want to create an account quickly and easily so that I can book a reservation without unnecessary delays.
 4. As a first-time visitor, I want to receive confirmation after registering and submitting a reservation so that I know my information was saved successfully.
 5. As a first-time visitor, I want to securely log in to my account so that I can access and manage my reservation information.
+
+
+# Top Priority: 
+- As a first-time visitor, I want to explore the website without logging in so that I can quickly decide whether Moffat Bay Lodge meets my vacation needs.
+
+##Development Steps and Story Hours
+
+1. Create the website homepage - Hours	2
+2. Design the lodge information page - Hours	2
+3. Create the room and pricing page - Hours	2
+4. Create the island attractions page - Hours	2
+5. Build the website navigation menu - Hours	1
+6. Add images and content throughout the website - Hours	2
+7. Optimize the website for mobile devices - Hours	2
+8. Test navigation and page functionality - Hours 1
+
