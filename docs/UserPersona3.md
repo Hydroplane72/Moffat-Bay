@@ -27,7 +27,7 @@
 # Top Priority: 
 - As a first-time visitor, I want to explore the website without logging in so that I can quickly decide whether Moffat Bay Lodge meets my vacation needs.
 
-##Development Steps and Story Hours
+## Development Steps and Story Hours
 
 1. Create the website homepage - Hours	2
 2. Design the lodge information page - Hours	2
