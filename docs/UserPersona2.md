@@ -31,7 +31,7 @@ Occupation: Small Business Owner
 4. Create the database table for reservations - 1 Hour
 5. Connect the reservation form to the database	- 2 Hours
 6. Add a reservation confirmation button - 1 Hour
-7, Save the reservation to the database	- 1 Hour
+7. Save the reservation to the database	- 1 Hour
 8. Test the reservation process - 2 Hours
 
 Total Hours: 11 hours
