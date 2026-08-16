@@ -20,3 +20,8 @@ Occupation: Small Business Owner
 2. As a returning guest, I want to view my previous reservations so that I can easily reference my past stays and plan future trips.
 3. As a returning guest, I want to make a new reservation while logged in so that I can quickly confirm another stay at Moffat Bay Lodge.
 4. As a returning guest, I want the reservation process to work well on my phone so that I can book a vacation from any device.
+
+# Top Priority
+- As a returning guest, I want to make a new reservation while logged in so that I can quickly confirm another stay at Moffat Bay Lodge.
+
+## 
