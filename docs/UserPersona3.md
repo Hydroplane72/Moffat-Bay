@@ -25,7 +25,7 @@
 
 
 # Top Priority: 
-- As a first-time visitor, I want to explore the website without logging in so that I can quickly decide whether Moffat Bay Lodge meets my vacation needs.
+- #1: As a first-time visitor, I want to explore the website without logging in so that I can quickly decide whether Moffat Bay Lodge meets my vacation needs.
 
 ## Development Steps and Story Hours
 
