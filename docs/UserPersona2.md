@@ -1,14 +1,18 @@
-# Persona 2: The Returning Guest
+# Persona 2: James Flannel - The Returning Guest
 
 ## Characteristics
 
 Occupation: Small Business Owner
 
-Tech Comfort: High
-
-Goals: Log in fast, view past reservations, book repeat stays.
-
-Frustrations: Forgetting reservation IDs, slow login, poor mobile experience.
+- **Tech Comfort**: High - Uses desktops and mobile devices to run his business. 
+- **Goals**: 
+    - Quickly log in.
+    - View past reservations to compare with future reservations.
+    - Book multiple stays.
+- **Frustrations**:
+    - Slow login.
+    - Needing to remember reservation ID.
+    - Poor mobile experience.
 
 ## User Stories: 
 
