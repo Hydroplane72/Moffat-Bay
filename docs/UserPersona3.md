@@ -29,12 +29,14 @@
 
 ## Development Steps and Story Hours
 
-1. Create the website homepage - Hours	2
-2. Design the lodge information page - Hours	2
-3. Create the room and pricing page - Hours	2
-4. Create the island attractions page - Hours	2
-5. Build the website navigation menu - Hours	1
-6. Add images and content throughout the website - Hours	2
-7. Optimize the website for mobile devices - Hours	2
-8. Test navigation and page functionality - Hours 1
+1. Create the website homepage - 2 Hours
+2. Design the lodge information page - 2 Hours
+3. Create the room and pricing page - 2 Hours
+4. Create the island attractions page - 2 Hours
+5. Build the website navigation menu - 1 Hour
+6. Add images and content throughout the website - 2 Hours
+7. Optimize the website for mobile devices - 2 Hours
+8. Test navigation and page functionality - 1 Hour
+
+Total Hours: 14
 
