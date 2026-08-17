@@ -1,0 +1,317 @@
+/* Moffat Bay Lodge Login Page */
+
+.login-page {
+    margin: 0;
+    background-color: #f7f3ea;
+    color: #24332f;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Header */
+
+.login-header {
+    max-width: none;
+    background-color: #163b3a;
+    color: white;
+    padding: 0;
+}
+
+.login-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.login-logo {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.login-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: none;
+    padding: 0;
+}
+
+.login-nav a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-nav a:hover {
+    text-decoration: underline;
+}
+
+.login-book-button {
+    background-color: #d4a55d;
+    color: #163b3a !important;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Hero */
+
+.login-hero {
+    max-width: none;
+    margin: 0;
+    padding: 90px 30px;
+    background: linear-gradient(135deg, #214c49, #102f2e);
+    color: white;
+}
+
+.login-hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.login-eyebrow {
+    color: #d4a55d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.login-hero h1 {
+    font-size: 3.7rem;
+    margin: 12px 0 20px;
+}
+
+.login-hero p:last-child {
+    max-width: 700px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+/* Main Content */
+
+.login-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.login-info h2,
+.login-form-container h2 {
+    font-size: 2.3rem;
+}
+
+.login-info > p:not(.login-eyebrow) {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Benefits */
+
+.login-benefit {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.login-benefit span {
+    color: #d4a55d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.login-benefit h3 {
+    margin: 0 0 5px;
+}
+
+.login-benefit p {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* Login Form */
+
+.login-form-container {
+    background-color: white;
+    padding: 40px;
+    border: 1px solid #ddd5c7;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.login-form-container form {
+    max-width: none;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #faf8f3;
+    border: 1px solid #cfc8bb;
+    padding: 12px;
+}
+
+.login-submit-button {
+    background-color: #d4a55d;
+    color: #163b3a;
+    border: none;
+    padding: 13px 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.login-submit-button:hover {
+    background-color: #c69750;
+}
+
+.login-links {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd5c7;
+}
+
+.login-links p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #5b6662;
+}
+
+.login-links a {
+    color: #163b3a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Planning Section */
+
+.login-planning {
+    max-width: none;
+    margin: 0;
+    padding: 90px 30px;
+    background-color: #163b3a;
+    color: white;
+}
+
+.login-planning-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login-planning-content h2 {
+    font-size: 2.6rem;
+}
+
+.login-planning-content > p:not(.login-eyebrow) {
+    color: #e1e8e5;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+}
+
+.login-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.login-primary-button,
+.login-outline-button {
+    display: inline-block;
+    padding: 13px 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-primary-button {
+    background-color: #d4a55d;
+    color: #163b3a;
+    border-radius: 4px;
+}
+
+.login-outline-button {
+    color: white;
+    border: 2px solid white;
+}
+
+/* Footer */
+
+.login-footer {
+    max-width: none;
+    margin: 0;
+    padding: 35px 30px;
+    background-color: #102b2a;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.login-footer p {
+    color: #d9dfdc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Responsive Design */
+
+@media (max-width: 850px) {
+    .login-nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .login-nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .login-content {
+        grid-template-columns: 1fr;
+    }
+
+    .login-footer {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+    .login-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .login-hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .login-form-container {
+        padding: 25px;
+    }
+}

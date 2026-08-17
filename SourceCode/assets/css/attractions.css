@@ -1,0 +1,288 @@
+/* Moffat Bay Lodge Attractions Page */
+
+.attractions-page {
+    margin: 0;
+    background-color: #f7f3ea;
+    color: #24332f;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Header */
+
+.attractions-header {
+    max-width: none;
+    background-color: #163b3a;
+    color: white;
+    padding: 0;
+}
+
+.attractions-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.attractions-logo {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.attractions-nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    border: none;
+    padding: 0;
+}
+
+.attractions-nav a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.attractions-nav a:hover {
+    text-decoration: underline;
+}
+
+.attractions-book-button {
+    background-color: #d4a55d;
+    color: #163b3a !important;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Hero */
+
+.attractions-hero {
+    max-width: none;
+    margin: 0;
+    padding: 100px 30px;
+    background: linear-gradient(135deg, #214c49, #102f2e);
+    color: white;
+}
+
+.attractions-hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.attractions-eyebrow {
+    color: #d4a55d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.attractions-hero h1 {
+    font-size: 3.7rem;
+    margin: 12px 0 20px;
+}
+
+.attractions-hero p:last-child {
+    max-width: 700px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+/* Introduction */
+
+.attractions-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 70px 30px 35px;
+    text-align: center;
+}
+
+.attractions-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.attractions-intro > p:last-child {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+/* Attraction Cards */
+
+.attraction-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 30px 80px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.attraction-card {
+    background-color: white;
+    border: 1px solid #ddd5c7;
+    padding: 38px 32px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.attraction-number {
+    color: #d4a55d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.attraction-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 12px;
+}
+
+.attraction-card p {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+.activity-type {
+    display: inline-block;
+    margin-top: 15px;
+    color: #163b3a;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border-top: 2px solid #d4a55d;
+    padding-top: 10px;
+}
+
+/* Adventure Section */
+
+.adventure-section {
+    max-width: none;
+    margin: 0;
+    padding: 90px 30px;
+    background-color: #163b3a;
+    color: white;
+}
+
+.adventure-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.adventure-content h2 {
+    font-size: 2.6rem;
+}
+
+.adventure-content > p:not(.attractions-eyebrow) {
+    color: #e1e8e5;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.outline-attractions-button {
+    display: inline-block;
+    padding: 13px 24px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* Call to Action */
+
+.attractions-cta {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.attractions-cta h2 {
+    font-size: 2.5rem;
+}
+
+.attractions-cta > p:not(.attractions-eyebrow) {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 25px;
+}
+
+.primary-attractions-button {
+    display: inline-block;
+    background-color: #d4a55d;
+    color: #163b3a;
+    padding: 13px 25px;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Footer */
+
+.attractions-footer {
+    max-width: none;
+    margin: 0;
+    padding: 35px 30px;
+    background-color: #102b2a;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.attractions-footer p {
+    color: #d9dfdc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Responsive Design */
+
+@media (max-width: 800px) {
+
+    .attractions-nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .attractions-nav {
+        gap: 12px;
+    }
+
+    .attractions-hero h1 {
+        font-size: 2.7rem;
+    }
+
+    .attraction-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .attractions-footer {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .attractions-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .attractions-hero h1 {
+        font-size: 2.2rem;
+    }
+}

@@ -1,0 +1,357 @@
+/* Moffat Bay Lodge Reservation Lookup Page */
+
+.lookup-page {
+    margin: 0;
+    background-color: #f7f3ea;
+    color: #24332f;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Header */
+
+.lookup-header {
+    max-width: none;
+    background-color: #163b3a;
+    color: white;
+    padding: 0;
+}
+
+.lookup-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.lookup-logo {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.lookup-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: none;
+    padding: 0;
+}
+
+.lookup-nav a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.lookup-nav a:hover {
+    text-decoration: underline;
+}
+
+.lookup-book-button {
+    background-color: #d4a55d;
+    color: #163b3a !important;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Hero */
+
+.lookup-hero {
+    max-width: none;
+    margin: 0;
+    padding: 90px 30px;
+    background: linear-gradient(135deg, #214c49, #102f2e);
+    color: white;
+}
+
+.lookup-hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.lookup-eyebrow {
+    color: #d4a55d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.lookup-hero h1 {
+    font-size: 3.7rem;
+    margin: 12px 0 20px;
+}
+
+.lookup-hero p:last-child {
+    max-width: 700px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+/* Main Content */
+
+.lookup-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.lookup-info h2,
+.lookup-form-container h2 {
+    font-size: 2.3rem;
+}
+
+.lookup-info > p:not(.lookup-eyebrow) {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Steps */
+
+.lookup-step {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.lookup-step span {
+    color: #d4a55d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.lookup-step h3 {
+    margin: 0 0 5px;
+}
+
+.lookup-step p {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* Search Form */
+
+.lookup-form-container {
+    background-color: white;
+    padding: 40px;
+    border: 1px solid #ddd5c7;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.lookup-form-container form {
+    max-width: none;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #faf8f3;
+    border: 1px solid #cfc8bb;
+    padding: 12px;
+}
+
+.lookup-submit-button {
+    background-color: #d4a55d;
+    color: #163b3a;
+    border: none;
+    padding: 13px 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.lookup-submit-button:hover {
+    background-color: #c69750;
+}
+
+/* Prototype Search Result */
+
+.lookup-result {
+    display: none;
+    margin-top: 25px;
+    padding: 22px;
+    background-color: #e7efe9;
+    border-left: 4px solid #163b3a;
+}
+
+.result-label {
+    color: #51766d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.lookup-result h3 {
+    margin: 8px 0;
+}
+
+.lookup-result > p:not(.result-label) {
+    color: #4c5b56;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.view-reservation-button {
+    display: inline-block;
+    margin-top: 8px;
+    background-color: #163b3a;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* Additional Links */
+
+.lookup-links {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd5c7;
+}
+
+.lookup-links p {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.lookup-links a {
+    color: #163b3a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Planning Section */
+
+.lookup-planning {
+    max-width: none;
+    margin: 0;
+    padding: 90px 30px;
+    background-color: #163b3a;
+    color: white;
+}
+
+.lookup-planning-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.lookup-planning-content h2 {
+    font-size: 2.6rem;
+}
+
+.lookup-planning-content > p:not(.lookup-eyebrow) {
+    color: #e1e8e5;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+}
+
+.lookup-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.lookup-primary-button,
+.lookup-outline-button {
+    display: inline-block;
+    padding: 13px 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.lookup-primary-button {
+    background-color: #d4a55d;
+    color: #163b3a;
+    border-radius: 4px;
+}
+
+.lookup-outline-button {
+    color: white;
+    border: 2px solid white;
+}
+
+/* Footer */
+
+.lookup-footer {
+    max-width: none;
+    margin: 0;
+    padding: 35px 30px;
+    background-color: #102b2a;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.lookup-footer p {
+    color: #d9dfdc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Responsive Design */
+
+@media (max-width: 850px) {
+    .lookup-nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .lookup-nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .lookup-content {
+        grid-template-columns: 1fr;
+    }
+
+    .lookup-footer {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+    .lookup-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .lookup-hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .lookup-form-container {
+        padding: 25px;
+    }
+}
