@@ -1,3 +1,13 @@
+<!--
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This page collects new guest account information. Its inline validation and submission behavior guides account creation before booking activity.
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -139,12 +149,7 @@
                                 First Name
                             </label>
 
-                            <input
-                                id="firstName"
-                                name="firstName"
-                                type="text"
-                                placeholder="First name"
-                                required>
+                            <input id="firstName" name="firstName" type="text" placeholder="First name" required>
 
                         </div>
 
@@ -154,12 +159,7 @@
                                 Last Name
                             </label>
 
-                            <input
-                                id="lastName"
-                                name="lastName"
-                                type="text"
-                                placeholder="Last name"
-                                required>
+                            <input id="lastName" name="lastName" type="text" placeholder="Last name" required>
 
                         </div>
 
@@ -171,12 +171,7 @@
                             Email
                         </label>
 
-                        <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            placeholder="you@example.com"
-                            required>
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required>
 
                     </div>
 
@@ -186,13 +181,8 @@
                             Password
                         </label>
 
-                        <input
-                            id="password"
-                            name="password"
-                            type="password"
-                            placeholder="Create a password"
-                            minlength="6"
-                            required>
+                        <input id="password" name="password" type="password" placeholder="Create a password"
+                            minlength="6" required>
 
                     </div>
 
@@ -202,13 +192,8 @@
                             Confirm Password
                         </label>
 
-                        <input
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            type="password"
-                            placeholder="Re-enter your password"
-                            minlength="6"
-                            required>
+                        <input id="confirmPassword" name="confirmPassword" type="password"
+                            placeholder="Re-enter your password" minlength="6" required>
 
                     </div>
 
@@ -296,7 +281,7 @@
         const passwordError = document.getElementById("passwordError");
         const registrationConfirmation = document.getElementById("registrationConfirmation");
 
-        registrationForm.addEventListener("submit", function(event) {
+        registrationForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
             passwordError.style.display = "none";
@@ -309,7 +294,7 @@
 
             registrationConfirmation.style.display = "block";
 
-            setTimeout(function() {
+            setTimeout(function () {
                 window.location.href = "login.html";
             }, 1500);
         });

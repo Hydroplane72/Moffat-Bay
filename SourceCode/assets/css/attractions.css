@@ -1,4 +1,13 @@
-/* Moffat Bay Lodge Attractions Page */
+/*
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This stylesheet controls attractions page activity content, cards, and responsive presentation. It defines the visual layout used by attractions.html.
+*/
 
 .attractions-page {
     margin: 0;
@@ -109,7 +118,7 @@
     margin-bottom: 15px;
 }
 
-.attractions-intro > p:last-child {
+.attractions-intro>p:last-child {
     color: #5b6662;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.7;
@@ -183,7 +192,7 @@
     font-size: 2.6rem;
 }
 
-.adventure-content > p:not(.attractions-eyebrow) {
+.adventure-content>p:not(.attractions-eyebrow) {
     color: #e1e8e5;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.8;
@@ -213,7 +222,7 @@
     font-size: 2.5rem;
 }
 
-.attractions-cta > p:not(.attractions-eyebrow) {
+.attractions-cta>p:not(.attractions-eyebrow) {
     color: #5b6662;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 25px;

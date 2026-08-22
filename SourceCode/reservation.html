@@ -1,3 +1,13 @@
+<!--
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This page provides a reservation form for selecting a room, guest count, and check-in and check-out dates. Its inline scripts calculate room pricing and validate reservation inputs.
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -172,10 +182,7 @@
                     Plan Your Stay
                 </h2>
 
-                <form
-                    id="reservationForm"
-                    action="reservation-summary.html"
-                    method="get">
+                <form id="reservationForm" action="reservation-summary.html" method="get">
 
 
                     <div class="form-group">
@@ -184,10 +191,7 @@
                             Room Type
                         </label>
 
-                        <select
-                            id="roomType"
-                            name="roomType"
-                            required>
+                        <select id="roomType" name="roomType" required>
 
                             <option value="Double Full Beds">
                                 Double Full Beds - $120 / night
@@ -225,14 +229,7 @@
                             Number of Guests
                         </label>
 
-                        <input
-                            id="guests"
-                            name="guests"
-                            type="number"
-                            value="2"
-                            min="1"
-                            max="6"
-                            required>
+                        <input id="guests" name="guests" type="number" value="2" min="1" max="6" required>
 
                     </div>
 
@@ -245,11 +242,7 @@
                                 Check-In
                             </label>
 
-                            <input
-                                id="checkIn"
-                                name="checkIn"
-                                type="date"
-                                required>
+                            <input id="checkIn" name="checkIn" type="date" required>
 
                         </div>
 
@@ -260,29 +253,21 @@
                                 Check-Out
                             </label>
 
-                            <input
-                                id="checkOut"
-                                name="checkOut"
-                                type="date"
-                                required>
+                            <input id="checkOut" name="checkOut" type="date" required>
 
                         </div>
 
                     </div>
 
 
-                    <p
-                        id="dateError"
-                        class="date-error">
+                    <p id="dateError" class="date-error">
 
                         Check-out must be after your check-in date.
 
                     </p>
 
 
-                    <button
-                        type="submit"
-                        class="reservation-submit-button">
+                    <button type="submit" class="reservation-submit-button">
 
                         Review Reservation
 
@@ -382,9 +367,7 @@
                 </div>
 
 
-                <a
-                    href="rooms.html"
-                    class="reservation-outline-button">
+                <a href="rooms.html" class="reservation-outline-button">
 
                     View Full Rooms & Rates
 
@@ -445,7 +428,7 @@
         };
 
 
-        roomType.addEventListener("change", function() {
+        roomType.addEventListener("change", function () {
 
             const selectedRate =
                 roomRates[roomType.value];
@@ -463,7 +446,7 @@
         checkOut.min = today;
 
 
-        checkIn.addEventListener("change", function() {
+        checkIn.addEventListener("change", function () {
 
             checkOut.min = checkIn.value;
 
@@ -481,7 +464,7 @@
 
         reservationForm.addEventListener(
             "submit",
-            function(event) {
+            function (event) {
 
                 dateError.style.display = "none";
 

@@ -1,3 +1,13 @@
+<!--
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This page helps guests find an existing reservation. It collects lookup details and uses inline behavior to display or acknowledge reservation results.
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -137,12 +147,8 @@
                             Reservation ID or Email
                         </label>
 
-                        <input
-                            id="lookup-query"
-                            name="lookup-query"
-                            type="text"
-                            placeholder="Reservation ID or email address"
-                            required>
+                        <input id="lookup-query" name="lookup-query" type="text"
+                            placeholder="Reservation ID or email address" required>
 
                     </div>
 
@@ -244,7 +250,7 @@
         const lookupForm = document.getElementById("lookupForm");
         const lookupResult = document.getElementById("lookupResult");
 
-        lookupForm.addEventListener("submit", function(event) {
+        lookupForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
             lookupResult.style.display = "block";

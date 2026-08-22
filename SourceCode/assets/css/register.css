@@ -1,4 +1,13 @@
-/* Moffat Bay Lodge Registration Page */
+/*
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This stylesheet controls registration form fields, validation presentation, and supporting content. It defines the visual layout used by register.html.
+*/
 
 .register-page {
     margin: 0;
@@ -111,7 +120,7 @@
     font-size: 2.3rem;
 }
 
-.register-info > p:not(.register-eyebrow) {
+.register-info>p:not(.register-eyebrow) {
     color: #5b6662;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.7;
@@ -255,7 +264,7 @@
     font-size: 2.6rem;
 }
 
-.register-planning-content > p:not(.register-eyebrow) {
+.register-planning-content>p:not(.register-eyebrow) {
     color: #e1e8e5;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.8;

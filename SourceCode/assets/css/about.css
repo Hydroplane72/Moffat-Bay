@@ -1,4 +1,13 @@
-/* Moffat Bay Lodge About Page */
+/*
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This stylesheet controls the about page lodge information, facility content, and responsive sections. It defines the visual layout used by about.html.
+*/
 
 .about-page {
     margin: 0;
@@ -113,7 +122,7 @@
     margin-bottom: 20px;
 }
 
-.about-intro-text > p:not(.about-eyebrow) {
+.about-intro-text>p:not(.about-eyebrow) {
     font-family: Arial, Helvetica, sans-serif;
     color: #5b6662;
     line-height: 1.8;
@@ -221,7 +230,7 @@
     font-size: 2.6rem;
 }
 
-.experience-text > p:not(.about-eyebrow) {
+.experience-text>p:not(.about-eyebrow) {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.8;
     color: #e1e8e5;
@@ -251,7 +260,7 @@
     font-size: 2.5rem;
 }
 
-.about-cta > p:not(.about-eyebrow) {
+.about-cta>p:not(.about-eyebrow) {
     font-family: Arial, Helvetica, sans-serif;
     color: #5b6662;
     margin-bottom: 25px;

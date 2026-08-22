@@ -1,4 +1,13 @@
-/* Moffat Bay Lodge Contact Page */
+/*
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This stylesheet controls contact information, inquiry form controls, and response states. It defines the visual layout used by contact.html.
+*/
 
 .contact-page {
     margin: 0;
@@ -235,7 +244,7 @@
     font-size: 2.6rem;
 }
 
-.contact-planning-content > p:not(.contact-eyebrow) {
+.contact-planning-content>p:not(.contact-eyebrow) {
     color: #e1e8e5;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.8;

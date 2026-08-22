@@ -1,4 +1,13 @@
-/* Moffat Bay Lodge Login Page */
+/*
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This stylesheet controls login authentication content, form controls, and supporting navigation. It defines the visual layout used by login.html.
+*/
 
 .login-page {
     margin: 0;
@@ -111,7 +120,7 @@
     font-size: 2.3rem;
 }
 
-.login-info > p:not(.login-eyebrow) {
+.login-info>p:not(.login-eyebrow) {
     color: #5b6662;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.7;
@@ -226,7 +235,7 @@
     font-size: 2.6rem;
 }
 
-.login-planning-content > p:not(.login-eyebrow) {
+.login-planning-content>p:not(.login-eyebrow) {
     color: #e1e8e5;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.8;

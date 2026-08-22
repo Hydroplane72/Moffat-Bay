@@ -1,3 +1,13 @@
+<!--
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This page presents selected booking details, dates, guests, room information, and totals. Its inline confirmation behavior completes the reservation flow.
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -162,10 +172,7 @@
                     confirming your stay.
                 </p>
 
-                <button
-                    type="button"
-                    id="confirmReservationButton"
-                    class="confirm-button">
+                <button type="button" id="confirmReservationButton" class="confirm-button">
 
                     Confirm Reservation
 
@@ -180,9 +187,7 @@
                 </a>
 
 
-                <div
-                    id="confirmationMessage"
-                    class="confirmation-message">
+                <div id="confirmationMessage" class="confirmation-message">
 
                     <p class="confirmation-title">
                         Reservation Confirmed!
@@ -299,7 +304,7 @@
             document.getElementById("confirmationMessage");
 
 
-        confirmButton.addEventListener("click", function() {
+        confirmButton.addEventListener("click", function () {
 
             confirmationMessage.style.display = "block";
 

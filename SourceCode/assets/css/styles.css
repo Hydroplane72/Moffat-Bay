@@ -1,3 +1,13 @@
+/*
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This stylesheet provides shared baseline styles for page structure, typography, navigation, and common elements. It establishes reusable defaults that support all Moffat Bay Lodge pages.
+*/
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;

@@ -1,4 +1,13 @@
-/* Moffat Bay Lodge Reservation Page */
+/*
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This stylesheet controls reservation form steps, date fields, validation messages, and booking content. It defines the visual layout used by reservation.html.
+*/
 
 .reservation-page {
     margin: 0;
@@ -111,7 +120,7 @@
     font-size: 2.3rem;
 }
 
-.reservation-info > p:not(.reservation-eyebrow) {
+.reservation-info>p:not(.reservation-eyebrow) {
     color: #5b6662;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.7;
