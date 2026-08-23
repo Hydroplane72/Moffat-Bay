@@ -1,0 +1,2 @@
+# Purpose of folder
+This folder should be used to store all deliverables for the Moffat Bay Lodge Reservation System project.  This is to make it easier to find and reference all deliverables in one place.

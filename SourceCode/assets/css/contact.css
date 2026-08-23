@@ -1,0 +1,335 @@
+/*
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This stylesheet controls contact information, inquiry form controls, and response states. It defines the visual layout used by contact.html.
+*/
+
+.contact-page {
+    margin: 0;
+    background-color: #f7f3ea;
+    color: #24332f;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Header */
+
+.contact-header {
+    max-width: none;
+    background-color: #163b3a;
+    color: white;
+    padding: 0;
+}
+
+.contact-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.contact-logo {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.contact-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: none;
+    padding: 0;
+}
+
+.contact-nav a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-nav a:hover {
+    text-decoration: underline;
+}
+
+.contact-book-button {
+    background-color: #d4a55d;
+    color: #163b3a !important;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Hero */
+
+.contact-hero {
+    max-width: none;
+    margin: 0;
+    padding: 100px 30px;
+    background: linear-gradient(135deg, #214c49, #102f2e);
+    color: white;
+}
+
+.contact-hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-eyebrow {
+    color: #d4a55d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.contact-hero h1 {
+    font-size: 3.7rem;
+    margin: 12px 0 20px;
+}
+
+.contact-hero p:last-child {
+    max-width: 700px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+/* Main Contact Area */
+
+.contact-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.contact-info h2,
+.contact-form-container h2 {
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+}
+
+.contact-description {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Contact Cards */
+
+.contact-card {
+    background-color: white;
+    border: 1px solid #ddd5c7;
+    padding: 22px;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 15px;
+    align-items: center;
+}
+
+.contact-number {
+    color: #d4a55d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.contact-card h3 {
+    margin: 0 0 5px;
+}
+
+.contact-card p {
+    margin: 0;
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-card a {
+    color: #163b3a;
+    text-decoration: none;
+}
+
+/* Contact Form */
+
+.contact-form-container {
+    background-color: white;
+    padding: 40px;
+    border: 1px solid #ddd5c7;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.contact-form-container form {
+    max-width: none;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    color: #24332f;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #faf8f3;
+    border: 1px solid #cfc8bb;
+    padding: 12px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-submit-button {
+    background-color: #d4a55d;
+    color: #163b3a;
+    border: none;
+    padding: 13px 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.contact-submit-button:hover {
+    background-color: #c69750;
+}
+
+.contact-confirmation {
+    display: none;
+    margin-top: 20px;
+    padding: 14px;
+    background-color: #e7efe9;
+    color: #24453d;
+    border-left: 4px solid #163b3a;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Planning Section */
+
+.contact-planning {
+    max-width: none;
+    margin: 0;
+    padding: 90px 30px;
+    background-color: #163b3a;
+    color: white;
+}
+
+.contact-planning-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-planning-content h2 {
+    font-size: 2.6rem;
+}
+
+.contact-planning-content>p:not(.contact-eyebrow) {
+    color: #e1e8e5;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.contact-primary-button,
+.contact-outline-button {
+    display: inline-block;
+    padding: 13px 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.contact-primary-button {
+    background-color: #d4a55d;
+    color: #163b3a;
+    border-radius: 4px;
+}
+
+.contact-outline-button {
+    color: white;
+    border: 2px solid white;
+}
+
+/* Footer */
+
+.contact-footer {
+    max-width: none;
+    margin: 0;
+    padding: 35px 30px;
+    background-color: #102b2a;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.contact-footer p {
+    color: #d9dfdc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Responsive Design */
+
+@media (max-width: 850px) {
+    .contact-nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-footer {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+    .contact-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .contact-form-container {
+        padding: 25px;
+    }
+}

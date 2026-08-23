@@ -1,0 +1,346 @@
+/*
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This stylesheet controls confirmation content, booking details, totals, and receipt presentation. It defines the visual layout used by reservation-summary.html.
+*/
+
+.summary-page {
+    margin: 0;
+    background-color: #f7f3ea;
+    color: #24332f;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Header */
+
+.summary-header {
+    max-width: none;
+    background-color: #163b3a;
+    color: white;
+    padding: 0;
+}
+
+.summary-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.summary-logo {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.summary-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: none;
+    padding: 0;
+}
+
+.summary-nav a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.summary-nav a:hover {
+    text-decoration: underline;
+}
+
+.summary-book-button {
+    background-color: #d4a55d;
+    color: #163b3a !important;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Hero */
+
+.summary-hero {
+    max-width: none;
+    margin: 0;
+    padding: 90px 30px;
+    background: linear-gradient(135deg, #214c49, #102f2e);
+    color: white;
+}
+
+.summary-hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.summary-eyebrow {
+    color: #d4a55d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.summary-hero h1 {
+    font-size: 3.7rem;
+    margin: 12px 0 20px;
+}
+
+.summary-hero p:last-child {
+    max-width: 700px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+/* Main Summary */
+
+.summary-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 30px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+}
+
+.summary-details h2,
+.summary-actions h2 {
+    font-size: 2.3rem;
+}
+
+/* Reservation Card */
+
+.summary-card {
+    background-color: white;
+    border: 1px solid #ddd5c7;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.summary-row {
+    padding: 22px 25px;
+    border-bottom: 1px solid #e6dfd3;
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+}
+
+.summary-label {
+    color: #78817e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.summary-row p {
+    margin: 7px 0 0;
+    color: #24332f;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.05rem;
+}
+
+.price-row {
+    background-color: #f2eee5;
+}
+
+.summary-price {
+    color: #163b3a !important;
+    font-size: 1.4rem !important;
+    font-weight: bold;
+}
+
+/* Confirmation Area */
+
+.summary-actions {
+    background-color: white;
+    border: 1px solid #ddd5c7;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.summary-actions>p:not(.summary-eyebrow) {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+.confirm-button {
+    display: block;
+    width: 100%;
+    background-color: #d4a55d;
+    color: #163b3a;
+    border: none;
+    padding: 14px 22px;
+    margin-top: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.confirm-button:hover {
+    background-color: #c69750;
+}
+
+.confirm-button:disabled {
+    background-color: #b8b2a6;
+    cursor: default;
+}
+
+.edit-button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #163b3a;
+    color: #163b3a;
+    padding: 12px 22px;
+    margin-top: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.room-link {
+    display: block;
+    margin-top: 18px;
+    color: #163b3a;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Confirmation Message */
+
+.confirmation-message {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #e7efe9;
+    border-left: 4px solid #163b3a;
+}
+
+.confirmation-message p {
+    color: #42534d;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.confirmation-title {
+    color: #163b3a !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.confirmation-message a {
+    color: #163b3a;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Next Section */
+
+.summary-next {
+    max-width: none;
+    margin: 0;
+    padding: 90px 30px;
+    background-color: #163b3a;
+    color: white;
+}
+
+.summary-next-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.summary-next-content h2 {
+    font-size: 2.6rem;
+}
+
+.summary-next-content>p:not(.summary-eyebrow) {
+    color: #e1e8e5;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+}
+
+.summary-outline-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 24px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* Footer */
+
+.summary-footer {
+    max-width: none;
+    margin: 0;
+    padding: 35px 30px;
+    background-color: #102b2a;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.summary-footer p {
+    color: #d9dfdc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Responsive Layout */
+
+@media (max-width: 850px) {
+    .summary-nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .summary-nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .summary-content {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-footer {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+    .summary-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .summary-hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .summary-actions {
+        padding: 25px;
+    }
+}
