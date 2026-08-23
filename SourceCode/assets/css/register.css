@@ -1,0 +1,359 @@
+/*
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This stylesheet controls registration form fields, validation presentation, and supporting content. It defines the visual layout used by register.html.
+*/
+
+.register-page {
+    margin: 0;
+    background-color: #f7f3ea;
+    color: #24332f;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Header */
+
+.register-header {
+    max-width: none;
+    background-color: #163b3a;
+    color: white;
+    padding: 0;
+}
+
+.register-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.register-logo {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.register-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: none;
+    padding: 0;
+}
+
+.register-nav a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.register-nav a:hover {
+    text-decoration: underline;
+}
+
+.register-book-button {
+    background-color: #d4a55d;
+    color: #163b3a !important;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Hero */
+
+.register-hero {
+    max-width: none;
+    margin: 0;
+    padding: 90px 30px;
+    background: linear-gradient(135deg, #214c49, #102f2e);
+    color: white;
+}
+
+.register-hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.register-eyebrow {
+    color: #d4a55d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.register-hero h1 {
+    font-size: 3.7rem;
+    margin: 12px 0 20px;
+}
+
+.register-hero p:last-child {
+    max-width: 700px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+/* Main Registration Area */
+
+.register-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.register-info h2,
+.register-form-container h2 {
+    font-size: 2.3rem;
+}
+
+.register-info>p:not(.register-eyebrow) {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Account Benefits */
+
+.register-benefit {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.register-benefit span {
+    color: #d4a55d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.register-benefit h3 {
+    margin: 0 0 5px;
+}
+
+.register-benefit p {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* Registration Form */
+
+.register-form-container {
+    background-color: white;
+    padding: 40px;
+    border: 1px solid #ddd5c7;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.register-form-container form {
+    max-width: none;
+}
+
+.name-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #faf8f3;
+    border: 1px solid #cfc8bb;
+    padding: 12px;
+}
+
+.register-submit-button {
+    background-color: #d4a55d;
+    color: #163b3a;
+    border: none;
+    padding: 13px 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.register-submit-button:hover {
+    background-color: #c69750;
+}
+
+/* Messages */
+
+.password-error {
+    display: none;
+    padding: 12px;
+    background-color: #f7e6e3;
+    color: #7b3028;
+    border-left: 4px solid #a8473d;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.registration-confirmation {
+    display: none;
+    margin-top: 20px;
+    padding: 14px;
+    background-color: #e7efe9;
+    color: #24453d;
+    border-left: 4px solid #163b3a;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Login Link */
+
+.register-links {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd5c7;
+}
+
+.register-links p {
+    color: #5b6662;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.register-links a {
+    color: #163b3a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Planning Section */
+
+.register-planning {
+    max-width: none;
+    margin: 0;
+    padding: 90px 30px;
+    background-color: #163b3a;
+    color: white;
+}
+
+.register-planning-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.register-planning-content h2 {
+    font-size: 2.6rem;
+}
+
+.register-planning-content>p:not(.register-eyebrow) {
+    color: #e1e8e5;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+}
+
+.register-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.register-primary-button,
+.register-outline-button {
+    display: inline-block;
+    padding: 13px 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-primary-button {
+    background-color: #d4a55d;
+    color: #163b3a;
+    border-radius: 4px;
+}
+
+.register-outline-button {
+    color: white;
+    border: 2px solid white;
+}
+
+/* Footer */
+
+.register-footer {
+    max-width: none;
+    margin: 0;
+    padding: 35px 30px;
+    background-color: #102b2a;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.register-footer p {
+    color: #d9dfdc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Responsive Design */
+
+@media (max-width: 850px) {
+    .register-nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .register-nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .register-content {
+        grid-template-columns: 1fr;
+    }
+
+    .register-footer {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+    .register-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .register-hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .register-form-container {
+        padding: 25px;
+    }
+
+    .name-fields {
+        grid-template-columns: 1fr;
+    }
+}

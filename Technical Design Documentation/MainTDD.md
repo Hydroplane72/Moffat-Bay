@@ -79,6 +79,8 @@ These are selected high-priority core user stories from each persona, each broke
 # Design
 
 ## 2.1 Prototypes
+The Prototype file is [Prototype](PrototypeExported.pdf) and contains wireframes and mockups for the Moffat Bay Lodge Reservation System.
+
 ## 2.2 ERD
 
 # QA Testing

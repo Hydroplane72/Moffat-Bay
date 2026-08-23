@@ -1,0 +1,262 @@
+<!--
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This page helps guests find an existing reservation. It collects lookup details and uses inline behavior to display or acknowledge reservation results.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Lookup | Moffat Bay Lodge</title>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/reservation-lookup.css">
+</head>
+
+<body class="lookup-page">
+
+    <header class="lookup-header">
+        <div class="lookup-nav-container">
+
+            <a href="index.html" class="lookup-logo">
+                Moffat Bay Lodge
+            </a>
+
+            <nav class="lookup-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="rooms.html">Rooms & Rates</a>
+                <a href="attractions.html">Attractions</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html">Login</a>
+                <a href="reservation.html" class="lookup-book-button">Book Now</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <section class="lookup-hero">
+
+            <div class="lookup-hero-content">
+
+                <p class="lookup-eyebrow">
+                    MANAGE YOUR STAY
+                </p>
+
+                <h1>
+                    Reservation Lookup
+                </h1>
+
+                <p>
+                    Search for an existing Moffat Bay Lodge reservation using
+                    your reservation ID or the email address connected to your stay.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="lookup-content">
+
+            <div class="lookup-info">
+
+                <p class="lookup-eyebrow">
+                    FIND YOUR RESERVATION
+                </p>
+
+                <h2>
+                    Access Your Stay Details
+                </h2>
+
+                <p>
+                    Use the reservation information provided when your stay was
+                    booked to locate your reservation.
+                </p>
+
+                <div class="lookup-step">
+
+                    <span>01</span>
+
+                    <div>
+                        <h3>Enter Your Information</h3>
+
+                        <p>
+                            Search using your reservation ID or the email
+                            associated with your reservation.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="lookup-step">
+
+                    <span>02</span>
+
+                    <div>
+                        <h3>Review Your Stay</h3>
+
+                        <p>
+                            View the room and travel information associated
+                            with your reservation.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="lookup-step">
+
+                    <span>03</span>
+
+                    <div>
+                        <h3>Plan Ahead</h3>
+
+                        <p>
+                            Review room options or start planning another
+                            Moffat Bay getaway.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="lookup-form-container">
+
+                <p class="lookup-eyebrow">
+                    RESERVATION SEARCH
+                </p>
+
+                <h2>
+                    Find Your Reservation
+                </h2>
+
+                <form id="lookupForm">
+
+                    <div class="form-group">
+
+                        <label for="lookup-query">
+                            Reservation ID or Email
+                        </label>
+
+                        <input id="lookup-query" name="lookup-query" type="text"
+                            placeholder="Reservation ID or email address" required>
+
+                    </div>
+
+                    <button type="submit" class="lookup-submit-button">
+                        Search Reservation
+                    </button>
+
+                </form>
+
+                <div id="lookupResult" class="lookup-result">
+
+                    <p class="result-label">
+                        RESERVATION FOUND
+                    </p>
+
+                    <h3>Moffat Bay Lodge Reservation</h3>
+
+                    <p>
+                        Your reservation was located successfully.
+                    </p>
+
+                    <a href="reservation-summary.html" class="view-reservation-button">
+                        View Reservation
+                    </a>
+
+                </div>
+
+                <div class="lookup-links">
+
+                    <p>
+                        Need to make a new reservation?
+                        <a href="reservation.html">
+                            Book Your Stay
+                        </a>
+                    </p>
+
+                    <p>
+                        Want to compare rooms first?
+                        <a href="rooms.html">
+                            View Rooms & Rates
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="lookup-planning">
+
+            <div class="lookup-planning-content">
+
+                <p class="lookup-eyebrow">
+                    ANOTHER ISLAND GETAWAY?
+                </p>
+
+                <h2>
+                    Plan Your Next Visit
+                </h2>
+
+                <p>
+                    Explore Moffat Bay Lodge room options and nightly rates
+                    before beginning another reservation.
+                </p>
+
+                <div class="lookup-buttons">
+
+                    <a href="rooms.html" class="lookup-outline-button">
+                        View Rooms & Rates
+                    </a>
+
+                    <a href="reservation.html" class="lookup-primary-button">
+                        Book Your Stay
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="lookup-footer">
+
+        <div>
+            <h3>Moffat Bay Lodge</h3>
+            <p>14 Harbor Crest Road • Moffat Bay Island</p>
+        </div>
+
+        <div>
+            <p>Island lodging made simple.</p>
+        </div>
+
+    </footer>
+
+    <script>
+        const lookupForm = document.getElementById("lookupForm");
+        const lookupResult = document.getElementById("lookupResult");
+
+        lookupForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            lookupResult.style.display = "block";
+        });
+    </script>
+
+</body>
+
+</html>
