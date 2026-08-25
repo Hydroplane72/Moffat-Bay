@@ -124,7 +124,7 @@ This page allows returning guests to enter the reservation workflow. It also pro
                     Access Your Account
                 </h2>
 
-                <form action="reservation-lookup.html">
+                <form action="reservation-lookup.html" onsubmit="return handleLoginSubmit(event)">
 
                     <div class="form-group">
 
@@ -221,6 +221,18 @@ This page allows returning guests to enter the reservation workflow. It also pro
         </div>
 
     </footer>
+
+    <script src="assets/js/emailValidation.js"></script>
+    <script>
+        function handleLoginSubmit(event) {
+            const emailInput = document.getElementById("email");
+            if (!checkEmailInput(emailInput, true)) {
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        }
+    </script>
 
 </body>
 

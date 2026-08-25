@@ -114,3 +114,13 @@ footer {
 a {
     color: #000;
 }
+
+/* Shared input validation message, injected by assets/js/emailValidation.js */
+.input-validation-message {
+    margin: 4px 0 0;
+    padding: 8px 10px;
+    background-color: #f7e6e3;
+    color: #7b3028;
+    border-left: 4px solid #a8473d;
+    font-size: 0.9rem;
+}

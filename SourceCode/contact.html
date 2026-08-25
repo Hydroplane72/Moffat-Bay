@@ -122,7 +122,7 @@ This page provides lodge contact details and a guest inquiry form. Its inline su
 
                 <h2>How Can We Help?</h2>
 
-                <form id="contactForm">
+                <form id="contactForm" onsubmit="return handleContactSubmit(event)">
 
                     <div class="form-group">
                         <label for="name">
@@ -208,16 +208,23 @@ This page provides lodge contact details and a guest inquiry form. Its inline su
     </footer>
 
 
+    <script src="assets/js/emailValidation.js"></script>
     <script>
         const contactForm = document.getElementById("contactForm");
         const contactConfirmation = document.getElementById("contactConfirmation");
 
-        contactForm.addEventListener("submit", function (event) {
+        function handleContactSubmit(event) {
             event.preventDefault();
+
+            const emailInput = document.getElementById("email");
+            if (!checkEmailInput(emailInput, true)) {
+                return false;
+            }
 
             contactConfirmation.style.display = "block";
             contactForm.reset();
-        });
+            return false;
+        }
     </script>
 
 </body>
