@@ -1,237 +1,115 @@
-<!--
-Team Name: Red Team
-Members:
- - Brayan Covarrubias
- - Matthew Rozendaal
- - Rashai Robertson
- - Tiffany Davidson
-Description:
-This landing page introduces Moffat Bay Lodge through primary navigation and hero content. It directs visitors toward rooms, island experiences, and the main booking call to action.
--->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moffat Bay Lodge</title>
+    <title>Moffat Bay Lodge | One Island. One Lodge.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/landing.css">
 </head>
-
-<body class="landing-page">
-
+<body data-page="home">
     <header class="site-header">
-        <div class="nav-container">
-            <a href="index.html" class="logo">Moffat Bay Lodge</a>
-
-            <nav class="main-nav">
-                <a href="index.html">Home</a>
+        <div class="container inner">
+            <a class="logo-block" href="index.html"><span class="logo-pill">MB</span><span>Moffat Bay Lodge</span></a>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">☰</button>
+            <nav class="main-nav" id="main-nav">
+                <a href="index.html" aria-current="page">Home</a>
                 <a href="about.html">About</a>
-                <a href="rooms.html">Rooms & Rates</a>
+                <a href="rooms.html">Rooms & Pricing</a>
                 <a href="attractions.html">Attractions</a>
                 <a href="contact.html">Contact</a>
-                <a href="login.html">Login</a>
-                <a href="reservation.html" class="nav-book-button">Book Now</a>
+                <a href="reservation.html">Book</a>
             </nav>
+            <div id="auth-chip"></div>
         </div>
     </header>
 
     <main>
-
         <section class="hero">
-            <div class="hero-content">
-                <p class="eyebrow">WELCOME TO MOFFAT BAY</p>
-
-                <h1>Escape to the Island</h1>
-
-                <p class="hero-text">
-                    Comfortable lodging, coastal adventure, and everything you need
-                    for a relaxing island getaway.
-                </p>
-
-                <div class="hero-buttons">
-                    <a href="reservation.html" class="primary-button">
-                        Book Your Stay
-                    </a>
-
-                    <a href="about.html" class="secondary-button">
-                        Explore the Lodge
-                    </a>
+            <div class="container hero-grid">
+                <div class="hero-panel">
+                    <p class="eyebrow">Welcome to Moffat Bay</p>
+                    <h1>One Island. One Lodge. Endless Adventure.</h1>
+                    <p>Comfortable lodging, coastal adventure, and a simple reservation experience come together at one unforgettable island retreat.</p>
+                    <div class="cta-row">
+                        <a class="btn btn-primary" href="reservation.html">Book Your Stay</a>
+                        <a class="btn btn-secondary" href="rooms.html">Rooms & Pricing</a>
+                    </div>
+                    <div class="badge-row">
+                        <span class="badge">4 Room Types</span>
+                        <span class="badge">Family Friendly</span>
+                        <span class="badge">Waterfront Adventures</span>
+                    </div>
+                    <div class="location-banner">Moffat Bay Lodge is one signature destination with multiple room choices, straightforward pricing, and island activities right outside your door.</div>
+                </div>
+                <div class="hero-image hero-slideshow" aria-label="Pacific Northwest scenery near Moffat Bay">
+                    <img class="hero-slide slide-one" src="https://images.unsplash.com/photo-1657080780402-b80ca0563d06?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=72&amp;w=1600" alt="Forest-covered islands and blue water viewed from Mount Constitution on Orcas Island, Washington" fetchpriority="high">
+                    <img class="hero-slide slide-two" src="https://images.unsplash.com/photo-1657080780445-1cc051a456c7?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=72&amp;w=1600" alt="San Juan Islands and Mount Baker viewed from Orcas Island, Washington">
+                    <img class="hero-slide slide-three" src="https://npgallery.nps.gov/GetAsset/F24A5A69-155D-4519-3E4D8113C1A7B030/proxyhires.jpg" alt="Rocky sea stacks just offshore along the Olympic National Park coast in Washington">
+                    <div class="hero-image-copy">
+                        <h3>Wake Up to Salt Air and Quiet Water</h3>
+                        <p>Spend the day hiking, kayaking, whale watching, or scuba diving, then return to a comfortable room at the lodge.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="intro-section">
-
-            <p class="eyebrow">STAY WITH US</p>
-
-            <h2>Find the Room That Fits Your Trip</h2>
-
-            <p class="section-description">
-                Whether you are planning a quiet weekend or an island adventure,
-                Moffat Bay Lodge offers simple and comfortable room options.
-            </p>
-
-            <div class="room-grid">
-
-                <article class="room-card">
-
-                    <div class="room-icon">01</div>
-
-                    <h3>Double Full Beds</h3>
-
-                    <p>
-                        Comfortable accommodations for families and small groups.
-                    </p>
-
-                    <p class="price">
-                        $120 <span>/ night</span>
-                    </p>
-
-                    <a href="rooms.html">
-                        View Room →
-                    </a>
-
-                </article>
-
-                <article class="room-card featured-room">
-
-                    <div class="room-badge">POPULAR</div>
-
-                    <div class="room-icon">02</div>
-
-                    <h3>Queen Room</h3>
-
-                    <p>
-                        A relaxing room option designed for couples or solo travelers.
-                    </p>
-
-                    <p class="price">
-                        $135 <span>/ night</span>
-                    </p>
-
-                    <a href="rooms.html">
-                        View Room →
-                    </a>
-
-                </article>
-
-                <article class="room-card">
-
-                    <div class="room-icon">03</div>
-
-                    <h3>Double Queen Beds</h3>
-
-                    <p>
-                        Extra space and comfort for families or larger travel groups.
-                    </p>
-
-                    <p class="price">
-                        $150 <span>/ night</span>
-                    </p>
-
-                    <a href="rooms.html">
-                        View Room →
-                    </a>
-
-                </article>
-
-            </div>
-
-            <div class="hero-buttons" style="justify-content: center; margin-top: 35px;">
-                <a href="rooms.html" class="primary-button">
-                    View All Rooms & Rates
-                </a>
-            </div>
-
-        </section>
-
-        <section class="experience-section">
-
-            <div class="experience-content">
-
-                <p class="eyebrow">EXPLORE THE ISLAND</p>
-
-                <h2>Adventure Is Right Outside Your Door</h2>
-
-                <p>
-                    Spend your days discovering the natural beauty around Moffat Bay.
-                    Guests can enjoy outdoor activities for every type of traveler.
-                </p>
-
-                <div class="activity-grid">
-
-                    <div class="activity">
-                        Hiking
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Stay Your Way</p>
+                        <h2>Find the Room That Fits Your Trip</h2>
+                        <p>Choose from four room types with clear nightly pricing before starting your reservation.</p>
                     </div>
-
-                    <div class="activity">
-                        Kayaking
-                    </div>
-
-                    <div class="activity">
-                        Whale Watching
-                    </div>
-
-                    <div class="activity">
-                        Scuba Diving
-                    </div>
-
+                    <a class="btn btn-ghost" href="rooms.html">Compare All Rooms</a>
                 </div>
-
-                <a href="attractions.html" class="secondary-button light-button">
-                    View Attractions
-                </a>
-
+                <div class="card-grid four-up">
+                    <article class="card"><p class="card-number">01</p><h3>Double Full Beds</h3><p>Comfortable space for families and small groups.</p><p class="price">$120 / night</p><a class="card-link" href="reservation.html?room=Double%20Full%20Beds">Select Room →</a></article>
+                    <article class="card"><p class="card-number">02</p><h3>Queen</h3><p>A relaxing choice for couples or solo travelers.</p><p class="price">$135 / night</p><a class="card-link" href="reservation.html?room=Queen">Select Room →</a></article>
+                    <article class="card"><p class="card-number">03</p><h3>Double Queen Beds</h3><p>Extra room for families and larger travel groups.</p><p class="price">$150 / night</p><a class="card-link" href="reservation.html?room=Double%20Queen%20Beds">Select Room →</a></article>
+                    <article class="card"><p class="card-number">04</p><h3>King</h3><p>A spacious option for guests who want added comfort.</p><p class="price">$160 / night</p><a class="card-link" href="reservation.html?room=King">Select Room →</a></article>
+                </div>
             </div>
-
         </section>
 
-        <section class="cta-section">
-
-            <p class="eyebrow">
-                YOUR ISLAND GETAWAY AWAITS
-            </p>
-
-            <h2>
-                Ready to Plan Your Stay?
-            </h2>
-
-            <p>
-                Compare our room options, choose your travel dates, and start
-                planning your trip to Moffat Bay Lodge.
-            </p>
-
-            <div class="hero-buttons" style="justify-content: center;">
-
-                <a href="rooms.html" class="secondary-button">
-                    View Rooms & Rates
-                </a>
-
-                <a href="reservation.html" class="primary-button">
-                    Book Your Stay
-                </a>
-
+        <section class="section section-alt">
+            <div class="container split">
+                <div>
+                    <p class="eyebrow" style="color: var(--sun-400);">Explore the Island</p>
+                    <h2>Adventure Is Right Outside Your Door</h2>
+                    <p>From quiet coastal trails to open-water excursions, Moffat Bay gives guests plenty to explore during every stay.</p>
+                    <div class="badge-row">
+                        <span class="badge">Hiking</span><span class="badge">Kayaking</span><span class="badge">Whale Watching</span><span class="badge">Scuba Diving</span>
+                    </div>
+                </div>
+                <div>
+                    <h3>Simple Planning From Start to Finish</h3>
+                    <p>Compare rooms, choose travel dates, create an account, confirm your stay, and look up your reservation from the same website.</p>
+                    <div class="cta-row"><a class="btn btn-primary" href="attractions.html">View Attractions</a><a class="btn btn-ghost" style="color:white;border-color:rgba(255,255,255,.5)" href="about.html">Explore the Lodge</a></div>
+                </div>
             </div>
-
         </section>
-
     </main>
 
-    <footer class="landing-footer">
-
-        <div>
-            <h3>Moffat Bay Lodge</h3>
-            <p>14 Harbor Crest Road • Moffat Bay Island</p>
+    <footer class="footer">
+        <div class="container inner">
+            <div>
+                <p><strong>Moffat Bay Lodge</strong> • 14 Harbor Crest Road • Moffat Bay Island</p>
+                <p>One island destination, four room choices, endless adventure.</p>
+            </div>
+            <div class="footer-links">
+                <a href="rooms.html">Rooms & Pricing</a>
+                <a href="reservation.html">Book</a>
+                <a href="reservation-lookup.html">Reservation Lookup</a>
+            </div>
         </div>
-
-        <div>
-            <p>Island lodging made simple.</p>
-        </div>
-
     </footer>
 
+    <script src="assets/js/mock-data.js"></script>
+    <script src="assets/js/api-contract.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
-
 </html>
