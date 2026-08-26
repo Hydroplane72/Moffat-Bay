@@ -1,490 +1,52 @@
-<!--
-Team Name: Red Team
-Members:
- - Brayan Covarrubias
- - Matthew Rozendaal
- - Rashai Robertson
- - Tiffany Davidson
-Description:
-This page provides a reservation form for selecting a room, guest count, and check-in and check-out dates. Its inline scripts calculate room pricing and validate reservation inputs.
--->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Book Your Stay | Moffat Bay Lodge</title>
-
+    <title>Book Your Vacation | Moffat Bay Lodge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/reservation.css">
 </head>
-
-<body class="reservation-page">
-
-    <header class="reservation-header">
-
-        <div class="reservation-nav-container">
-
-            <a href="index.html" class="reservation-logo">
-                Moffat Bay Lodge
-            </a>
-
-            <nav class="reservation-nav">
-
+<body data-page="reservation">
+    <header class="site-header">
+        <div class="container inner">
+            <a class="logo-block" href="index.html"><span class="logo-pill">MB</span><span>Moffat Bay Lodge</span></a>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">☰</button>
+            <nav class="main-nav" id="main-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="rooms.html">Rooms & Rates</a>
+                <a href="rooms.html">Rooms & Pricing</a>
                 <a href="attractions.html">Attractions</a>
                 <a href="contact.html">Contact</a>
-                <a href="login.html">Login</a>
-
-                <a href="reservation.html" class="reservation-book-button">
-                    Book Now
-                </a>
-
+                <a href="reservation.html" aria-current="page">Book</a>
             </nav>
-
+            <div id="auth-chip"></div>
         </div>
-
     </header>
 
-
     <main>
-
-        <section class="reservation-hero">
-
-            <div class="reservation-hero-content">
-
-                <p class="reservation-eyebrow">
-                    PLAN YOUR GETAWAY
-                </p>
-
-                <h1>
-                    Book Your Stay
-                </h1>
-
-                <p>
-                    Choose your room, number of guests, and travel dates
-                    to begin your reservation at Moffat Bay Lodge.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <section class="reservation-content">
-
-            <div class="reservation-info">
-
-                <p class="reservation-eyebrow">
-                    YOUR MOFFAT BAY STAY
-                </p>
-
-                <h2>
-                    Start Your Reservation
-                </h2>
-
-                <p>
-                    Complete the reservation form to review the details
-                    of your stay before confirming your reservation.
-                </p>
-
-
-                <div class="reservation-step">
-
-                    <span>01</span>
-
-                    <div>
-
-                        <h3>
-                            Choose Your Room
-                        </h3>
-
-                        <p>
-                            Select one of our available room types based
-                            on your needs and budget.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="reservation-step">
-
-                    <span>02</span>
-
-                    <div>
-
-                        <h3>
-                            Select Your Dates
-                        </h3>
-
-                        <p>
-                            Enter your planned check-in and check-out dates.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="reservation-step">
-
-                    <span>03</span>
-
-                    <div>
-
-                        <h3>
-                            Review Your Stay
-                        </h3>
-
-                        <p>
-                            Review your reservation details before
-                            confirming your trip.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="room-help">
-
-                    <h3>
-                        Not sure which room to choose?
-                    </h3>
-
-                    <p>
-                        Compare room types and nightly rates before
-                        continuing your reservation.
-                    </p>
-
-                    <a href="rooms.html">
-                        View Rooms & Rates →
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="reservation-form-container">
-
-                <p class="reservation-eyebrow">
-                    RESERVATION DETAILS
-                </p>
-
-                <h2>
-                    Plan Your Stay
-                </h2>
-
-                <form id="reservationForm" action="reservation-summary.html" method="get">
-
-
-                    <div class="form-group">
-
-                        <label for="roomType">
-                            Room Type
-                        </label>
-
-                        <select id="roomType" name="roomType" required>
-
-                            <option value="Double Full Beds">
-                                Double Full Beds - $120 / night
-                            </option>
-
-                            <option value="Queen">
-                                Queen - $135 / night
-                            </option>
-
-                            <option value="Double Queen Beds">
-                                Double Queen Beds - $150 / night
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="rate-preview">
-
-                        <span>
-                            SELECTED NIGHTLY RATE
-                        </span>
-
-                        <strong id="ratePreview">
-                            $120 / night
-                        </strong>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="guests">
-                            Number of Guests
-                        </label>
-
-                        <input id="guests" name="guests" type="number" value="2" min="1" max="6" required>
-
-                    </div>
-
-
-                    <div class="date-fields">
-
-                        <div class="form-group">
-
-                            <label for="checkIn">
-                                Check-In
-                            </label>
-
-                            <input id="checkIn" name="checkIn" type="date" required>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="checkOut">
-                                Check-Out
-                            </label>
-
-                            <input id="checkOut" name="checkOut" type="date" required>
-
-                        </div>
-
-                    </div>
-
-
-                    <p id="dateError" class="date-error">
-
-                        Check-out must be after your check-in date.
-
-                    </p>
-
-
-                    <button type="submit" class="reservation-submit-button">
-
-                        Review Reservation
-
-                    </button>
-
-                </form>
-
-
-                <div class="reservation-account-links">
-
-                    <p>
-                        Already have an account?
-                        <a href="login.html">
-                            Login
-                        </a>
-                    </p>
-
-                    <p>
-                        Need an account?
-                        <a href="register.html">
-                            Create Account
-                        </a>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="reservation-rates">
-
-            <div class="reservation-rates-content">
-
-                <p class="reservation-eyebrow">
-                    SIMPLE NIGHTLY RATES
-                </p>
-
-                <h2>
-                    Know Your Options Before You Book
-                </h2>
-
-
-                <div class="quick-rate-grid">
-
-                    <div class="quick-rate">
-
-                        <span>
-                            DOUBLE FULL BEDS
-                        </span>
-
-                        <strong>
-                            $120
-                        </strong>
-
-                        <p>
-                            per night
-                        </p>
-
-                    </div>
-
-
-                    <div class="quick-rate">
-
-                        <span>
-                            QUEEN
-                        </span>
-
-                        <strong>
-                            $135
-                        </strong>
-
-                        <p>
-                            per night
-                        </p>
-
-                    </div>
-
-
-                    <div class="quick-rate">
-
-                        <span>
-                            DOUBLE QUEEN BEDS
-                        </span>
-
-                        <strong>
-                            $150
-                        </strong>
-
-                        <p>
-                            per night
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <a href="rooms.html" class="reservation-outline-button">
-
-                    View Full Rooms & Rates
-
-                </a>
-
-            </div>
-
-        </section>
-
+        <section class="page-hero photo-hero"><div class="container"><div class="page-hero-grid"><div class="page-hero-copy"><p class="eyebrow">Plan Your Getaway</p><h1>Book Your Vacation</h1><p>Choose your room, guest count, and travel dates. You can review your reservation before confirming it.</p></div><figure class="page-hero-media"><img alt="San Juan Islands and Mount Baker viewed from Orcas Island, Washington" loading="eager" src="https://images.unsplash.com/photo-1657080780445-1cc051a456c7?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=72&amp;w=1600"/></figure></div></div></section>
+        <section class="section section-tight"><div class="container split"><form id="reservation-form"><h3>Reservation Details</h3><div class="form-grid"><div class="field"><label for="roomType">Room Size</label><select id="roomType" required><option value="Double Full Beds">Double Full Beds ($120)</option><option value="Queen">Queen ($135)</option><option value="Double Queen Beds">Double Queen Beds ($150)</option><option value="King">King ($160)</option></select></div><div class="field"><label for="guests">Number of Guests</label><input id="guests" type="number" min="1" max="8" value="2" required></div><div class="field"><label for="checkIn">Check-In Date</label><input id="checkIn" type="date" required></div><div class="field"><label for="checkOut">Check-Out Date</label><input id="checkOut" type="date" required></div></div><p id="room-rate-hint" class="hint"></p><button class="btn btn-primary" type="submit">Review Reservation</button><div id="reservation-message" class="message" role="status" aria-live="polite"></div></form><div class="info-panel accent"><h3>Before You Confirm</h3><p>All rooms are at the same Moffat Bay Lodge location. You are choosing between room types, not separate properties.</p><p>Confirmation requires a free account and login.</p><div class="cta-row"><a class="btn btn-ghost" href="rooms.html">Compare Rooms</a><a class="btn btn-ghost" href="login.html">Login</a><a class="btn btn-secondary" href="register.html">Register</a></div><p style="margin-top:18px"><a class="card-link" href="reservation-lookup.html">Already booked? Look up a reservation →</a></p></div></div></section>
     </main>
 
-
-    <footer class="reservation-footer">
-
-        <div>
-
-            <h3>
-                Moffat Bay Lodge
-            </h3>
-
-            <p>
-                14 Harbor Crest Road • Moffat Bay Island
-            </p>
-
+    <footer class="footer">
+        <div class="container inner">
+            <div>
+                <p><strong>Moffat Bay Lodge</strong> • 14 Harbor Crest Road • Moffat Bay Island</p>
+                <p>One island destination, four room choices, endless adventure.</p>
+            </div>
+            <div class="footer-links">
+                <a href="rooms.html">Rooms & Pricing</a>
+                <a href="reservation.html">Book</a>
+                <a href="reservation-lookup.html">Reservation Lookup</a>
+            </div>
         </div>
-
-
-        <div>
-
-            <p>
-                Island lodging made simple.
-            </p>
-
-        </div>
-
     </footer>
 
-
-    <script>
-
-        const roomType = document.getElementById("roomType");
-        const ratePreview = document.getElementById("ratePreview");
-
-        const checkIn = document.getElementById("checkIn");
-        const checkOut = document.getElementById("checkOut");
-
-        const reservationForm =
-            document.getElementById("reservationForm");
-
-        const dateError =
-            document.getElementById("dateError");
-
-
-        const roomRates = {
-            "Double Full Beds": 120,
-            "Queen": 135,
-            "Double Queen Beds": 150
-        };
-
-
-        roomType.addEventListener("change", function () {
-
-            const selectedRate =
-                roomRates[roomType.value];
-
-            ratePreview.textContent =
-                "$" + selectedRate + " / night";
-
-        });
-
-
-        const today =
-            new Date().toISOString().split("T")[0];
-
-        checkIn.min = today;
-        checkOut.min = today;
-
-
-        checkIn.addEventListener("change", function () {
-
-            checkOut.min = checkIn.value;
-
-            if (
-                checkOut.value &&
-                checkOut.value <= checkIn.value
-            ) {
-
-                checkOut.value = "";
-
-            }
-
-        });
-
-
-        reservationForm.addEventListener(
-            "submit",
-            function (event) {
-
-                dateError.style.display = "none";
-
-                if (
-                    checkIn.value &&
-                    checkOut.value &&
-                    checkOut.value <= checkIn.value
-                ) {
-
-                    event.preventDefault();
-
-                    dateError.style.display = "block";
-
-                }
-
-            }
-        );
-
-    </script>
-
+    <script src="assets/js/mock-data.js"></script>
+    <script src="assets/js/api-contract.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
-
 </html>
