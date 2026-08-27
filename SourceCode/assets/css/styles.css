@@ -265,90 +265,6 @@ input:focus, select:focus, textarea:focus { outline: 2px solid rgba(47, 134, 148
 .footer-links a { color: var(--sea-700); font-weight: 700; }
 .hidden { display: none !important; }
 
-
-/* Pacific Northwest imagery */
-.hero-image.hero-slideshow {
-    position: relative;
-    overflow: hidden;
-    background: var(--ink-900);
-    isolation: isolate;
-}
-.hero-slideshow::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(30deg, rgba(17, 40, 65, 0.76), rgba(17, 40, 65, 0.12) 70%);
-    pointer-events: none;
-}
-.hero-slide {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    animation: hero-crossfade 18s infinite;
-}
-.hero-slide.slide-one { animation-delay: 0s; }
-.hero-slide.slide-two { animation-delay: 6s; }
-.hero-slide.slide-three { animation-delay: 12s; }
-.hero-image-copy {
-    position: relative;
-    z-index: 2;
-    align-self: end;
-}
-.hero-image-copy h3,
-.hero-image-copy p { color: var(--white); }
-
-.page-hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
-    gap: 30px;
-    align-items: center;
-}
-.page-hero-copy::after {
-    content: "";
-    display: block;
-    width: 76px;
-    height: 4px;
-    margin-top: 22px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, var(--sea-500), var(--sun-400));
-}
-.page-hero-grid .page-hero-copy p { max-width: 70ch; }
-.page-hero-media {
-    margin: 0;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-hard);
-    aspect-ratio: 16 / 10;
-    background: var(--sand-200);
-}
-.page-hero-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.page-hero.photo-hero::after { display: none; }
-
-.activity-card { overflow: hidden; }
-.activity-photo {
-    width: calc(100% + 44px);
-    max-width: none;
-    height: 170px;
-    object-fit: cover;
-    margin: -22px -22px 18px;
-}
-
-@keyframes hero-crossfade {
-    0% { opacity: 0; transform: scale(1.02); }
-    5% { opacity: 1; }
-    30% { opacity: 1; }
-    36% { opacity: 0; transform: scale(1.06); }
-    100% { opacity: 0; transform: scale(1.06); }
-}
-
 @keyframes rise-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 1040px) {
@@ -373,7 +289,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid rgba(47, 134, 148
 }
 
 @media (max-width: 900px) {
-    .hero-grid, .split, .page-hero-grid { grid-template-columns: 1fr; }
+    .hero-grid, .split { grid-template-columns: 1fr; }
     .card-grid, .card-grid.four-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .hero-image { min-height: 320px; }
     .room-detail-card { grid-template-columns: 52px 1fr; }
@@ -392,8 +308,575 @@ input:focus, select:focus, textarea:focus { outline: 2px solid rgba(47, 134, 148
     .popular-label { position: static; width: fit-content; margin-bottom: 4px; }
 }
 
+/* Module 3: Pacific Northwest imagery */
+.page-hero-media {
+    margin-top: 28px;
+    height: clamp(240px, 30vw, 360px);
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--ink-900);
+    box-shadow: var(--shadow-hard);
+}
+
+.page-hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-image.hero-slideshow {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    background: var(--ink-900);
+    isolation: isolate;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: pnw-hero-fade 18s infinite;
+}
+
+.hero-slide:nth-of-type(1) { animation-delay: 0s; }
+.hero-slide:nth-of-type(2) { animation-delay: 6s; }
+.hero-slide:nth-of-type(3) { animation-delay: 12s; }
+
+.hero-image-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    align-content: end;
+    padding: 28px;
+    background: linear-gradient(30deg, rgba(15, 31, 48, 0.82), rgba(15, 31, 48, 0.1) 72%);
+}
+
+.hero-image-overlay h3,
+.hero-image-overlay p {
+    color: var(--white);
+}
+
+.activity-image {
+    width: calc(100% + 44px);
+    height: 180px;
+    margin: -22px -22px 18px;
+    object-fit: cover;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.image-credit {
+    margin-top: 12px !important;
+    font-size: 0.68rem;
+    line-height: 1.45;
+    color: var(--ink-500);
+}
+
+.image-credit a {
+    color: var(--sea-700);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+@keyframes pnw-hero-fade {
+    0%, 30% { opacity: 1; }
+    34%, 96% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@media (max-width: 650px) {
+    .page-hero-media { height: 240px; }
+    .hero-image-overlay { padding: 18px; }
+    .activity-image {
+        width: calc(100% + 36px);
+        margin: -18px -18px 16px;
+    }
+}
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-slide { animation: none; opacity: 0; transform: none; }
-    .hero-slide.slide-one { opacity: 1; }
+    .hero-slide { animation: none; opacity: 0; }
+    .hero-slide:first-of-type { opacity: 1; }
+}
+/* =========================================================
+   HOME PAGE HERO BANNER
+   ========================================================= */
+
+.home-hero {
+    padding: 24px 0 70px;
+    background:
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(45, 143, 154, 0.08),
+            transparent 32%
+        ),
+        var(--sand-50, #f8f2e7);
+}
+
+
+/* ---------------------------------------------------------
+   Hero Heading
+   --------------------------------------------------------- */
+
+.home-hero-heading {
+    max-width: 900px;
+    margin-bottom: 32px;
+}
+
+.home-hero-heading .eyebrow {
+    margin-bottom: 8px;
+}
+
+.home-hero-heading h1 {
+    margin: 0;
+    max-width: 900px;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(3.2rem, 7vw, 5.4rem);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+
+    color: #11243a;
+}
+
+.home-hero-intro {
+    max-width: 760px;
+    margin: 22px 0 0;
+
+    font-size: 1.1rem;
+    line-height: 1.7;
+
+    color: #334a5f;
+}
+
+
+/* ---------------------------------------------------------
+   Large Hero Banner
+   --------------------------------------------------------- */
+
+.home-hero-banner {
+    position: relative;
+
+    width: 100%;
+    height: clamp(430px, 58vw, 650px);
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background-color: #11243a;
+
+    box-shadow:
+        0 20px 45px rgba(17, 36, 58, 0.18);
+}
+
+
+/* Slideshow images */
+
+.home-hero-banner .hero-slide {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    opacity: 0;
+
+    transition: opacity 1.2s ease-in-out;
+}
+
+
+/* Show the first slide automatically if JS has not loaded yet */
+
+.home-hero-banner .hero-slide:first-child {
+    opacity: 1;
+}
+
+
+/* Used by slideshow JavaScript */
+
+.home-hero-banner .hero-slide.active {
+    opacity: 1;
+}
+
+
+/* ---------------------------------------------------------
+   Dark Gradient Over Image
+   --------------------------------------------------------- */
+
+.home-hero-banner::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(8, 24, 38, 0.90) 0%,
+            rgba(8, 24, 38, 0.55) 38%,
+            rgba(8, 24, 38, 0.10) 70%,
+            rgba(8, 24, 38, 0.02) 100%
+        );
+}
+
+
+/* ---------------------------------------------------------
+   Hero Overlay Text
+   --------------------------------------------------------- */
+
+.home-hero-overlay {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 3;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding: 45px 48px;
+
+    color: white;
+}
+
+.home-hero-overlay > div:first-child {
+    max-width: 700px;
+}
+
+.home-hero-overlay-label {
+    margin: 0 0 7px;
+
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+    color: #e5b45c;
+}
+
+.home-hero-overlay h2 {
+    margin: 0 0 10px;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1;
+
+    color: white;
+}
+
+.home-hero-overlay p {
+    max-width: 620px;
+
+    margin: 0;
+
+    font-size: 1rem;
+    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* ---------------------------------------------------------
+   Hero Buttons
+   --------------------------------------------------------- */
+
+.home-hero-overlay-actions {
+    display: flex;
+
+    flex-shrink: 0;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.home-hero-light-button {
+    background-color: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    color: white;
+
+    backdrop-filter: blur(5px);
+}
+
+.home-hero-light-button:hover {
+    background-color: white;
+    color: #11243a;
+}
+
+
+/* ---------------------------------------------------------
+   Features Beneath Hero
+   --------------------------------------------------------- */
+
+.home-hero-details {
+    margin-top: 24px;
+}
+
+.home-hero-details .badge-row {
+    margin-bottom: 18px;
+}
+
+.home-hero-details .location-banner {
+    max-width: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE HOME HERO
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .home-hero {
+        padding-top: 20px;
+    }
+
+    .home-hero-heading h1 {
+        font-size: clamp(3rem, 9vw, 4.5rem);
+    }
+
+    .home-hero-banner {
+        height: 540px;
+    }
+
+    .home-hero-overlay {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 36px;
+    }
+
+    .home-hero-overlay-actions {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .home-hero {
+        padding-bottom: 50px;
+    }
+
+    .home-hero-heading {
+        margin-bottom: 24px;
+    }
+
+    .home-hero-heading h1 {
+        font-size: 3.1rem;
+    }
+
+    .home-hero-intro {
+        font-size: 1rem;
+    }
+
+    .home-hero-banner {
+        height: 520px;
+
+        border-radius: 20px;
+    }
+
+    .home-hero-overlay {
+        padding: 25px;
+    }
+
+    .home-hero-overlay h2 {
+        font-size: 2.2rem;
+    }
+
+    .home-hero-overlay p {
+        font-size: 0.93rem;
+    }
+
+    .home-hero-overlay-actions {
+        flex-direction: column;
+    }
+
+    .home-hero-overlay-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+/* =========================================================
+   HOME PAGE HIGHLIGHT CARD
+   ========================================================= */
+
+.home-highlight-card {
+    margin-top: 26px;
+    padding: 30px 34px;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+
+    gap: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.96),
+            rgba(231, 241, 238, 0.96)
+        );
+
+    border: 1px solid rgba(31, 132, 143, 0.20);
+    border-left: 6px solid #248c99;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 30px rgba(17, 36, 58, 0.08);
+}
+
+
+/* MB circle */
+
+.home-highlight-icon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background-color: #17636d;
+
+    color: white;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+}
+
+
+/* Text area */
+
+.home-highlight-content {
+    max-width: 850px;
+}
+
+.home-highlight-label {
+    margin: 0 0 5px;
+
+    font-family: "Manrope", Arial, sans-serif;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+    color: #247e89;
+}
+
+.home-highlight-content h3 {
+    margin: 0 0 6px;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 2rem;
+    line-height: 1.1;
+
+    color: #11243a;
+}
+
+.home-highlight-content p:last-child {
+    margin: 0;
+
+    font-size: 1rem;
+    line-height: 1.65;
+
+    color: #3c5062;
+}
+
+
+/* Link */
+
+.home-highlight-link {
+    white-space: nowrap;
+
+    font-family: "Manrope", Arial, sans-serif;
+
+    font-size: 0.9rem;
+    font-weight: 800;
+
+    color: #17636d;
+
+    text-decoration: none;
+
+    border-bottom: 2px solid #dca84f;
+
+    padding-bottom: 4px;
+}
+
+.home-highlight-link:hover {
+    color: #11243a;
+}
+
+
+/* Mobile */
+
+@media (max-width: 850px) {
+
+    .home-highlight-card {
+        grid-template-columns: auto 1fr;
+    }
+
+    .home-highlight-link {
+        grid-column: 2;
+        justify-self: start;
+    }
+}
+
+
+@media (max-width: 560px) {
+
+    .home-highlight-card {
+        grid-template-columns: 1fr;
+
+        padding: 26px;
+    }
+
+    .home-highlight-icon {
+        width: 54px;
+        height: 54px;
+    }
+
+    .home-highlight-link {
+        grid-column: 1;
+    }
+
+    .home-highlight-content h3 {
+        font-size: 1.7rem;
+    }
 }
