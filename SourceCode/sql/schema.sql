@@ -6,7 +6,8 @@ USE moffat_bay;
 
 CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_name VARCHAR(100) NOT NULL,
+    customer_first_name VARCHAR(100) NOT NULL,
+    customer_last_name VARCHAR(100) NOT NULL,
     customer_email VARCHAR(100) NOT NULL UNIQUE,
     customer_phone VARCHAR(20),
     password_hash VARCHAR(255) NOT NULL
