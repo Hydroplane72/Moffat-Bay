@@ -3,16 +3,16 @@
 ```mermaid
 erDiagram
     CUSTOMERS ||--o{ RESERVATIONS : makes
-    ROOMTYPE ||--o{ ROOMS : includes
+    ROOM_TYPES ||--o{ ROOMS : defines
     RESERVATIONS ||--o{ RESERVATION_ROOMS : contains
     ROOMS ||--o{ RESERVATION_ROOMS : assigned_to
 
     CUSTOMERS {
         int customer_id PK
-        varchar customer_email "UNIQUE"
-        varchar customer_first_name
-        varchar customer_last_name
-        varchar customer_phone
+        varchar first_name
+        varchar last_name
+        varchar email "UNIQUE"
+        varchar phone
         varchar password_hash
         datetime created_at
         datetime updated_at
@@ -24,14 +24,15 @@ erDiagram
         int num_guests
         date check_in_date
         date check_out_date
-        varchar total_reservation_price
-        decimal status
+        decimal total_price
+        varchar reservation_status
         datetime created_at
         datetime updated_at
     }
 
     RESERVATION_ROOMS {
         int reservation_room_id PK
+        int reservation_id FK
         int room_id FK
         decimal nightly_rate
     }
@@ -39,14 +40,15 @@ erDiagram
     ROOMS {
         int room_id PK
         int room_type_id FK
-        varchar status
+        varchar room_number "UNIQUE"
+        varchar room_status
     }
 
-    ROOMTYPE {
+    ROOM_TYPES {
         int room_type_id PK
-        varchar name
+        varchar room_type_name
         decimal price_per_night
-        int max_num_rooms
+        int max_occupancy
     }
 ```
 
@@ -55,14 +57,13 @@ erDiagram
 | Column               | Type          | Constraints / Notes                          |
 |----------------------|---------------|----------------------------------------------|
 | customer_id          | INT           | PK, auto-increment                           |
-| customer_email       | VARCHAR(255)  | UNIQUE, required                             |
-| customer_first_name  | VARCHAR(100)  | Required                                     |
-| customer_last_name   | VARCHAR(100)  | Required                                     |
-| customer_phone       | VARCHAR(20)   | Optional                                     |
+| first_name           | VARCHAR(100)  | Required                                     |
+| last_name            | VARCHAR(100)  | Required                                     |
+| email                | VARCHAR(255)  | UNIQUE, required                             |
+| phone                | VARCHAR(20)   | Optional                                     |
 | password_hash        | VARCHAR(255)  | Required, hashed password                    |
 | created_at           | DATETIME      | Default: current timestamp                   |
 | updated_at           | DATETIME      | Default: current timestamp on update         |
-
 
 ## Reservations Table
 
@@ -73,35 +74,34 @@ erDiagram
 | num_guests               | INT           | Required                                     |
 | check_in_date            | DATE          | Required                                     |
 | check_out_date           | DATE          | Required                                     |
-| total_reservation_price  | DECIMAL(10,2) | Required                                     |
-| status                   | VARCHAR(20)   | Required                                     |
+| total_price              | DECIMAL(10,2) | Required                                     |
+| reservation_status       | VARCHAR(20)   | Required                                     |
 | created_at               | DATETIME      | Default: current timestamp                   |
 | updated_at               | DATETIME      | Default: current timestamp on update         |
-
 
 ## ReservationRooms Table
 
 | Column              | Type          | Constraints / Notes                          |
 |---------------------|---------------|----------------------------------------------|
 | reservation_room_id | INT           | PK, auto-increment                           |
+| reservation_id      | INT           | FK → Reservations.reservation_id, required   |
 | room_id             | INT           | FK → Rooms.room_id, required                 |
 | nightly_rate        | DECIMAL(10,2) | Required                                     |
 
-
 ## Rooms Table
 
-| Column        | Type        | Constraints / Notes                          |
-|---------------|-------------|----------------------------------------------|
-| room_id       | INT         | PK, auto-increment                           |
-| room_type_id  | INT         | FK → RoomType.room_type_id, required         |
-| status        | VARCHAR(10) | Required                                     |
+| Column         | Type         | Constraints / Notes                          |
+|----------------|--------------|----------------------------------------------|
+| room_id        | INT          | PK, auto-increment                           |
+| room_type_id   | INT          | FK → Room_Types.room_type_id, required       |
+| room_number    | VARCHAR(20)  | UNIQUE, required                             |
+| room_status    | VARCHAR(20)  | Required                                     |
 
+## RoomTypes Table
 
-## RoomType Table
-
-| Column          | Type          | Constraints / Notes                          |
-|-----------------|---------------|----------------------------------------------|
-| room_type_id    | INT           | PK, auto-increment                           |
-| name            | VARCHAR(50)   | Required                                     |
-| price_per_night | DECIMAL(10,2) | Required                                     |
-| max_num_rooms   | INT           | Required                                     |
+| Column           | Type          | Constraints / Notes                          |
+|------------------|---------------|----------------------------------------------|
+| room_type_id     | INT           | PK, auto-increment                           |
+| room_type_name   | VARCHAR(50)   | Required                                     |
+| price_per_night  | DECIMAL(10,2) | Required                                     |
+| max_occupancy    | INT           | Required                                     |
