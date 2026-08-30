@@ -16,28 +16,28 @@ VALUES
 ('Double Queen Beds', 150.00, 4),
 ('King', 160.00, 2);
 
-INSERT INTO Rooms (room_id, room_type_id, room_number)
+INSERT INTO Rooms (room_id, room_type_id, room_number, allow_reservations)
 VALUES
-(1, 1, '101'),
-(2, 1, '102'),
-(3, 1, '103'),
-(4, 1, '104'),
-(5, 1, '105'),
-(6, 2, '201'),
-(7, 2, '202'),
-(8, 2, '203'),
-(9, 2, '204'),
-(10, 2, '205'),
-(11, 3, '301'),
-(12, 3, '302'),
-(13, 3, '303'),
-(14, 3, '304'),
-(15, 3, '305'),
-(16, 4, '401'),
-(17, 4, '402'),
-(18, 4, '403'),
-(19, 4, '404'),
-(20, 4, '405');
+(1, 1, '101', 1),
+(2, 1, '102', 1),
+(3, 1, '103', 1),
+(4, 1, '104', 1),
+(5, 1, '105', 1),
+(6, 2, '201', 1),
+(7, 2, '202', 1),
+(8, 2, '203', 1),
+(9, 2, '204', 1),
+(10, 2, '205', 1),
+(11, 3, '301', 1),
+(12, 3, '302', 1),
+(13, 3, '303', 1),
+(14, 3, '304', 1),
+(15, 3, '305', 1),
+(16, 4, '401', 1),
+(17, 4, '402', 1),
+(18, 4, '403', 1),
+(19, 4, '404', 1),
+(20, 4, '405', 1);
 
 INSERT INTO Reservations (customer_id, num_guests, check_in_date, check_out_date, total_price, reservation_status)
 VALUES
@@ -52,3 +52,9 @@ VALUES
 (2, 6, 135.00),
 (3, 11, 150.00),
 (4, 16, 160.00);
+
+INSERT INTO ContactMessages (name, email, subject, message, created_at)
+VALUES
+('Demo User', 'demo@moffatbay.com', 'Inquiry', 'I have a question about my reservation.', NOW()),
+('Alice Smith', 'alice@example.com', 'Feedback', 'Great service!', NOW()),
+('Bob Jones', 'bob@example.com', 'Issue', 'I encountered a problem with my booking.', NOW());
