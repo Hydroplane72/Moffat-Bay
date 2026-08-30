@@ -1,248 +1,53 @@
-<!--
-Team Name: Red Team
-Members:
- - Brayan Covarrubias
- - Matthew Rozendaal
- - Rashai Robertson
- - Tiffany Davidson
-Description:
-This page describes Moffat Bay Lodge, its setting, amenities, and guest experience. It helps visitors understand the property before choosing rooms or making a reservation.
--->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Moffat Bay Lodge</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/about.css">
 </head>
-
-<body class="about-page">
-
-    <header class="about-header">
-        <div class="about-nav-container">
-
-            <a href="index.html" class="about-logo">
-                Moffat Bay Lodge
-            </a>
-
-            <nav class="about-nav">
+<body data-page="about">
+    <header class="site-header">
+        <div class="container inner">
+            <a class="logo-block" href="index.html"><span class="logo-pill">MB</span><span>Moffat Bay Lodge</span></a>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">☰</button>
+            <nav class="main-nav" id="main-nav">
                 <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="rooms.html">Rooms & Rates</a>
+                <a href="about.html" aria-current="page">About</a>
+                <a href="rooms.html">Rooms & Pricing</a>
                 <a href="attractions.html">Attractions</a>
                 <a href="contact.html">Contact</a>
-                <a href="login.html">Login</a>
-                <a href="reservation.html" class="about-book-button">Book Now</a>
+                <a href="reservation.html">Book</a>
             </nav>
-
+            <div id="auth-chip"></div>
         </div>
     </header>
 
     <main>
-
-        <section class="about-hero">
-            <div class="about-hero-content">
-
-                <p class="about-eyebrow">DISCOVER MOFFAT BAY</p>
-
-                <h1>About Moffat Bay Lodge</h1>
-
-                <p>
-                    A simple island retreat for travelers looking for a comfortable
-                    place to stay while exploring everything Moffat Bay has to offer.
-                </p>
-
-            </div>
-        </section>
-
-        <section class="about-intro">
-
-            <div class="about-intro-text">
-
-                <p class="about-eyebrow">OUR LODGE</p>
-
-                <h2>A Comfortable Place to Call Home During Your Island Stay</h2>
-
-                <p>
-                    Moffat Bay Lodge is designed for visitors who want comfortable
-                    lodging and easy access to local island activities. Our goal is
-                    to keep the travel experience simple, from learning about the
-                    lodge to choosing a room and making a reservation.
-                </p>
-
-                <p>
-                    Guests can explore the lodge and surrounding attractions before
-                    creating an account or booking a room. This makes it easy to
-                    compare options and decide whether Moffat Bay is the right
-                    destination for their trip.
-                </p>
-
-            </div>
-
-            <div class="about-highlight">
-
-                <span>MOFFAT BAY</span>
-
-                <h3>Simple Island Lodging</h3>
-
-                <p>
-                    Comfortable rooms, straightforward reservations, and island
-                    adventures just beyond the lodge.
-                </p>
-
-            </div>
-
-        </section>
-
-        <section class="about-features">
-
-            <div class="section-heading">
-
-                <p class="about-eyebrow">WHAT WE OFFER</p>
-
-                <h2>Everything You Need to Plan Your Stay</h2>
-
-            </div>
-
-            <div class="feature-grid">
-
-                <article class="feature-card">
-
-                    <div class="feature-number">01</div>
-
-                    <h3>Comfortable Room Options</h3>
-
-                    <p>
-                        Choose from Double Full Beds, Queen, or Double Queen Beds
-                        based on the needs of your trip.
-                    </p>
-
-                    <a href="rooms.html">
-                        View Rooms & Rates →
-                    </a>
-
-                </article>
-
-                <article class="feature-card">
-
-                    <div class="feature-number">02</div>
-
-                    <h3>Simple Reservations</h3>
-
-                    <p>
-                        Review room options, select your travel dates, and begin
-                        planning your Moffat Bay getaway.
-                    </p>
-
-                    <a href="reservation.html">
-                        Book Your Stay →
-                    </a>
-
-                </article>
-
-                <article class="feature-card">
-
-                    <div class="feature-number">03</div>
-
-                    <h3>Island Adventure</h3>
-
-                    <p>
-                        Spend your trip hiking, kayaking, whale watching, scuba
-                        diving, and exploring the island.
-                    </p>
-
-                    <a href="attractions.html">
-                        Explore Attractions →
-                    </a>
-
-                </article>
-
-            </div>
-
-        </section>
-
-        <section class="about-experience">
-
-            <div class="experience-text">
-
-                <p class="about-eyebrow">
-                    THE MOFFAT BAY EXPERIENCE
-                </p>
-
-                <h2>
-                    Stay. Explore. Relax.
-                </h2>
-
-                <p>
-                    Moffat Bay Lodge keeps things straightforward. One lodge,
-                    comfortable room choices, and access to outdoor activities
-                    give visitors an easy way to enjoy their island vacation.
-                </p>
-
-                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-
-                    <a href="rooms.html" class="outline-button">
-                        View Rooms & Rates
-                    </a>
-
-                    <a href="attractions.html" class="outline-button">
-                        Discover the Island
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="about-cta">
-
-            <p class="about-eyebrow">
-                PLAN YOUR VISIT
-            </p>
-
-            <h2>
-                Ready to Visit Moffat Bay?
-            </h2>
-
-            <p>
-                Compare room options and rates, then select your travel dates
-                and start planning your island stay.
-            </p>
-
-            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-
-                <a href="rooms.html" class="outline-button" style="color: #163b3a; border-color: #163b3a;">
-                    View Rooms & Rates
-                </a>
-
-                <a href="reservation.html" class="primary-about-button">
-                    Book Your Stay
-                </a>
-
-            </div>
-
-        </section>
-
+        <section class="page-hero"><div class="container"><p class="eyebrow">Discover Moffat Bay</p><h1>About Moffat Bay Lodge</h1><p>A comfortable island retreat built around simple lodging, straightforward reservations, and easy access to the outdoor experiences that make Moffat Bay special.</p><div class="page-hero-media"><img class="page-hero-photo" src="https://images.unsplash.com/photo-1657080780402-b80ca0563d06?auto=format&amp;fit=crop&amp;w=1600&amp;q=72" alt="Evergreen shoreline and calm water at Moran State Park on Orcas Island, Washington." decoding="async" fetchpriority="high"></div></div></section>
+        <section class="section section-tight"><div class="container split"><article class="info-panel accent"><p class="eyebrow">Our Lodge</p><h2>A Comfortable Place to Call Home</h2><p>Moffat Bay Lodge is designed for travelers who want comfortable lodging and easy access to local island activities. Guests can explore the lodge, compare room options, and learn about nearby adventures before creating an account or booking.</p><p>Because the website focuses on one lodge location, planning stays simple from the first page through reservation confirmation.</p></article><article class="info-panel"><p class="eyebrow">The Experience</p><h3>Stay. Explore. Relax.</h3><p>Start the morning near the water, spend the day exploring trails or ocean activities, then return to a comfortable room at night.</p><div class="badge-row"><span class="badge">One Lodge</span><span class="badge">Four Room Types</span><span class="badge">Island Activities</span></div></article></div></section>
+        <section class="section"><div class="container"><div class="section-head"><div><p class="eyebrow">What We Offer</p><h2>Everything You Need to Plan Your Stay</h2></div></div><div class="card-grid"><article class="card"><p class="card-number">01</p><h3>Comfortable Room Options</h3><p>Compare Double Full, Queen, Double Queen, and King rooms with clear nightly rates.</p><a class="card-link" href="rooms.html">View Rooms & Pricing →</a></article><article class="card"><p class="card-number">02</p><h3>Simple Reservations</h3><p>Select a room, choose your travel dates and guests, then review everything before confirming.</p><a class="card-link" href="reservation.html">Book Your Stay →</a></article><article class="card"><p class="card-number">03</p><h3>Island Adventure</h3><p>Plan time for hiking, kayaking, whale watching, scuba diving, and coastal exploration.</p><a class="card-link" href="attractions.html">Explore Attractions →</a></article></div></div></section>
     </main>
 
-    <footer class="about-footer">
-
-        <div>
-            <h3>Moffat Bay Lodge</h3>
-            <p>14 Harbor Crest Road • Moffat Bay Island</p>
+    <footer class="footer">
+        <div class="container inner">
+            <div>
+                <p><strong>Moffat Bay Lodge</strong> • 14 Harbor Crest Road • Moffat Bay Island</p>
+                <p>One island destination, four room choices, endless adventure.</p>
+            </div>
+            <div class="footer-links">
+                <a href="rooms.html">Rooms & Pricing</a>
+                <a href="reservation.html">Book</a>
+                <a href="reservation-lookup.html">Reservation Lookup</a>
+            </div>
         </div>
-
-        <div>
-            <p>Island lodging made simple.</p>
-        </div>
-
     </footer>
 
+    <script src="assets/js/mock-data.js"></script>
+    <script src="assets/js/api-contract.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
-
 </html>

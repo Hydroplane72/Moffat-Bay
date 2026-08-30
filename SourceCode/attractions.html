@@ -1,227 +1,53 @@
-<!--
-Team Name: Red Team
-Members:
- - Brayan Covarrubias
- - Matthew Rozendaal
- - Rashai Robertson
- - Tiffany Davidson
-Description:
-This page presents nearby island activities and points of interest. It helps guests plan experiences around a potential Moffat Bay stay.
--->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attractions | Moffat Bay Lodge</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/attractions.css">
 </head>
-
-<body class="attractions-page">
-
-    <header class="attractions-header">
-        <div class="attractions-nav-container">
-
-            <a href="index.html" class="attractions-logo">
-                Moffat Bay Lodge
-            </a>
-
-            <nav class="attractions-nav">
+<body data-page="attractions">
+    <header class="site-header">
+        <div class="container inner">
+            <a class="logo-block" href="index.html"><span class="logo-pill">MB</span><span>Moffat Bay Lodge</span></a>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">☰</button>
+            <nav class="main-nav" id="main-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="rooms.html">Rooms & Rates</a>
-                <a href="attractions.html">Attractions</a>
+                <a href="rooms.html">Rooms & Pricing</a>
+                <a href="attractions.html" aria-current="page">Attractions</a>
                 <a href="contact.html">Contact</a>
-                <a href="login.html">Login</a>
-                <a href="reservation.html" class="attractions-book-button">Book Now</a>
+                <a href="reservation.html">Book</a>
             </nav>
-
+            <div id="auth-chip"></div>
         </div>
     </header>
 
     <main>
-
-        <section class="attractions-hero">
-            <div class="attractions-hero-content">
-
-                <p class="attractions-eyebrow">EXPLORE MOFFAT BAY</p>
-
-                <h1>Island Adventures Await</h1>
-
-                <p>
-                    From peaceful hiking trails to unforgettable ocean adventures,
-                    Moffat Bay offers something for every traveler.
-                </p>
-
-            </div>
-        </section>
-
-        <section class="attractions-intro">
-
-            <p class="attractions-eyebrow">THINGS TO DO</p>
-
-            <h2>Experience the Island</h2>
-
-            <p>
-                Make the most of your stay by exploring the outdoor activities
-                surrounding Moffat Bay Lodge.
-            </p>
-
-        </section>
-
-        <section class="attraction-grid">
-
-            <article class="attraction-card">
-
-                <div class="attraction-number">01</div>
-
-                <h3>Hiking Trails</h3>
-
-                <p>
-                    Explore scenic island trails while enjoying fresh air,
-                    peaceful surroundings, and views of the natural landscape.
-                </p>
-
-                <span class="activity-type">
-                    LAND ADVENTURE
-                </span>
-
-            </article>
-
-            <article class="attraction-card">
-
-                <div class="attraction-number">02</div>
-
-                <h3>Kayaking</h3>
-
-                <p>
-                    Paddle along the waters surrounding Moffat Bay and experience
-                    the island from a completely different point of view.
-                </p>
-
-                <span class="activity-type">
-                    WATER ADVENTURE
-                </span>
-
-            </article>
-
-            <article class="attraction-card">
-
-                <div class="attraction-number">03</div>
-
-                <h3>Whale Watching</h3>
-
-                <p>
-                    Spend time on the water looking for whales and other marine
-                    wildlife while enjoying the coastal scenery around the island.
-                </p>
-
-                <span class="activity-type">
-                    WILDLIFE EXPERIENCE
-                </span>
-
-            </article>
-
-            <article class="attraction-card">
-
-                <div class="attraction-number">04</div>
-
-                <h3>Scuba Diving</h3>
-
-                <p>
-                    Discover the underwater side of Moffat Bay and explore the
-                    marine environment beneath the island's surrounding waters.
-                </p>
-
-                <span class="activity-type">
-                    OCEAN ADVENTURE
-                </span>
-
-            </article>
-
-        </section>
-
-        <section class="adventure-section">
-
-            <div class="adventure-content">
-
-                <p class="attractions-eyebrow">
-                    MAKE IT YOUR TRIP
-                </p>
-
-                <h2>
-                    Adventure by Day. Relax at the Lodge by Night.
-                </h2>
-
-                <p>
-                    Spend the day exploring Moffat Bay, then return to the lodge
-                    for a comfortable place to relax and recharge before your
-                    next island adventure.
-                </p>
-
-                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-
-                    <a href="rooms.html" class="outline-attractions-button">
-                        View Rooms & Rates
-                    </a>
-
-                    <a href="reservation.html" class="outline-attractions-button">
-                        Reserve Your Room
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="attractions-cta">
-
-            <p class="attractions-eyebrow">
-                START PLANNING
-            </p>
-
-            <h2>
-                Ready for Your Moffat Bay Adventure?
-            </h2>
-
-            <p>
-                Compare our room options and nightly rates, then choose your
-                travel dates to begin planning your island stay.
-            </p>
-
-            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-
-                <a href="rooms.html" class="outline-attractions-button" style="color: #163b3a; border-color: #163b3a;">
-                    View Rooms & Rates
-                </a>
-
-                <a href="reservation.html" class="primary-attractions-button">
-                    Book Your Stay
-                </a>
-
-            </div>
-
-        </section>
-
+        <section class="page-hero"><div class="container"><p class="eyebrow">Explore Moffat Bay</p><h1>Island Adventures Await</h1><p>From peaceful hiking trails to unforgettable ocean experiences, Moffat Bay offers outdoor activities for every kind of traveler.</p><div class="page-hero-media"><img class="page-hero-photo" src="https://images.unsplash.com/photo-1584148721201-b6432e0d5106?auto=format&fit=crop&w=1600&q=72" alt="Aerial view of the green shoreline and blue water around Lopez Island, Washington." decoding="async" fetchpriority="high"></div></div></section>
+        <section class="section section-tight"><div class="container"><div class="section-head"><div><p class="eyebrow">Things to Do</p><h2>Experience the Island</h2><p>Make the most of your stay with adventures surrounding Moffat Bay Lodge.</p></div><a class="btn btn-ghost" href="rooms.html">View Rooms & Pricing</a></div><div class="card-grid four-up"><article class="card"><img class="activity-image" src="https://images.unsplash.com/photo-1728108608092-693372974290?auto=format&amp;fit=crop&amp;w=900&amp;q=72" alt="Hiker walking through a lush forest on the trail to Shi Shi Beach in Olympic National Park." decoding="async" loading="lazy"><p class="card-number">01</p><h3>Hiking</h3><p>Explore scenic coastal trails, quiet cedar paths, and viewpoints across the island.</p><span class="activity-type">Land Adventure</span></article><article class="card"><img class="activity-image" src="https://images.unsplash.com/photo-1723215629906-bc05bd6f36a1?auto=format&amp;fit=crop&amp;w=900&amp;q=72" alt="Kayakers and paddleboarders on the water at Vashon Island, Washington." decoding="async" loading="lazy"><p class="card-number">02</p><h3>Kayaking</h3><p>Paddle the waters around Moffat Bay and see the shoreline from a completely different perspective.</p><span class="activity-type">Water Adventure</span></article><article class="card"><img class="activity-image" src="https://images.unsplash.com/photo-1768345075295-2454d3dc3f3f?auto=format&amp;fit=crop&amp;w=900&amp;q=72" alt="Orca surfacing in the Salish Sea near Vancouver Island, British Columbia." decoding="async" loading="lazy"><p class="card-number">03</p><h3>Whale Watching</h3><p>Head out on the water to look for whales and other marine wildlife along the coast.</p><span class="activity-type">Wildlife Experience</span></article><article class="card"><img class="activity-image" src="https://upload.wikimedia.org/wikipedia/commons/6/68/Technical_scuba_diver_at_Porteau_Cove_Provincial_Park.jpg" alt="Technical scuba diver underwater at Porteau Cove Marine Park in British Columbia." decoding="async" loading="lazy"><p class="card-number">04</p><h3>Scuba Diving</h3><p>Discover the underwater side of Moffat Bay and explore the marine environment below the surface.</p><span class="activity-type">Ocean Adventure</span><p class="image-credit">Scuba photo: <a href="https://commons.wikimedia.org/wiki/File:Technical_scuba_diver_at_Porteau_Cove_Provincial_Park.jpg" target="_blank" rel="noopener noreferrer">Riley Huntley / Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.</p></article></div></div></section>
+        <section class="section section-alt"><div class="container centered"><p class="eyebrow" style="color: var(--sun-400);">Make It Your Trip</p><h2>Adventure by Day. Relax at the Lodge by Night.</h2><p>Spend the day exploring Moffat Bay, then return to the lodge to recharge before your next island adventure.</p><div class="cta-row" style="justify-content:center"><a class="btn btn-primary" href="reservation.html">Reserve Your Room</a><a class="btn btn-ghost" style="color:white;border-color:rgba(255,255,255,.5)" href="rooms.html">Compare Rooms</a></div></div></section>
     </main>
 
-    <footer class="attractions-footer">
-
-        <div>
-            <h3>Moffat Bay Lodge</h3>
-            <p>14 Harbor Crest Road • Moffat Bay Island</p>
+    <footer class="footer">
+        <div class="container inner">
+            <div>
+                <p><strong>Moffat Bay Lodge</strong> • 14 Harbor Crest Road • Moffat Bay Island</p>
+                <p>One island destination, four room choices, endless adventure.</p>
+            </div>
+            <div class="footer-links">
+                <a href="rooms.html">Rooms & Pricing</a>
+                <a href="reservation.html">Book</a>
+                <a href="reservation-lookup.html">Reservation Lookup</a>
+            </div>
         </div>
-
-        <div>
-            <p>Island lodging made simple.</p>
-        </div>
-
     </footer>
 
+    <script src="assets/js/mock-data.js"></script>
+    <script src="assets/js/api-contract.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
-
 </html>
