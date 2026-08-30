@@ -1,14 +1,28 @@
+<!--
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This page helps guests find an existing reservation. It collects lookup details and uses inline behavior to display or acknowledge reservation results.
+-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservation Lookup | Moffat Bay Lodge</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body data-page="lookup">
     <header class="site-header">
         <div class="container inner">
@@ -27,8 +41,37 @@
     </header>
 
     <main>
-        <section class="page-hero"><div class="container"><p class="eyebrow">Find Your Stay</p><h1>Reservation Lookup</h1><p>Search by reservation ID or email address to view your room type, guest count, dates, and reservation total.</p><div class="page-hero-media"><img class="page-hero-photo" src="https://images.unsplash.com/photo-1652204247950-69c7379377cc?auto=format&amp;fit=crop&amp;w=1600&amp;q=72" alt="Whale-watching boat cruising the Salish Sea near Bellingham, Washington." decoding="async" fetchpriority="high"></div></div></section>
-        <section class="section section-tight"><div class="container split"><form id="lookup-form"><h3>Search Reservations</h3><div class="field full"><label for="lookup-query">Reservation ID or Email</label><input id="lookup-query" type="text" placeholder="Example: MBL-2201 or demo@moffatbay.com" required></div><button class="btn btn-primary" type="submit" style="margin-top:14px">Search</button><div id="lookup-message" class="message" role="status" aria-live="polite"></div></form><div id="lookup-result" class="summary-box"><h3>Reservation Details</h3><p>Run a search to display reservation details.</p><p class="hint">Need to start a new reservation instead?</p><div class="cta-row"><a class="btn btn-ghost" href="rooms.html">View Rooms</a><a class="btn btn-secondary" href="reservation.html">Book a Stay</a></div></div></div></section>
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">Find Your Stay</p>
+                <h1>Reservation Lookup</h1>
+                <p>Search by reservation ID or email address to view your room type, guest count, dates, and reservation
+                    total.</p>
+                <div class="page-hero-media"><img class="page-hero-photo"
+                        src="https://images.unsplash.com/photo-1652204247950-69c7379377cc?auto=format&amp;fit=crop&amp;w=1600&amp;q=72"
+                        alt="Whale-watching boat cruising the Salish Sea near Bellingham, Washington." decoding="async"
+                        fetchpriority="high"></div>
+            </div>
+        </section>
+        <section class="section section-tight">
+            <div class="container split">
+                <form id="lookup-form">
+                    <h3>Search Reservations</h3>
+                    <div class="field full"><label for="lookup-query">Reservation ID or Email</label><input
+                            id="lookup-query" type="text" placeholder="Example: MBL-2201 or demo@moffatbay.com"
+                            required></div><button class="btn btn-primary" type="submit"
+                        style="margin-top:14px">Search</button>
+                    <div id="lookup-message" class="message" role="status" aria-live="polite"></div>
+                </form>
+                <div id="lookup-result" class="summary-box">
+                    <h3>Reservation Details</h3>
+                    <p>Run a search to display reservation details.</p>
+                    <p class="hint">Need to start a new reservation instead?</p>
+                    <div class="cta-row"><a class="btn btn-ghost" href="rooms.html">View Rooms</a><a
+                            class="btn btn-secondary" href="reservation.html">Book a Stay</a></div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -49,4 +92,5 @@
     <script src="assets/js/api-contract.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
+
 </html>

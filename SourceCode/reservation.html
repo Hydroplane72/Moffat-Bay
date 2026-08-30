@@ -1,14 +1,28 @@
+<!--
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This page provides a reservation form for selecting a room, guest count, and check-in and check-out dates. Its inline scripts calculate room pricing and validate reservation inputs.
+-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Your Vacation | Moffat Bay Lodge</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body data-page="reservation">
     <header class="site-header">
         <div class="container inner">
@@ -27,8 +41,53 @@
     </header>
 
     <main>
-        <section class="page-hero"><div class="container"><p class="eyebrow">Plan Your Getaway</p><h1>Book Your Vacation</h1><p>Choose your room, guest count, and travel dates. You can review your reservation before confirming it.</p><div class="page-hero-media"><img class="page-hero-photo" src="https://images.unsplash.com/photo-1575403071235-5dcd06cbf169?auto=format&fit=crop&w=1600&q=72" alt="Lime Kiln Point lighthouse overlooking the Salish Sea on San Juan Island, Washington." decoding="async" fetchpriority="high"></div></div></section>
-        <section class="section section-tight"><div class="container split"><form id="reservation-form"><h3>Reservation Details</h3><div class="form-grid"><div class="field"><label for="roomType">Room Size</label><select id="roomType" required><option value="Double Full Beds">Double Full Beds ($120)</option><option value="Queen">Queen ($135)</option><option value="Double Queen Beds">Double Queen Beds ($150)</option><option value="King">King ($160)</option></select></div><div class="field"><label for="guests">Number of Guests</label><input id="guests" type="number" min="1" max="8" value="2" required></div><div class="field"><label for="checkIn">Check-In Date</label><input id="checkIn" type="date" required></div><div class="field"><label for="checkOut">Check-Out Date</label><input id="checkOut" type="date" required></div></div><p id="room-rate-hint" class="hint"></p><button class="btn btn-primary" type="submit">Review Reservation</button><div id="reservation-message" class="message" role="status" aria-live="polite"></div></form><div class="info-panel accent"><h3>Before You Confirm</h3><p>All rooms are at the same Moffat Bay Lodge location. You are choosing between room types, not separate properties.</p><p>Confirmation requires a free account and login.</p><div class="cta-row"><a class="btn btn-ghost" href="rooms.html">Compare Rooms</a><a class="btn btn-ghost" href="login.html">Login</a><a class="btn btn-secondary" href="register.html">Register</a></div><p style="margin-top:18px"><a class="card-link" href="reservation-lookup.html">Already booked? Look up a reservation →</a></p></div></div></section>
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">Plan Your Getaway</p>
+                <h1>Book Your Vacation</h1>
+                <p>Choose your room, guest count, and travel dates. You can review your reservation before confirming
+                    it.</p>
+                <div class="page-hero-media"><img class="page-hero-photo"
+                        src="https://images.unsplash.com/photo-1575403071235-5dcd06cbf169?auto=format&fit=crop&w=1600&q=72"
+                        alt="Lime Kiln Point lighthouse overlooking the Salish Sea on San Juan Island, Washington."
+                        decoding="async" fetchpriority="high"></div>
+            </div>
+        </section>
+        <section class="section section-tight">
+            <div class="container split">
+                <form id="reservation-form">
+                    <h3>Reservation Details</h3>
+                    <div class="form-grid">
+                        <div class="field"><label for="roomType">Room Size</label><select id="roomType" required>
+                                <option value="Double Full Beds">Double Full Beds ($120)</option>
+                                <option value="Queen">Queen ($135)</option>
+                                <option value="Double Queen Beds">Double Queen Beds ($150)</option>
+                                <option value="King">King ($160)</option>
+                            </select></div>
+                        <div class="field"><label for="guests">Number of Guests</label><input id="guests" type="number"
+                                min="1" max="8" value="2" required></div>
+                        <div class="field"><label for="checkIn">Check-In Date</label><input id="checkIn" type="date"
+                                required></div>
+                        <div class="field"><label for="checkOut">Check-Out Date</label><input id="checkOut" type="date"
+                                required></div>
+                    </div>
+                    <p id="room-rate-hint" class="hint"></p><button class="btn btn-primary" type="submit">Review
+                        Reservation</button>
+                    <div id="reservation-message" class="message" role="status" aria-live="polite"></div>
+                </form>
+                <div class="info-panel accent">
+                    <h3>Before You Confirm</h3>
+                    <p>All rooms are at the same Moffat Bay Lodge location. You are choosing between room types, not
+                        separate properties.</p>
+                    <p>Confirmation requires a free account and login.</p>
+                    <div class="cta-row"><a class="btn btn-ghost" href="rooms.html">Compare Rooms</a><a
+                            class="btn btn-ghost" href="login.html">Login</a><a class="btn btn-secondary"
+                            href="register.html">Register</a></div>
+                    <p style="margin-top:18px"><a class="card-link" href="reservation-lookup.html">Already booked? Look
+                            up a reservation →</a></p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -49,4 +108,5 @@
     <script src="assets/js/api-contract.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
+
 </html>

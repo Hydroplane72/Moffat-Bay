@@ -1,14 +1,28 @@
+<!--
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+Description:
+This page presents selected booking details, dates, guests, room information, and totals. Its inline confirmation behavior completes the reservation flow.
+-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservation Summary | Moffat Bay Lodge</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body data-page="summary">
     <header class="site-header">
         <div class="container inner">
@@ -27,8 +41,29 @@
     </header>
 
     <main>
-        <section class="page-hero"><div class="container"><p class="eyebrow">Final Review</p><h1>Reservation Summary</h1><p>Review your booking details before final confirmation. You can cancel to make changes or confirm the reservation.</p><div class="page-hero-media"><img class="page-hero-photo" src="https://images.unsplash.com/photo-1781261088083-fade8e46a58c?auto=format&amp;fit=crop&amp;w=1600&amp;q=72" alt="Old waterfront boathouse at golden hour on Vancouver Island, British Columbia." decoding="async" fetchpriority="high"></div></div></section>
-        <section class="section section-tight"><div class="container"><div class="summary-box"><div id="summary-grid" class="summary-grid"></div><div id="summary-controls" class="cta-row"><button id="cancel-reservation" class="btn btn-ghost" type="button">Cancel</button><button id="confirm-reservation" class="btn btn-primary" type="button">Confirm Reservation</button></div><div id="summary-message" class="message" role="status" aria-live="polite"></div></div></div></section>
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">Final Review</p>
+                <h1>Reservation Summary</h1>
+                <p>Review your booking details before final confirmation. You can cancel to make changes or confirm the
+                    reservation.</p>
+                <div class="page-hero-media"><img class="page-hero-photo"
+                        src="https://images.unsplash.com/photo-1781261088083-fade8e46a58c?auto=format&amp;fit=crop&amp;w=1600&amp;q=72"
+                        alt="Old waterfront boathouse at golden hour on Vancouver Island, British Columbia."
+                        decoding="async" fetchpriority="high"></div>
+            </div>
+        </section>
+        <section class="section section-tight">
+            <div class="container">
+                <div class="summary-box">
+                    <div id="summary-grid" class="summary-grid"></div>
+                    <div id="summary-controls" class="cta-row"><button id="cancel-reservation" class="btn btn-ghost"
+                            type="button">Cancel</button><button id="confirm-reservation" class="btn btn-primary"
+                            type="button">Confirm Reservation</button></div>
+                    <div id="summary-message" class="message" role="status" aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -49,4 +84,5 @@
     <script src="assets/js/api-contract.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
+
 </html>
