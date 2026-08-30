@@ -1,5 +1,7 @@
 -- seed.sql
 -- Sample data for Moffat Bay's hotel reservation system.
+-- set up the database and tables, then populate them with sample data.
+
 
 INSERT INTO Customers (first_name, last_name, email, phone, password_hash)
 VALUES
@@ -18,7 +20,7 @@ VALUES
 
 INSERT INTO Rooms (room_id, room_type_id, room_number, allow_reservations)
 VALUES
-(1, 1, '101', 1),
+(1, 1, '101', 0),
 (2, 1, '102', 1),
 (3, 1, '103', 1),
 (4, 1, '104', 1),
