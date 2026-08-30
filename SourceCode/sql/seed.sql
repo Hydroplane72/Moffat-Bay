@@ -16,28 +16,28 @@ VALUES
 ('Double Queen Beds', 150.00, 4),
 ('King', 160.00, 2);
 
-INSERT INTO Rooms (room_type_id, room_number, room_status)
+INSERT INTO Rooms (room_id, room_type_id, room_number)
 VALUES
-(1, '101', 'available'),
-(1, '102', 'available'),
-(1, '103', 'available'),
-(1, '104', 'available'),
-(1, '105', 'available'),
-(2, '201', 'available'),
-(2, '202', 'occupied'),
-(2, '203', 'available'),
-(2, '204', 'available'),
-(2, '205', 'available'),
-(3, '301', 'available'),
-(3, '302', 'available'),
-(3, '303', 'available'),
-(3, '304', 'available'),
-(3, '305', 'available'),
-(4, '401', 'available'),
-(4, '402', 'occupied'),
-(4, '403', 'available'),
-(4, '404', 'available'),
-(4, '405', 'available');
+(1, 1, '101'),
+(2, 1, '102'),
+(3, 1, '103'),
+(4, 1, '104'),
+(5, 1, '105'),
+(6, 2, '201'),
+(7, 2, '202'),
+(8, 2, '203'),
+(9, 2, '204'),
+(10, 2, '205'),
+(11, 3, '301'),
+(12, 3, '302'),
+(13, 3, '303'),
+(14, 3, '304'),
+(15, 3, '305'),
+(16, 4, '401'),
+(17, 4, '402'),
+(18, 4, '403'),
+(19, 4, '404'),
+(20, 4, '405');
 
 INSERT INTO Reservations (customer_id, num_guests, check_in_date, check_out_date, total_price, reservation_status)
 VALUES
