@@ -12,3 +12,5 @@ SELECT * FROM Rooms;
 SELECT * FROM Reservations;
 
 SELECT * FROM ReservationRooms;
+
+SELECT * FROM ContactMessages;
