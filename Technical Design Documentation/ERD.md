@@ -50,6 +50,15 @@ erDiagram
         decimal price_per_night
         int max_occupancy
     }
+
+    CONTACT_MESSAGES {
+            int message_id PK
+            varchar name
+            varchar email
+            varchar subject
+            text message
+            datetime created_at
+        }
 ```
 
 ## Customers Table
@@ -105,3 +114,15 @@ erDiagram
 | room_type_name   | VARCHAR(50)   | Required                                     |
 | price_per_night  | DECIMAL(10,2) | Required                                     |
 | max_occupancy    | INT           | Required                                     |
+
+
+## ContactMessages Table
+
+| Column                   | Type          | Constraints / Notes                          |
+|--------------------------|---------------|----------------------------------------------|
+| message_id               | INT           | PK, auto-increment                           |
+| name                     | VARCHAR(100)  | Required                                     |
+| email                    | VARCHAR(100)  | Required                                     |
+| subject                  | VARCHAR(100)  | Required                                     |
+| message                  | Text          | Required                                     |
+| created_at               | DATETIME      | Default: current timestamp                   |
