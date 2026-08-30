@@ -15,248 +15,82 @@ This page helps guests find an existing reservation. It collects lookup details 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservation Lookup | Moffat Bay Lodge</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/reservation-lookup.css">
 </head>
 
-<body class="lookup-page">
-
-    <header class="lookup-header">
-        <div class="lookup-nav-container">
-
-            <a href="index.html" class="lookup-logo">
-                Moffat Bay Lodge
-            </a>
-
-            <nav class="lookup-nav">
+<body data-page="lookup">
+    <header class="site-header">
+        <div class="container inner">
+            <a class="logo-block" href="index.html"><span class="logo-pill">MB</span><span>Moffat Bay Lodge</span></a>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">☰</button>
+            <nav class="main-nav" id="main-nav">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="rooms.html">Rooms & Rates</a>
+                <a href="rooms.html">Rooms & Pricing</a>
                 <a href="attractions.html">Attractions</a>
                 <a href="contact.html">Contact</a>
-                <a href="login.html">Login</a>
-                <a href="reservation.html" class="lookup-book-button">Book Now</a>
+                <a href="reservation.html">Book</a>
             </nav>
-
+            <div id="auth-chip"></div>
         </div>
     </header>
 
     <main>
-
-        <section class="lookup-hero">
-
-            <div class="lookup-hero-content">
-
-                <p class="lookup-eyebrow">
-                    MANAGE YOUR STAY
-                </p>
-
-                <h1>
-                    Reservation Lookup
-                </h1>
-
-                <p>
-                    Search for an existing Moffat Bay Lodge reservation using
-                    your reservation ID or the email address connected to your stay.
-                </p>
-
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">Find Your Stay</p>
+                <h1>Reservation Lookup</h1>
+                <p>Search by reservation ID or email address to view your room type, guest count, dates, and reservation
+                    total.</p>
+                <div class="page-hero-media"><img class="page-hero-photo"
+                        src="https://images.unsplash.com/photo-1652204247950-69c7379377cc?auto=format&amp;fit=crop&amp;w=1600&amp;q=72"
+                        alt="Whale-watching boat cruising the Salish Sea near Bellingham, Washington." decoding="async"
+                        fetchpriority="high"></div>
             </div>
-
         </section>
-
-        <section class="lookup-content">
-
-            <div class="lookup-info">
-
-                <p class="lookup-eyebrow">
-                    FIND YOUR RESERVATION
-                </p>
-
-                <h2>
-                    Access Your Stay Details
-                </h2>
-
-                <p>
-                    Use the reservation information provided when your stay was
-                    booked to locate your reservation.
-                </p>
-
-                <div class="lookup-step">
-
-                    <span>01</span>
-
-                    <div>
-                        <h3>Enter Your Information</h3>
-
-                        <p>
-                            Search using your reservation ID or the email
-                            associated with your reservation.
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="lookup-step">
-
-                    <span>02</span>
-
-                    <div>
-                        <h3>Review Your Stay</h3>
-
-                        <p>
-                            View the room and travel information associated
-                            with your reservation.
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="lookup-step">
-
-                    <span>03</span>
-
-                    <div>
-                        <h3>Plan Ahead</h3>
-
-                        <p>
-                            Review room options or start planning another
-                            Moffat Bay getaway.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="lookup-form-container">
-
-                <p class="lookup-eyebrow">
-                    RESERVATION SEARCH
-                </p>
-
-                <h2>
-                    Find Your Reservation
-                </h2>
-
-                <form id="lookupForm">
-
-                    <div class="form-group">
-
-                        <label for="lookup-query">
-                            Reservation ID or Email
-                        </label>
-
-                        <input id="lookup-query" name="lookup-query" type="text"
-                            placeholder="Reservation ID or email address" required>
-
-                    </div>
-
-                    <button type="submit" class="lookup-submit-button">
-                        Search Reservation
-                    </button>
-
+        <section class="section section-tight">
+            <div class="container split">
+                <form id="lookup-form">
+                    <h3>Search Reservations</h3>
+                    <div class="field full"><label for="lookup-query">Reservation ID or Email</label><input
+                            id="lookup-query" type="text" placeholder="Example: MBL-2201 or demo@moffatbay.com"
+                            required></div><button class="btn btn-primary" type="submit"
+                        style="margin-top:14px">Search</button>
+                    <div id="lookup-message" class="message" role="status" aria-live="polite"></div>
                 </form>
-
-                <div id="lookupResult" class="lookup-result">
-
-                    <p class="result-label">
-                        RESERVATION FOUND
-                    </p>
-
-                    <h3>Moffat Bay Lodge Reservation</h3>
-
-                    <p>
-                        Your reservation was located successfully.
-                    </p>
-
-                    <a href="reservation-summary.html" class="view-reservation-button">
-                        View Reservation
-                    </a>
-
+                <div id="lookup-result" class="summary-box">
+                    <h3>Reservation Details</h3>
+                    <p>Run a search to display reservation details.</p>
+                    <p class="hint">Need to start a new reservation instead?</p>
+                    <div class="cta-row"><a class="btn btn-ghost" href="rooms.html">View Rooms</a><a
+                            class="btn btn-secondary" href="reservation.html">Book a Stay</a></div>
                 </div>
-
-                <div class="lookup-links">
-
-                    <p>
-                        Need to make a new reservation?
-                        <a href="reservation.html">
-                            Book Your Stay
-                        </a>
-                    </p>
-
-                    <p>
-                        Want to compare rooms first?
-                        <a href="rooms.html">
-                            View Rooms & Rates
-                        </a>
-                    </p>
-
-                </div>
-
             </div>
-
         </section>
-
-        <section class="lookup-planning">
-
-            <div class="lookup-planning-content">
-
-                <p class="lookup-eyebrow">
-                    ANOTHER ISLAND GETAWAY?
-                </p>
-
-                <h2>
-                    Plan Your Next Visit
-                </h2>
-
-                <p>
-                    Explore Moffat Bay Lodge room options and nightly rates
-                    before beginning another reservation.
-                </p>
-
-                <div class="lookup-buttons">
-
-                    <a href="rooms.html" class="lookup-outline-button">
-                        View Rooms & Rates
-                    </a>
-
-                    <a href="reservation.html" class="lookup-primary-button">
-                        Book Your Stay
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
     </main>
 
-    <footer class="lookup-footer">
-
-        <div>
-            <h3>Moffat Bay Lodge</h3>
-            <p>14 Harbor Crest Road • Moffat Bay Island</p>
+    <footer class="footer">
+        <div class="container inner">
+            <div>
+                <p><strong>Moffat Bay Lodge</strong> • 14 Harbor Crest Road • Moffat Bay Island</p>
+                <p>One island destination, four room choices, endless adventure.</p>
+            </div>
+            <div class="footer-links">
+                <a href="rooms.html">Rooms & Pricing</a>
+                <a href="reservation.html">Book</a>
+                <a href="reservation-lookup.html">Reservation Lookup</a>
+            </div>
         </div>
-
-        <div>
-            <p>Island lodging made simple.</p>
-        </div>
-
     </footer>
 
-    <script>
-        const lookupForm = document.getElementById("lookupForm");
-        const lookupResult = document.getElementById("lookupResult");
-
-        lookupForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            lookupResult.style.display = "block";
-        });
-    </script>
-
+    <script src="assets/js/mock-data.js"></script>
+    <script src="assets/js/api-contract.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
