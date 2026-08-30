@@ -82,7 +82,7 @@ These are selected high-priority core user stories from each persona, each broke
 The Prototype file is [Prototype](PrototypeExported.pdf) and contains wireframes and mockups for the Moffat Bay Lodge Reservation System.
 
 ## 2.2 ERD
-The Entity Relationship Diagram (ERD) file is [ERD](ERD.pdf) and contains the database schema for the Moffat Bay Lodge Reservation System.
+The Entity Relationship Diagram (ERD) file is [ERD](ERD.md) and contains the database schema for the Moffat Bay Lodge Reservation System.
 
 # QA Testing
 ## 3.1 QA Test Plan
