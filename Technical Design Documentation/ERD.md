@@ -41,7 +41,6 @@ erDiagram
         int room_id PK
         int room_type_id FK
         varchar room_number "UNIQUE"
-        varchar room_status
     }
 
     ROOM_TYPES {
@@ -104,7 +103,6 @@ erDiagram
 | room_id        | INT          | PK, auto-increment                           |
 | room_type_id   | INT          | FK → Room_Types.room_type_id, required       |
 | room_number    | VARCHAR(20)  | UNIQUE, required                             |
-| room_status    | VARCHAR(20)  | Required                                     |
 
 ## RoomTypes Table
 
