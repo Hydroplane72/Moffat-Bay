@@ -43,7 +43,9 @@ This landing page introduces Moffat Bay Lodge through primary navigation and her
                 class="menu-toggle"
                 id="menu-toggle"
                 type="button"
-                aria-label="Toggle menu">
+                aria-label="Toggle menu"
+                aria-controls="main-nav"
+                aria-expanded="false">
                 ☰
             </button>
 
@@ -56,7 +58,10 @@ This landing page introduces Moffat Bay Lodge through primary navigation and her
                 <a href="reservation.html">Book</a>
             </nav>
 
-            <div id="auth-chip"></div>
+            <div id="auth-chip" aria-label="Account options">
+                <a class="btn btn-ghost" href="login.html">Login</a>
+                <a class="btn btn-primary" href="register.html">Register</a>
+            </div>
 
         </div>
 
@@ -262,7 +267,10 @@ This landing page introduces Moffat Bay Lodge through primary navigation and her
                 </div>
 
 
-                <div class="card-grid four-up">
+                <div
+                    class="card-grid four-up"
+                    id="landing-room-grid"
+                    aria-live="polite">
 
                     <!-- Double Full -->
                     <article class="card">
@@ -376,6 +384,12 @@ This landing page introduces Moffat Bay Lodge through primary navigation and her
                     </article>
 
                 </div>
+
+                <div
+                    id="room-data-message"
+                    class="message"
+                    role="status"
+                    aria-live="polite"></div>
 
             </div>
 
@@ -525,10 +539,8 @@ This landing page introduces Moffat Bay Lodge through primary navigation and her
     </footer>
 
 
-    <!-- JavaScript -->
-    <script src="assets/js/mock-data.js"></script>
-    <script src="assets/js/api-contract.js"></script>
-    <script src="assets/js/app.js"></script>
+    <!-- Landing page JavaScript -->
+    <script src="assets/js/landing.js"></script>
 
 </body>
 
