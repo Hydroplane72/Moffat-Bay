@@ -6,18 +6,18 @@ Members:
  - Rashai Robertson
  - Tiffany Davidson
 Description:
-Development web server and login API for Moffat Bay Lodge.
+Development web server and registration API for Moffat Bay Lodge.
 
-The server hosts the files inside src/ and exposes a login endpoint that
-checks guest email/password credentials against the shared MySQL database.
-Kept as its own module (mirroring src/api/landing_api.py) so it can be run
+The server hosts the files inside src/ and exposes a registration endpoint
+that creates a new guest account in the shared MySQL database.
+Kept as its own module (mirroring src/api/login_api.py) so it can be run
 and tested in isolation without touching another teammate's page/server.
 
 Run from the project root with:
-    python src/api/login_api.py
+    python src/api/newregistration_api.py
 
 Then open:
-    http://127.0.0.1:8001/login.html
+    http://127.0.0.1:8002/register.html
 """
 
 from __future__ import annotations
@@ -40,7 +40,7 @@ if str(SRC_DIR) not in sys.path:
 
 load_dotenv(API_DIR / ".env")  # DB config can also be supplied via src/api/.env
 
-from api.helpers.auth import verify_login  # noqa: E402
+from api.helpers.registration import DUPLICATE_EMAIL_REASON, register_customer  # noqa: E402
 
 DB_HOST = os.getenv("MOFFAT_DB_HOST", "localhost")
 DB_PORT = int(os.getenv("MOFFAT_DB_PORT", "3306"))
@@ -48,8 +48,8 @@ DB_USER = os.getenv("MOFFAT_DB_USER", "root")
 DB_PASSWORD = os.getenv("MOFFAT_DB_PASSWORD", "")
 DB_NAME = os.getenv("MOFFAT_DB_NAME", "moffat_bay")
 
-SERVER_HOST = os.getenv("MOFFAT_LOGIN_SERVER_HOST", "127.0.0.1")
-SERVER_PORT = int(os.getenv("MOFFAT_LOGIN_SERVER_PORT", "8001"))
+SERVER_HOST = os.getenv("MOFFAT_REGISTRATION_SERVER_HOST", "127.0.0.1")
+SERVER_PORT = int(os.getenv("MOFFAT_REGISTRATION_SERVER_PORT", "8002"))
 
 
 def get_db_connection():
@@ -71,8 +71,8 @@ def get_db_connection():
     )
 
 
-class LoginRequestHandler(SimpleHTTPRequestHandler):
-    """Serve the site files and the read/write login API."""
+class RegistrationRequestHandler(SimpleHTTPRequestHandler):
+    """Serve the site files and the read/write registration API."""
 
     def __init__(self, *args, directory=None, **kwargs):
         super().__init__(*args, directory=str(SRC_DIR), **kwargs)
@@ -86,15 +86,15 @@ class LoginRequestHandler(SimpleHTTPRequestHandler):
             return
 
         if request_path == "/":
-            self.path = "/login.html"
+            self.path = "/register.html"
 
         super().do_GET()
 
     def do_POST(self):
         request_path = urlsplit(self.path).path
 
-        if request_path == "/api/auth/login":
-            self._handle_login()
+        if request_path == "/api/auth/register":
+            self._handle_register()
             return
 
         self.send_error(404, "Not Found")
@@ -104,7 +104,7 @@ class LoginRequestHandler(SimpleHTTPRequestHandler):
         self.send_error(404, "Not Found")
         return None
 
-    def _handle_login(self):
+    def _handle_register(self):
         body = self._read_json_body()
 
         if body is None:
@@ -112,25 +112,34 @@ class LoginRequestHandler(SimpleHTTPRequestHandler):
             return
 
         email = body.get("email", "")
+        phone = body.get("phone", "")
+        first_name = body.get("first_name", "")
+        last_name = body.get("last_name", "")
         password = body.get("password", "")
 
         try:
             connection = get_db_connection()
         except Exception as exc:  # Server logs detail; client receives a safe message.
-            self.log_error("Login API error: %s", exc)
+            self.log_error("Registration API error: %s", exc)
             self._send_json(
                 500,
-                {"success": False, "reason": "Unable to sign in at this time."},
+                {"success": False, "reason": "Unable to create an account at this time."},
             )
             return
 
         try:
-            result = verify_login(email, password, connection)
+            result = register_customer(email, phone, first_name, last_name, password, connection)
         finally:
             if connection.is_connected():
                 connection.close()
 
-        status_code = 200 if result.success else 401
+        if result.success:
+            status_code = 200
+        elif result.reason == DUPLICATE_EMAIL_REASON:
+            status_code = 409
+        else:
+            status_code = 400
+
         self._send_json(
             status_code,
             {
@@ -174,7 +183,7 @@ class LoginRequestHandler(SimpleHTTPRequestHandler):
 
 def create_server(host: str = SERVER_HOST, port: int = SERVER_PORT):
     """Create the threaded HTTP server. A port of 0 selects a free test port."""
-    return ThreadingHTTPServer((host, port), LoginRequestHandler)
+    return ThreadingHTTPServer((host, port), RegistrationRequestHandler)
 
 
 def main():
@@ -182,18 +191,18 @@ def main():
     address, port = server.server_address[:2]
 
     print("=" * 68)
-    print("MOFFAT BAY LOGIN PAGE SERVER")
+    print("MOFFAT BAY REGISTRATION PAGE SERVER")
     print("=" * 68)
-    print(f"Website:    http://{address}:{port}/")
-    print(f"Login API:  http://{address}:{port}/api/auth/login")
-    print(f"Database:   {DB_NAME} on {DB_HOST}:{DB_PORT}")
+    print(f"Website:         http://{address}:{port}/")
+    print(f"Registration API: http://{address}:{port}/api/auth/register")
+    print(f"Database:        {DB_NAME} on {DB_HOST}:{DB_PORT}")
     print("Press Ctrl+C to stop the server.")
     print("=" * 68)
 
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print("\nStopping Moffat Bay login page server...")
+        print("\nStopping Moffat Bay registration page server...")
     finally:
         server.server_close()
 

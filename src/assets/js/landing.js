@@ -102,7 +102,7 @@ async function loadRoomTypes() {
     }
 
     try {
-        const response = await fetch("/api/landing/room-types", {
+        const response = await fetch(`${API_BASE_URL}/api/landing/room-types`, {
             method: "GET",
             headers: {
                 "Accept": "application/json"

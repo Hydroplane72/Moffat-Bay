@@ -10,15 +10,19 @@ This page collects new guest account information. Its inline validation and subm
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register | Moffat Bay Lodge</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body data-page="register">
     <header class="site-header">
         <div class="container inner">
@@ -37,8 +41,48 @@ This page collects new guest account information. Its inline validation and subm
     </header>
 
     <main>
-        <section class="page-hero"><div class="container"><p class="eyebrow">Create an Account</p><h1>Register for Your Free Account</h1><p>Create an account to confirm reservations and return later to look up your stay.</p><div class="page-hero-media"><img class="page-hero-photo" src="https://images.unsplash.com/photo-1726030044828-1093a0f240fd?auto=format&amp;fit=crop&amp;w=1600&amp;q=72" alt="Mountain road and alpine scenery in Mount Rainier National Park, Washington." decoding="async" fetchpriority="high"></div></div></section>
-        <section class="section section-tight"><div class="container split"><form id="register-form"><h3>Guest Information</h3><div class="form-grid"><div class="field"><label for="email">Email Address</label><input id="email" type="email" required></div><div class="field"><label for="telephone">Telephone</label><input id="telephone" type="tel" required></div><div class="field"><label for="firstName">First Name</label><input id="firstName" type="text" required></div><div class="field"><label for="lastName">Last Name</label><input id="lastName" type="text" required></div><div class="field"><label for="password">Password</label><input id="password" type="password" required></div><div class="field"><label for="confirmPassword">Confirm Password</label><input id="confirmPassword" type="password" required></div></div><p class="hint">Password must be at least 8 characters with one uppercase letter, one lowercase letter, and one number.</p><button class="btn btn-primary" type="submit">Create Account</button><div id="register-message" class="message" role="status" aria-live="polite"></div></form><article class="info-panel"><h3>Why Register?</h3><p>Browse freely, then use your account when you are ready to confirm a reservation.</p><div class="badge-row"><span class="badge">Book Your Stay</span><span class="badge">Confirm Reservations</span><span class="badge">Reservation Lookup</span></div><div class="cta-row"><a class="btn btn-ghost" href="login.html">Already Have an Account?</a></div></article></div></section>
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">Create an Account</p>
+                <h1>Register for Your Free Account</h1>
+                <p>Create an account to confirm reservations and return later to look up your stay.</p>
+                <div class="page-hero-media"><img class="page-hero-photo"
+                        src="https://images.unsplash.com/photo-1726030044828-1093a0f240fd?auto=format&amp;fit=crop&amp;w=1600&amp;q=72"
+                        alt="Mountain road and alpine scenery in Mount Rainier National Park, Washington."
+                        decoding="async" fetchpriority="high"></div>
+            </div>
+        </section>
+        <section class="section section-tight">
+            <div class="container split">
+                <form id="register-form">
+                    <h3>Guest Information</h3>
+                    <div class="form-grid">
+                        <div class="field"><label for="email">Email Address</label><input id="email" type="email"
+                                required></div>
+                        <div class="field"><label for="telephone">Telephone</label><input id="telephone" type="tel"
+                                required></div>
+                        <div class="field"><label for="firstName">First Name</label><input id="firstName" type="text"
+                                required></div>
+                        <div class="field"><label for="lastName">Last Name</label><input id="lastName" type="text"
+                                required></div>
+                        <div class="field"><label for="password">Password</label><input id="password" type="password"
+                                required></div>
+                        <div class="field"><label for="confirmPassword">Confirm Password</label><input
+                                id="confirmPassword" type="password" required></div>
+                    </div>
+                    <p class="hint">Password must be at least 8 characters with one uppercase letter, one lowercase
+                        letter, and one number.</p><button class="btn btn-primary" type="submit">Create Account</button>
+                    <div id="register-message" class="message" role="status" aria-live="polite"></div>
+                </form>
+                <article class="info-panel">
+                    <h3>Why Register?</h3>
+                    <p>Browse freely, then use your account when you are ready to confirm a reservation.</p>
+                    <div class="badge-row"><span class="badge">Book Your Stay</span><span class="badge">Confirm
+                            Reservations</span><span class="badge">Reservation Lookup</span></div>
+                    <div class="cta-row"><a class="btn btn-ghost" href="login.html">Already Have an Account?</a></div>
+                </article>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -55,6 +99,10 @@ This page collects new guest account information. Its inline validation and subm
         </div>
     </footer>
 
+    <script src="assets/js/api-config.js"></script>
+    <script src="assets/js/emailValidation.js"></script>
     <script src="assets/js/auth-chip.js"></script>
+    <script src="assets/js/register.js"></script>
 </body>
+
 </html>

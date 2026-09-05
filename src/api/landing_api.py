@@ -27,8 +27,12 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from dotenv import load_dotenv
 
 SRC_DIR = Path(__file__).resolve().parents[1]
+API_DIR = Path(__file__).resolve().parent
+
+load_dotenv(API_DIR / ".env")  # DB config can also be supplied via src/api/.env
 
 DB_HOST = os.getenv("MOFFAT_DB_HOST", "localhost")
 DB_PORT = int(os.getenv("MOFFAT_DB_PORT", "3306"))
