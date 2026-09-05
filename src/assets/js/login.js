@@ -12,7 +12,7 @@ session so the shared auth-chip and other pages know a guest is signed in.
 
 "use strict";
 
-const LOGIN_ENDPOINT = "/api/auth/login";
+const LOGIN_ENDPOINT = `${API_BASE_URL}/api/auth/login`;
 const POST_LOGIN_REDIRECT = "reservation.html";
 
 function showLoginMessage(text, isError) {

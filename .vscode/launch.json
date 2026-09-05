@@ -1,0 +1,45 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Landing API",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/api/landing_api.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Login API",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/api/login_api.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Registration API",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/api/newregistration_api.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "All APIs (Startup)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/api/startup_api.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

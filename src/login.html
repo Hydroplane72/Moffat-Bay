@@ -10,122 +10,107 @@ This page allows returning guests to enter the reservation workflow. It also pro
 -->
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login | Moffat Bay Lodge</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
-  <body data-page="login">
-    <header class="site-header">
-      <div class="container inner">
-        <a class="logo-block" href="index.html"
-          ><span class="logo-pill">MB</span><span>Moffat Bay Lodge</span></a
-        >
-        <button
-          class="menu-toggle"
-          id="menu-toggle"
-          type="button"
-          aria-label="Toggle menu"
-        >
-          ☰
-        </button>
-        <nav class="main-nav" id="main-nav">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="rooms.html">Rooms & Pricing</a>
-          <a href="attractions.html">Attractions</a>
-          <a href="contact.html">Contact</a>
-          <a href="reservation.html">Book</a>
-        </nav>
-        <div id="auth-chip"></div>
-      </div>
-    </header>
 
-    <main>
-      <section class="page-hero">
-        <div class="container">
-          <p class="eyebrow">Guest Access</p>
-          <h1>Welcome Back</h1>
-          <p>
-            Log in with your email and password to continue to your Moffat Bay
-            Lodge reservation.
-          </p>
-          <div class="page-hero-media">
-            <img
-              class="page-hero-photo"
-              src="https://images.unsplash.com/photo-1760548618296-9f95d8ebcfc6?auto=format&amp;fit=crop&amp;w=1600&amp;q=72"
-              alt="Mount Rainier rising above Reflection Lakes and evergreen forest in Washington."
-              decoding="async"
-              fetchpriority="high"
-            />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Moffat Bay Lodge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body data-page="login">
+  <header class="site-header">
+    <div class="container inner">
+      <a class="logo-block" href="index.html"><span class="logo-pill">MB</span><span>Moffat Bay Lodge</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">
+        ☰
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="rooms.html">Rooms & Pricing</a>
+        <a href="attractions.html">Attractions</a>
+        <a href="contact.html">Contact</a>
+        <a href="reservation.html">Book</a>
+      </nav>
+      <div id="auth-chip"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Guest Access</p>
+        <h1>Welcome Back</h1>
+        <p>
+          Log in with your email and password to continue to your Moffat Bay
+          Lodge reservation.
+        </p>
+        <div class="page-hero-media">
+          <img class="page-hero-photo"
+            src="https://images.unsplash.com/photo-1760548618296-9f95d8ebcfc6?auto=format&amp;fit=crop&amp;w=1600&amp;q=72"
+            alt="Mount Rainier rising above Reflection Lakes and evergreen forest in Washington." decoding="async"
+            fetchpriority="high" />
+        </div>
+      </div>
+    </section>
+    <section class="section section-tight">
+      <div class="container split">
+        <form id="login-form">
+          <h3>Login</h3>
+          <div class="form-grid">
+            <div class="field">
+              <label for="email">Email Address</label><input id="email" type="email" required />
+            </div>
+            <div class="field">
+              <label for="password">Password</label><input id="password" type="password" required />
+            </div>
           </div>
-        </div>
-      </section>
-      <section class="section section-tight">
-        <div class="container split">
-          <form id="login-form">
-            <h3>Login</h3>
-            <div class="form-grid">
-              <div class="field">
-                <label for="email">Email Address</label
-                ><input id="email" type="email" required />
-              </div>
-              <div class="field">
-                <label for="password">Password</label
-                ><input id="password" type="password" required />
-              </div>
-            </div>
-            <button class="btn btn-primary" type="submit">Login</button>
-            <p class="hint">Demo account: demo@moffatbay.com / DemoPass1</p>
-            <div
-              id="login-message"
-              class="message"
-              role="status"
-              aria-live="polite"
-            ></div>
-          </form>
-          <article class="info-panel">
-            <h3>New to Moffat Bay?</h3>
-            <p>
-              Create a free account to confirm a lodge reservation. You can
-              browse rooms, rates, attractions, and other pages without signing
-              in.
-            </p>
-            <div class="cta-row">
-              <a class="btn btn-secondary" href="register.html"
-                >Create Account</a
-              ><a class="btn btn-ghost" href="rooms.html">Browse Rooms</a>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container inner">
-        <div>
+          <button class="btn btn-primary" type="submit">Login</button>
+          <p class="hint">Demo account: demo@moffatbay.com / DemoPass1</p>
+          <div id="login-message" class="message" role="status" aria-live="polite"></div>
+        </form>
+        <article class="info-panel">
+          <h3>New to Moffat Bay?</h3>
           <p>
-            <strong>Moffat Bay Lodge</strong> • 14 Harbor Crest Road • Moffat Bay Island
+            Create a free account to confirm a lodge reservation. You can
+            browse rooms, rates, attractions, and other pages without signing
+            in.
           </p>
-          <p>One island destination, four room choices, endless adventure.</p>
-        </div>
-        <div class="footer-links">
-          <a href="rooms.html">Rooms & Pricing</a>
-          <a href="reservation.html">Book</a>
-          <a href="reservation-lookup.html">Reservation Lookup</a>
-        </div>
+          <div class="cta-row">
+            <a class="btn btn-secondary" href="register.html">Create Account</a><a class="btn btn-ghost"
+              href="rooms.html">Browse Rooms</a>
+          </div>
+        </article>
       </div>
-    </footer>
+    </section>
+  </main>
 
-    <script src="assets/js/emailValidation.js"></script>
-    <script src="assets/js/auth-chip.js"></script>
-    <script src="assets/js/login.js"></script>
-  </body>
+  <footer class="footer">
+    <div class="container inner">
+      <div>
+        <p>
+          <strong>Moffat Bay Lodge</strong> • 14 Harbor Crest Road • Moffat Bay Island
+        </p>
+        <p>One island destination, four room choices, endless adventure.</p>
+      </div>
+      <div class="footer-links">
+        <a href="rooms.html">Rooms & Pricing</a>
+        <a href="reservation.html">Book</a>
+        <a href="reservation-lookup.html">Reservation Lookup</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/api-config.js"></script>
+  <script src="assets/js/emailValidation.js"></script>
+  <script src="assets/js/auth-chip.js"></script>
+  <script src="assets/js/login.js"></script>
+</body>
+
 </html>
