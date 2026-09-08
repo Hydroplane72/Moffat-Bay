@@ -21,6 +21,7 @@ This page provides a reservation form for selecting a room, guest count, and che
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 
 <body data-page="reservation">
@@ -59,23 +60,30 @@ This page provides a reservation form for selecting a room, guest count, and che
                     <h3>Reservation Details</h3>
                     <div class="form-grid">
                         <div class="field"><label for="roomType">Room Size</label><select id="roomType" required>
-                                <option value="Double Full Beds">Double Full Beds ($120)</option>
-                                <option value="Queen">Queen ($135)</option>
-                                <option value="Double Queen Beds">Double Queen Beds ($150)</option>
-                                <option value="King">King ($160)</option>
+                                <option value="">Loading room types...</option>
                             </select></div>
+                        <div class="field"><label for="roomQty">Rooms of This Size</label><input id="roomQty"
+                                type="number" min="1" max="10" value="1"></div>
                         <div class="field"><label for="guests">Number of Guests</label><input id="guests" type="number"
                                 min="1" max="8" value="2" required></div>
-                        <div class="field"><label for="checkIn">Check-In Date</label><input id="checkIn" type="date"
-                                required></div>
-                        <div class="field"><label for="checkOut">Check-Out Date</label><input id="checkOut" type="date"
-                                required></div>
+                        <div class="field"><label for="checkIn">Check-In Date</label><input id="checkIn" type="text"
+                                placeholder="Select a date" readonly autocomplete="off" required></div>
+                        <div class="field"><label for="checkOut">Check-Out Date</label><input id="checkOut" type="text"
+                                placeholder="Select a date" readonly autocomplete="off" required></div>
                     </div>
-                    <p id="room-rate-hint" class="hint"></p><button class="btn btn-primary" type="submit">Review
-                        Reservation</button>
+                    <p id="room-rate-hint" class="hint"></p>
+                    <div class="cta-row"><button id="add-room" class="btn btn-ghost" type="button">Add Room to
+                            Reservation</button></div>
                     <div id="reservation-message" class="message" role="status" aria-live="polite"></div>
+                    <div id="room-cart-section" style="margin-top:20px">
+                        <h3>Your Rooms</h3>
+                        <ul id="room-cart" class="room-cart"></ul>
+                        <p id="cart-total" class="hint"></p>
+                        <div class="cta-row"><button id="continue-to-summary" class="btn btn-primary" type="button"
+                                disabled>Continue to Summary</button></div>
+                    </div>
                 </form>
-                <div class="info-panel accent">
+                <div class="info-panel accent" id="before-confirm-panel">
                     <h3>Before You Confirm</h3>
                     <p>All rooms are at the same Moffat Bay Lodge location. You are choosing between room types, not
                         separate properties.</p>
@@ -104,7 +112,12 @@ This page provides a reservation form for selecting a room, guest count, and che
         </div>
     </footer>
 
+    <script src="assets/js/api-config.js"></script>
     <script src="assets/js/auth-chip.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js"></script>
+    <script src="assets/js/date-range-picker.js"></script>
+    <script src="assets/js/reservation.js"></script>
 </body>
 
 </html>
