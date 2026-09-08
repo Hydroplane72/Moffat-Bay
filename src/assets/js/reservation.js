@@ -49,11 +49,14 @@ function computeNights(checkIn, checkOut) {
     return Number.isFinite(nights) && nights > 0 ? nights : 0;
 }
 
-function toggleBeforeConfirmPanel() {
+function updateAuthGatedVisibility() {
     const panel = document.getElementById("before-confirm-panel");
-    if (!panel) return;
+    const form = document.getElementById("reservation-form");
     const session = getAuthSession();
-    panel.style.display = session && session.firstName ? "none" : "";
+    const loggedIn = Boolean(session && session.firstName);
+
+    if (panel) panel.style.display = loggedIn ? "none" : "";
+    if (form) form.style.display = loggedIn ? "" : "none";
 }
 
 async function loadRoomTypes() {
@@ -256,7 +259,7 @@ function handleContinueToSummary() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    toggleBeforeConfirmPanel();
+    updateAuthGatedVisibility();
     loadRoomTypes();
 
     document.getElementById("roomType").addEventListener("change", updateRateHint);
