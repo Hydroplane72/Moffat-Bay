@@ -13,10 +13,10 @@ VALUES
 
 INSERT INTO RoomTypes (room_type_name, price_per_night, max_occupancy)
 VALUES
-('Double Full Beds', 120.00, 2),
-('Queen', 135.00, 2),
-('Double Queen Beds', 150.00, 4),
-('King', 160.00, 2);
+('Double Full Beds', 126.00, 2),
+('Queen', 141.75, 2),
+('Double Queen Beds', 157.50, 4),
+('King', 168.00, 2);
 
 INSERT INTO Rooms (room_id, room_type_id, room_number, allow_reservations)
 VALUES
@@ -50,10 +50,10 @@ VALUES
 
 INSERT INTO ReservationRooms (reservation_id, room_id, nightly_rate)
 VALUES
-(1, 1, 120.00),
-(2, 6, 135.00),
-(3, 11, 150.00),
-(4, 16, 160.00);
+(1, 1, 126.00),
+(2, 6, 141.75),
+(3, 11, 157.50),
+(4, 16, 168.00);
 
 INSERT INTO ContactMessages (name, email, subject, message, created_at)
 VALUES

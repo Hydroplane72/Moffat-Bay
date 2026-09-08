@@ -61,8 +61,14 @@ This page catalogs available rooms, amenities, and pricing information. It direc
                     <p>Every room is at the same Moffat Bay Lodge location, so you only need to choose the size and
                         price that work best for your group.</p>
                 </div>
-                <div class="room-list">
-                    <article class="room-detail-card">
+                <div class="field" style="max-width:280px;margin:0 auto 28px"><label for="capacity-filter">Filter by
+                        Guests</label><select id="capacity-filter">
+                        <option value="0">Any Number of Guests</option>
+                        <option value="2">2+ Guests</option>
+                        <option value="4">4+ Guests</option>
+                    </select></div>
+                <div class="room-list" id="room-list">
+                    <article class="room-detail-card" data-max-occupancy="2">
                         <div class="room-number">01</div>
                         <div class="room-info">
                             <h2>Double Full Beds</h2>
@@ -73,11 +79,11 @@ This page catalogs available rooms, amenities, and pricing information. It direc
                         </div>
                         <div class="room-price-area">
                             <p class="label">Nightly Rate</p>
-                            <p class="room-price">$120 <span>/ night</span></p><a class="btn btn-primary"
+                            <p class="room-price">$126 <span>/ night</span></p><a class="btn btn-primary"
                                 href="reservation.html?room=Double%20Full%20Beds">Select Room</a>
                         </div>
                     </article>
-                    <article class="room-detail-card featured">
+                    <article class="room-detail-card featured" data-max-occupancy="2">
                         <span class="popular-label">POPULAR</span>
                         <div class="room-number">02</div>
                         <div class="room-info">
@@ -89,11 +95,11 @@ This page catalogs available rooms, amenities, and pricing information. It direc
                         </div>
                         <div class="room-price-area">
                             <p class="label">Nightly Rate</p>
-                            <p class="room-price">$135 <span>/ night</span></p><a class="btn btn-primary"
+                            <p class="room-price">$141.75 <span>/ night</span></p><a class="btn btn-primary"
                                 href="reservation.html?room=Queen">Select Room</a>
                         </div>
                     </article>
-                    <article class="room-detail-card">
+                    <article class="room-detail-card" data-max-occupancy="4">
                         <div class="room-number">03</div>
                         <div class="room-info">
                             <h2>Double Queen Beds</h2>
@@ -103,11 +109,11 @@ This page catalogs available rooms, amenities, and pricing information. It direc
                         </div>
                         <div class="room-price-area">
                             <p class="label">Nightly Rate</p>
-                            <p class="room-price">$150 <span>/ night</span></p><a class="btn btn-primary"
+                            <p class="room-price">$157.50 <span>/ night</span></p><a class="btn btn-primary"
                                 href="reservation.html?room=Double%20Queen%20Beds">Select Room</a>
                         </div>
                     </article>
-                    <article class="room-detail-card">
+                    <article class="room-detail-card" data-max-occupancy="2">
                         <div class="room-number">04</div>
                         <div class="room-info">
                             <h2>King</h2>
@@ -118,11 +124,13 @@ This page catalogs available rooms, amenities, and pricing information. It direc
                         </div>
                         <div class="room-price-area">
                             <p class="label">Nightly Rate</p>
-                            <p class="room-price">$160 <span>/ night</span></p><a class="btn btn-primary"
+                            <p class="room-price">$168 <span>/ night</span></p><a class="btn btn-primary"
                                 href="reservation.html?room=King">Select Room</a>
                         </div>
                     </article>
                 </div>
+                <p id="capacity-filter-empty" class="hint" style="display:none;text-align:center;margin-top:16px">No
+                    rooms match that guest count.</p>
             </div>
         </section>
         <section class="section section-alt">
@@ -154,6 +162,7 @@ This page catalogs available rooms, amenities, and pricing information. It direc
     </footer>
 
     <script src="assets/js/auth-chip.js"></script>
+    <script src="assets/js/rooms.js"></script>
 </body>
 
 </html>
