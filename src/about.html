@@ -162,7 +162,7 @@ This page describes Moffat Bay Lodge, its setting, amenities, and guest experien
               >
             </div>
           </article>
-          <form>
+          <form id="contact-form">
             <h3>Send an Inquiry</h3>
             <div class="form-grid">
               <div class="field">
@@ -178,6 +178,14 @@ This page describes Moffat Bay Lodge, its setting, amenities, and guest experien
                 />
               </div>
               <div class="field full">
+                <label for="contactSubject">Subject</label
+                ><input
+                  id="contactSubject"
+                  type="text"
+                  placeholder="What is this about?"
+                />
+              </div>
+              <div class="field full">
                 <label for="contactMessage">Message</label
                 ><textarea
                   id="contactMessage"
@@ -186,9 +194,10 @@ This page describes Moffat Bay Lodge, its setting, amenities, and guest experien
                 ></textarea>
               </div>
             </div>
-            <button class="btn btn-primary" type="button">
-              Send Message (Prototype)
+            <button class="btn btn-primary" type="submit">
+              Send Message
             </button>
+            <p id="contact-message" class="message" role="status"></p>
           </form>
         </div>
       </section>
@@ -211,6 +220,8 @@ This page describes Moffat Bay Lodge, its setting, amenities, and guest experien
       </div>
     </footer>
 
+    <script src="assets/js/api-config.js"></script>
+    <script src="assets/js/about.js"></script>
     <script src="assets/js/auth-chip.js"></script>
   </body>
 </html>
