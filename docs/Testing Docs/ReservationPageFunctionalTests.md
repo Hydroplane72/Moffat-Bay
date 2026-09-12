@@ -42,13 +42,53 @@ export MOFFAT_DB_PASSWORD=your_password_here
 
 The default configuration uses `localhost`, port `3306`, user `root`, database `moffat_bay`, and a blank password.
 
-## FT-RES-01: 
+## FT-RES-01: Availability Rejects an Invalid Date Range
 
-Objective: TODO
+Objective: Verify that `POST /api/reservations/availability` rejects a request where the check-out date is on or before the check-in date, so a stay with zero or negative nights can never be checked as available.
 
-## FT-RES-02:
+Steps:
 
-Objective: TODO
+1. Open a terminal in the Moffat-Bay project folder.
+2. Confirm MySQL is running and that `schema.sql`/`seed.sql` have already been loaded.
+3. Set `MOFFAT_DB_PASSWORD` (or the other `MOFFAT_DB_*` variables) if your local database needs non-default connection settings.
+4. Confirm `pytest` and `mysql-connector-python` are installed (see Preconditions).
+5. Run the targeted test:
+
+```text
+python -m pytest src/api/tests/test_reservation_api.py::test_availability_rejects_invalid_date_range -v
+```
+
+6. Review the terminal output to confirm the test result and the returned status code/response body logged by the test.
+
+Expected Result: The test displays `PASSED`. Posting a payload with `check_in` and `check_out` set to the same date (`2026-09-20`) to `/api/reservations/availability` returns HTTP 200 with `ok: false`.
+
+Actual Result: ******\*\*******\_\_******\*\*******
+
+Screenshot Evidence: Capture the terminal showing the test name and `PASSED`.
+
+## FT-RES-02: Availability Reports Free Rooms For Open Dates
+
+Objective: Verify that `POST /api/reservations/availability` reports available rooms for a far-future date range with no seeded bookings, so a guest can confirm a room type is bookable before adding it to their cart.
+
+Steps:
+
+1. Open a terminal in the Moffat-Bay project folder.
+2. Confirm MySQL is running and that `schema.sql`/`seed.sql` have already been loaded, so the seeded room types and rooms exist.
+3. Set `MOFFAT_DB_PASSWORD` (or the other `MOFFAT_DB_*` variables) if your local database needs non-default connection settings.
+4. Confirm `pytest` and `mysql-connector-python` are installed (see Preconditions).
+5. Run the targeted test:
+
+```text
+python -m pytest src/api/tests/test_reservation_api.py::test_availability_reports_free_rooms_for_open_dates -v
+```
+
+6. Review the terminal output to confirm the test result and the returned status code/response body logged by the test.
+
+Expected Result: The test displays `PASSED`. Posting a payload requesting one `room_type_id: 1` room for `check_in: 2027-01-10` to `check_out: 2027-01-12` (a far-future range with no seeded bookings) to `/api/reservations/availability` returns HTTP 200 with `ok: true` and a `details[0].available_count` of at least `1`.
+
+Actual Result: ******\*\*******\_\_******\*\*******
+
+Screenshot Evidence: Capture the terminal showing the test name and `PASSED`.
 
 ## FT-RES-03: Reservation Creation Requires a Customer ID
 
@@ -70,7 +110,7 @@ python -m pytest src/api/tests/test_reservation_api.py::test_create_reservation_
 
 Expected Result: The test displays `PASSED`. Posting a reservation payload with `guests`, `check_in`, `check_out`, and `rooms` but **no** `customer_id` to `/api/reservations` returns HTTP 400 with `success: false` and a reason indicating a logged-in customer is required. No reservation row is inserted.
 
-Actual Result: **************\_\_**************
+Actual Result: ******\*\*******\_\_******\*\*******
 
 Screenshot Evidence: Capture the terminal showing the test name and `PASSED`.
 
@@ -94,7 +134,7 @@ python -m pytest src/api/tests/test_reservation_api.py::test_create_reservation_
 
 Expected Result: The test displays `PASSED`. Posting a valid reservation payload (`customer_id: 1`, `guests: 2`, `check_in: 2027-03-01`, `check_out: 2027-03-03`, one `Queen` room) to `/api/reservations` returns HTTP 200 with `success: true`, a numeric `reservation_id`, and a `total_price` greater than `0`.
 
-Actual Result: **************\_\_**************
+Actual Result: ******\*\*******\_\_******\*\*******
 
 Screenshot Evidence: Capture the terminal showing the test name and `PASSED`.
 
