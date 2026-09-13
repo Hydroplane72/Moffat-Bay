@@ -1,5 +1,13 @@
--- schema.sql 
--- Use to create the database schema for Moffat Bay's hotel reservation system.
+-- Project: Moffat Bay Lodge
+-- Course: CSD 460
+-- Team Name: Red Team
+-- Team Members:
+--   Brayan Covarrubias
+--   Matthew Rozendaal
+--   Rashai Robertson
+--   Tiffany Davidson
+-- File: schema.sql
+-- Purpose: Creates the moffat_bay database, tables, relationships, availability view, and stored procedure used by the reservation system.
 
 DROP DATABASE IF EXISTS moffat_bay;
 CREATE DATABASE moffat_bay;
@@ -125,7 +133,3 @@ BEGIN
 END $$
 
 DELIMITER ;
-
-
-
-

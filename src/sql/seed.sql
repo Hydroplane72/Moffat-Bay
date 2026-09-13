@@ -1,6 +1,13 @@
--- seed.sql
--- Sample data for Moffat Bay's hotel reservation system.
--- set up the database and tables, then populate them with sample data.
+-- Project: Moffat Bay Lodge
+-- Course: CSD 460
+-- Team Name: Red Team
+-- Team Members:
+--   Brayan Covarrubias
+--   Matthew Rozendaal
+--   Rashai Robertson
+--   Tiffany Davidson
+-- File: seed.sql
+-- Purpose: Loads sample customers, room types, rooms, reservations, reservation-room links, and contact messages for development and testing.
 
 
 INSERT INTO Customers (first_name, last_name, email, phone, password_hash)
