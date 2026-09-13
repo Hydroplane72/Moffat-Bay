@@ -38,6 +38,7 @@ if str(SRC_DIR) not in sys.path:
 load_dotenv(API_DIR / ".env")  # DB config can also be supplied via src/api/.env
 
 from api.helpers.auth import verify_login  # noqa: E402
+from api.helpers.contact import submit_contact_message  # noqa: E402
 from api.helpers.registration import DUPLICATE_EMAIL_REASON, register_customer  # noqa: E402
 from api.helpers.reservation import check_room_availability, create_reservation  # noqa: E402
 from api.landing_api import get_db_connection, load_room_types_from_database  # noqa: E402
@@ -91,6 +92,10 @@ class ApiRequestHandler(SimpleHTTPRequestHandler):
 
         if request_path == "/api/reservations":
             self._handle_create_reservation()
+            return
+
+        if request_path == "/api/contact":
+            self._handle_contact_message()
             return
 
         self.send_error(404, "Not Found")
@@ -288,6 +293,41 @@ class ApiRequestHandler(SimpleHTTPRequestHandler):
             },
         )
 
+    def _handle_contact_message(self):
+        body = self._read_json_body()
+
+        if body is None:
+            self._send_json(400, {"success": False, "reason": "Invalid request body."})
+            return
+
+        name = body.get("name", "")
+        email = body.get("email", "")
+        subject = body.get("subject", "")
+        message = body.get("message", "")
+
+        try:
+            connection = get_db_connection()
+        except Exception as exc:  # Server logs detail; client receives a safe message.
+            self.log_error("Contact API error: %s", exc)
+            self._send_json(500, {"success": False, "reason": "Unable to send your message at this time."})
+            return
+
+        try:
+            result = submit_contact_message(name, email, subject, message, connection)
+        finally:
+            if connection.is_connected():
+                connection.close()
+
+        status_code = 200 if result.success else 400
+        self._send_json(
+            status_code,
+            {
+                "success": result.success,
+                "reason": result.reason,
+                "message_id": result.message_id,
+            },
+        )
+
     def _read_json_body(self, max_bytes: int = 8192):
         """Read and parse a bounded JSON request body, returning None on failure."""
         try:
@@ -344,6 +384,7 @@ def main():
     print(f"Registration API: http://{address}:{port}/api/auth/register")
     print(f"Availability API: http://{address}:{port}/api/reservations/availability")
     print(f"Reservation API:  http://{address}:{port}/api/reservations")
+    print(f"Contact API:      http://{address}:{port}/api/contact")
     print(f"Database:         {DB_NAME} on {DB_HOST}:{DB_PORT}")
     print("Press Ctrl+C to stop the server.")
     print("=" * 68)
