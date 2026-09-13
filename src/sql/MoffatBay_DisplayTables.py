@@ -1,28 +1,28 @@
 """
-Moffat Bay SQL Table Display Script
+Project: Moffat Bay Lodge
+Course: CSD 460
+Team Name: Red Team
+Members:
+ - Brayan Covarrubias
+ - Matthew Rozendaal
+ - Rashai Robertson
+ - Tiffany Davidson
+File: MoffatBay_DisplayTables.py
 
-Purpose:
-    Connect to the local Moffat Bay MySQL database and display each SQL table
-    one at a time in a clean terminal format.
-
-    This makes it easy to take screenshots of the database tables for
-    project documentation and place them into a Word document.
+Description:
+Connects to the local Moffat Bay MySQL database and displays each project
+table in a clean terminal format for verification and screenshot evidence.
 
 Setup:
-    1. Make sure MySQL Server 8.0 is running.
-    2. Make sure schema.sql has been run to create the moffat_bay database.
-    3. Make sure seed.sql has been run to add the sample data.
-    4. Install the MySQL connector if needed:
-
-       python -m pip install mysql-connector-python
-
-    5. Run this program from the Moffat-Bay project folder:
-
-       python SourceCode\\sql\\MoffatBay_DisplayTables.py
+  1. Start MySQL in XAMPP.
+  2. Run src/sql/schema.sql.
+  3. Run src/sql/seed.sql.
+  4. Install mysql-connector-python if needed.
+  5. From the Moffat-Bay project folder, run:
+       python src\\sql\\MoffatBay_DisplayTables.py
 
 Security:
-    The MySQL password is requested when the program starts.
-    The password is NOT stored in this Python file.
+The MySQL password is requested at runtime and is not stored in this file.
 """
 
 import os

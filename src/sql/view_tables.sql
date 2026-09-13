@@ -1,5 +1,13 @@
--- view_tables.sql
--- Queries to display the contents of each table in the Moffat Bay schema.
+-- Project: Moffat Bay Lodge
+-- Course: CSD 460
+-- Team Name: Red Team
+-- Team Members:
+--   Brayan Covarrubias
+--   Matthew Rozendaal
+--   Rashai Robertson
+--   Tiffany Davidson
+-- File: view_tables.sql
+-- Purpose: Provides read-only queries used to review the contents of the Moffat Bay database tables during testing.
 
 USE moffat_bay;
 
