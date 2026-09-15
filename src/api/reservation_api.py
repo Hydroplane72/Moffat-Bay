@@ -24,7 +24,7 @@ import os
 import sys
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import parse_qs, urlsplit
 
 from dotenv import load_dotenv
 
@@ -36,7 +36,7 @@ if str(SRC_DIR) not in sys.path:
 
 load_dotenv(API_DIR / ".env")  # DB config can also be supplied via src/api/.env
 
-from api.helpers.reservation import check_room_availability, create_reservation  # noqa: E402
+from api.helpers.reservation import check_room_availability, create_reservation, get_reservation_history  # noqa: E402
 
 DB_HOST = os.getenv("MOFFAT_DB_HOST", "localhost")
 DB_PORT = int(os.getenv("MOFFAT_DB_PORT", "3306"))
@@ -67,11 +67,41 @@ def get_db_connection():
     )
 
 
+def _serialize_history_entry(entry):
+    return {
+        "reservation_id": entry.reservation_id,
+        "check_in_date": entry.check_in_date.isoformat(),
+        "check_out_date": entry.check_out_date.isoformat(),
+        "num_guests": entry.num_guests,
+        "total_price": f"{entry.total_price:.2f}",
+        "status": entry.status,
+        "line_items": [
+            {
+                "room_number": item.room_number,
+                "room_type_name": item.room_type_name,
+                "nightly_rate": f"{item.nightly_rate:.2f}",
+                "nights": item.nights,
+                "subtotal": f"{item.subtotal:.2f}",
+            }
+            for item in entry.line_items
+        ],
+    }
+
+
 class ReservationRequestHandler(SimpleHTTPRequestHandler):
     """Serve the site files and the reservation availability/create API."""
 
     def __init__(self, *args, directory=None, **kwargs):
         super().__init__(*args, directory=str(SRC_DIR), **kwargs)
+
+    def do_GET(self):
+        request_path = urlsplit(self.path).path
+
+        if request_path == "/api/reservations/history":
+            self._send_reservation_history()
+            return
+
+        super().do_GET()
 
     def do_POST(self):
         request_path = urlsplit(self.path).path
@@ -97,6 +127,29 @@ class ReservationRequestHandler(SimpleHTTPRequestHandler):
         """Disable directory browsing."""
         self.send_error(404, "Not Found")
         return None
+
+    def _send_reservation_history(self):
+        query = parse_qs(urlsplit(self.path).query)
+        customer_id = query.get("customer_id", [None])[0]
+
+        if customer_id is None or not customer_id.isdigit():
+            self._send_json(400, {"error": "A valid customer_id is required."})
+            return
+
+        try:
+            connection = get_db_connection()
+        except Exception as exc:  # Server logs detail; client receives a safe message.
+            self.log_error("Reservation history API error: %s", exc)
+            self._send_json(500, {"error": "Unable to load reservation history at this time."})
+            return
+
+        try:
+            entries = get_reservation_history(connection, customer_id)
+        finally:
+            if connection.is_connected():
+                connection.close()
+
+        self._send_json(200, {"reservations": [_serialize_history_entry(entry) for entry in entries]})
 
     def _handle_availability(self):
         body = self._read_json_body()
@@ -238,6 +291,7 @@ def main():
     print(f"Website:             http://{address}:{port}/")
     print(f"Availability API:    http://{address}:{port}/api/reservations/availability")
     print(f"Create Reservation:  http://{address}:{port}/api/reservations")
+    print(f"Reservation History: http://{address}:{port}/api/reservations/history")
     print(f"Database:            {DB_NAME} on {DB_HOST}:{DB_PORT}")
     print("Press Ctrl+C to stop the server.")
     print("=" * 68)

@@ -19,27 +19,6 @@ const ROOM_DESCRIPTIONS = {
     "King": "A spacious option for guests who want added comfort."
 };
 
-function setupMobileNavigation() {
-    const menuToggle = document.getElementById("menu-toggle");
-    const mainNav = document.getElementById("main-nav");
-
-    if (!menuToggle || !mainNav) {
-        return;
-    }
-
-    menuToggle.addEventListener("click", () => {
-        const isOpen = mainNav.classList.toggle("open");
-        menuToggle.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    mainNav.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-            mainNav.classList.remove("open");
-            menuToggle.setAttribute("aria-expanded", "false");
-        });
-    });
-}
-
 function formatNightlyRate(value) {
     const numericValue = Number(value);
 
@@ -146,6 +125,5 @@ async function loadRoomTypes() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    setupMobileNavigation();
     loadRoomTypes();
 });

@@ -16,6 +16,7 @@ from decimal import Decimal
 from typing import Dict, List
 
 from api.models.availability_result import AvailabilityResult, RoomTypeAvailability
+from api.models.reservation_history_result import ReservationHistoryEntry, ReservationHistoryLineItem
 from api.models.reservation_result import ReservationResult
 
 DATE_FORMAT = "%Y-%m-%d"
@@ -225,3 +226,79 @@ def create_reservation(connection, customer_id, guests, check_in, check_out, roo
         reservation_id=int(reservation_id),
         total_price=f"{total_price:.2f}",
     )
+
+
+def get_reservation_history(connection, customer_id) -> List[ReservationHistoryEntry]:
+    """Return a customer's past reservations, newest check-in first, with room line items."""
+    try:
+        customer_id = int(customer_id)
+    except (TypeError, ValueError):
+        return []
+
+    cursor = connection.cursor(dictionary=True)
+
+    try:
+        cursor.execute(
+            """
+            SELECT reservation_id, check_in_date, check_out_date, num_guests, total_price, reservation_status
+            FROM Reservations
+            WHERE customer_id = %s
+            ORDER BY check_in_date DESC
+            """,
+            (customer_id,),
+        )
+        reservation_rows = cursor.fetchall()
+
+        if not reservation_rows:
+            return []
+
+        reservation_ids = [row["reservation_id"] for row in reservation_rows]
+        placeholders = ", ".join(["%s"] * len(reservation_ids))
+        cursor.execute(
+            f"""
+            SELECT rr.reservation_id, r.room_number, rt.room_type_name, rr.nightly_rate
+            FROM ReservationRooms rr
+            JOIN Rooms r ON r.room_id = rr.room_id
+            JOIN RoomTypes rt ON rt.room_type_id = r.room_type_id
+            WHERE rr.reservation_id IN ({placeholders})
+            """,
+            tuple(reservation_ids),
+        )
+        room_rows = cursor.fetchall()
+    finally:
+        cursor.close()
+
+    rooms_by_reservation: Dict[int, list] = {}
+    for row in room_rows:
+        rooms_by_reservation.setdefault(row["reservation_id"], []).append(row)
+
+    entries = []
+    for row in reservation_rows:
+        check_in = _parse_date(row["check_in_date"])
+        check_out = _parse_date(row["check_out_date"])
+        nights = max((check_out - check_in).days, 0)
+
+        line_items = [
+            ReservationHistoryLineItem(
+                room_number=room_row["room_number"],
+                room_type_name=room_row["room_type_name"],
+                nightly_rate=Decimal(str(room_row["nightly_rate"])),
+                nights=nights,
+                subtotal=Decimal(str(room_row["nightly_rate"])) * nights,
+            )
+            for room_row in rooms_by_reservation.get(row["reservation_id"], [])
+        ]
+
+        entries.append(
+            ReservationHistoryEntry(
+                reservation_id=int(row["reservation_id"]),
+                check_in_date=check_in,
+                check_out_date=check_out,
+                num_guests=int(row["num_guests"]),
+                total_price=Decimal(str(row["total_price"])),
+                status=str(row["reservation_status"]),
+                line_items=line_items,
+            )
+        )
+
+    return entries

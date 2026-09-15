@@ -6,7 +6,8 @@ Members:
  - Rashai Robertson
  - Tiffany Davidson
 Description:
-This page helps guests find an existing reservation. It collects lookup details and uses inline behavior to display or acknowledge reservation results.
+This page shows a logged-in guest's past reservations as a table. Clicking a
+row expands it to show the room line items that made up that stay's total.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@ This page helps guests find an existing reservation. It collects lookup details 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservation Lookup | Moffat Bay Lodge</title>
+    <title>Reservation History | Moffat Bay Lodge</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -34,6 +35,8 @@ This page helps guests find an existing reservation. It collects lookup details 
                 <a href="rooms.html">Rooms & Pricing</a>
                 <a href="attractions.html">Attractions</a>
                 <a href="reservation.html">Book</a>
+                <a href="reservation-lookup.html" id="nav-reservation-history" aria-current="page">Reservation
+                    History</a>
             </nav>
             <div id="auth-chip"></div>
         </div>
@@ -42,10 +45,9 @@ This page helps guests find an existing reservation. It collects lookup details 
     <main>
         <section class="page-hero">
             <div class="container">
-                <p class="eyebrow">Find Your Stay</p>
-                <h1>Reservation Lookup</h1>
-                <p>Search by reservation ID or email address to view your room type, guest count, dates, and reservation
-                    total.</p>
+                <p class="eyebrow">Your Stays</p>
+                <h1>Reservation History</h1>
+                <p>Review your past reservations. Click a row to see the room line items that made up its total.</p>
                 <div class="page-hero-media"><img class="page-hero-photo"
                         src="https://images.unsplash.com/photo-1652204247950-69c7379377cc?auto=format&amp;fit=crop&amp;w=1600&amp;q=72"
                         alt="Whale-watching boat cruising the Salish Sea near Bellingham, Washington." decoding="async"
@@ -53,21 +55,20 @@ This page helps guests find an existing reservation. It collects lookup details 
             </div>
         </section>
         <section class="section section-tight">
-            <div class="container split">
-                <form id="lookup-form">
-                    <h3>Search Reservations</h3>
-                    <div class="field full"><label for="lookup-query">Reservation ID or Email</label><input
-                            id="lookup-query" type="text" placeholder="Example: MBL-2201 or demo@moffatbay.com"
-                            required></div><button class="btn btn-primary" type="submit"
-                        style="margin-top:14px">Search</button>
-                    <div id="lookup-message" class="message" role="status" aria-live="polite"></div>
-                </form>
-                <div id="lookup-result" class="summary-box">
-                    <h3>Reservation Details</h3>
-                    <p>Run a search to display reservation details.</p>
-                    <p class="hint">Need to start a new reservation instead?</p>
-                    <div class="cta-row"><a class="btn btn-ghost" href="rooms.html">View Rooms</a><a
-                            class="btn btn-secondary" href="reservation.html">Book a Stay</a></div>
+            <div class="container">
+                <div class="summary-box">
+                    <h3>Past Reservations</h3>
+                    <div id="history-message" class="message" role="status" aria-live="polite"></div>
+                    <table id="history-table" class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Check-In</th>
+                                <th>Check-Out</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body"></tbody>
+                    </table>
                 </div>
             </div>
         </section>
@@ -82,12 +83,14 @@ This page helps guests find an existing reservation. It collects lookup details 
             <div class="footer-links">
                 <a href="rooms.html">Rooms & Pricing</a>
                 <a href="reservation.html">Book</a>
-                <a href="reservation-lookup.html">Reservation Lookup</a>
             </div>
         </div>
     </footer>
 
+    <script src="assets/js/api-config.js"></script>
+    <script src="assets/js/nav-toggle.js"></script>
     <script src="assets/js/auth-chip.js"></script>
+    <script src="assets/js/reservation-history.js"></script>
 </body>
 
 </html>

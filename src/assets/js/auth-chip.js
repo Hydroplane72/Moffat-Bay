@@ -27,6 +27,16 @@ function clearAuthSession() {
   localStorage.removeItem(AUTH_SESSION_KEY);
 }
 
+function updateReservationHistoryNavVisibility() {
+  const link = document.getElementById("nav-reservation-history");
+  if (!link) {
+    return;
+  }
+
+  const session = getAuthSession();
+  link.style.display = session && session.firstName ? "" : "none";
+}
+
 function renderAuthChip() {
   const chip = document.getElementById("auth-chip");
 
@@ -36,6 +46,7 @@ function renderAuthChip() {
 
   const session = getAuthSession();
   chip.textContent = "";
+  updateReservationHistoryNavVisibility();
 
   if (session && session.firstName) {
     const greeting = document.createElement("span");
@@ -69,3 +80,8 @@ function renderAuthChip() {
 }
 
 document.addEventListener("DOMContentLoaded", renderAuthChip);
+window.addEventListener("storage", (event) => {
+  if (event.key === AUTH_SESSION_KEY) {
+    renderAuthChip();
+  }
+});

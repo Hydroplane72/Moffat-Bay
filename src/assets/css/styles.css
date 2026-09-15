@@ -703,6 +703,59 @@ textarea:focus {
     margin-bottom: 2px;
 }
 
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table thead th {
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-700);
+    border-bottom: 2px solid var(--ink-900);
+}
+
+.history-row {
+    cursor: pointer;
+}
+
+.history-row td {
+    padding: 12px;
+    border-bottom: 1px dashed rgba(19, 33, 51, 0.2);
+}
+
+.history-row:hover {
+    background: rgba(245, 239, 229, 0.9);
+}
+
+.history-detail-row {
+    display: none;
+}
+
+.history-detail-row.open {
+    display: table-row;
+}
+
+.history-detail-row td {
+    padding: 12px;
+    background: rgba(245, 239, 229, 0.6);
+}
+
+.history-line-items {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.history-line-items th,
+.history-line-items td {
+    text-align: left;
+    padding: 6px 10px;
+}
+
 .footer {
     margin-top: 48px;
     padding: 30px 0;
