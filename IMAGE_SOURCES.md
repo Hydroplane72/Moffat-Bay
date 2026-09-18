@@ -7,6 +7,10 @@ All imagery added for Module 3 is unique within the site. No image is reused on 
 - Unsplash images listed below are marked by their individual Unsplash pages as free to use under the Unsplash License. The Unsplash license permits free commercial and noncommercial use and does not require attribution, although credit is appreciated.
 - The scuba image is a location-specific Pacific Northwest image from Wikimedia Commons. It is licensed CC BY-SA 4.0 and therefore requires attribution and share-alike compliance. Attribution is included directly on the Attractions page.
 
+## Custom interface assets
+
+- `src/assets/cursors/fishing-hook.svg` was created specifically for the Moffat Bay Lodge Index page as the custom cursor for the interactive salmon. It was not downloaded from an external website or copied from a third-party source, so no external attribution or license notice is required.
+
 ## Image optimization
 
 Unsplash images are requested through the Unsplash image CDN with `auto=format`, a capped display width (`w=900` or `w=1600`), and `q=72`. This prevents the site from requesting the full-resolution originals and allows the CDN to serve an optimized format for the visitor's browser. The Wikimedia scuba image is already a 720 x 960 JPEG at approximately 158 KB according to its Commons file page.
