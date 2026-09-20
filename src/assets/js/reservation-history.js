@@ -48,12 +48,14 @@ function buildLineItemsTable(lineItems) {
     `).join("");
 
     return `
-        <table class="history-line-items">
-            <thead>
-                <tr><th>Room Type</th><th>Room</th><th>Nightly Rate</th><th>Nights</th><th>Subtotal</th></tr>
-            </thead>
-            <tbody>${rows}</tbody>
-        </table>
+        <div class="history-line-items-scroll" role="region" aria-label="Reservation room details" tabindex="0">
+            <table class="history-line-items">
+                <thead>
+                    <tr><th>Room Type</th><th>Room</th><th>Nightly Rate</th><th>Nights</th><th>Subtotal</th></tr>
+                </thead>
+                <tbody>${rows}</tbody>
+            </table>
+        </div>
     `;
 }
 
