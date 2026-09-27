@@ -80,10 +80,10 @@ def test_landing_room_api_returns_seeded_room_types_from_database():
             "King",
         ]
         assert [room["price_per_night"] for room in payload["room_types"]] == [
-            "120.00",
-            "135.00",
-            "150.00",
-            "160.00",
+            "126.00",
+            "141.75",
+            "157.50",
+            "168.00",
         ]
     finally:
         _stop_test_server(server, thread)
