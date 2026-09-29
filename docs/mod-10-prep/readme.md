@@ -16,7 +16,7 @@ Before running the website, make sure you have:
 ## 1. Open the Project Folder
 
 Extract the project ZIP file and open the main `RedTeam_CSD460`
-folder in VS Code.
+folder in your IDE.
 
 The folder you open should contain the `src` folder.
 
