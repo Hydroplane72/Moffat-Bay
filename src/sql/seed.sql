@@ -20,9 +20,9 @@ VALUES
 
 INSERT INTO RoomTypes (room_type_name, price_per_night, max_occupancy)
 VALUES
-('Double Full Beds', 126.00, 2),
+('Double Full Beds', 126.00, 4),
 ('Queen', 141.75, 2),
-('Double Queen Beds', 157.50, 4),
+('Double Queen Beds', 157.50, 6),
 ('King', 168.00, 2);
 
 INSERT INTO Rooms (room_id, room_type_id, room_number, allow_reservations)

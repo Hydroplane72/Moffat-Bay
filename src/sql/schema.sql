@@ -28,7 +28,7 @@ CREATE TABLE RoomTypes (
     room_type_id INT AUTO_INCREMENT PRIMARY KEY,
     room_type_name VARCHAR(50) NOT NULL,
     price_per_night DECIMAL(10, 2) NOT NULL CHECK (price_per_night > 0),
-    max_occupancy INT NOT NULL CHECK (max_occupancy > 0)
+    max_occupancy INT NOT NULL CHECK (max_occupancy BETWEEN 1 AND 6)
 );
 
 CREATE TABLE Rooms (

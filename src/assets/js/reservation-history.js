@@ -1,3 +1,4 @@
+
 /*
 Team Name: Red Team
 Members:
@@ -28,12 +29,16 @@ function showHistoryMessage(text, isError) {
     const messageEl = document.getElementById("history-message");
     if (!messageEl) return;
     messageEl.textContent = text;
-    messageEl.className = `message ${isError ? "error" : "success"}`;
+    messageEl.className = text ? `message ${isError ? "error" : "success"}` : "message";
 }
 
 async function fetchReservationHistory(customerId) {
     const response = await fetch(`${API_BASE_URL}/api/reservations/history?customer_id=${customerId}`);
-    return response.json();
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok || payload.error) {
+        throw new Error(payload.error || payload.reason || "Unable to load reservation history at this time.");
+    }
+    return payload;
 }
 
 function buildLineItemsTable(lineItems) {
@@ -87,7 +92,32 @@ function renderHistory(reservations) {
     });
 }
 
+let allHistoryReservations = [];
+
+function applyHistoryFilters(event) {
+    if (event) event.preventDefault();
+    const from = document.getElementById("history-from").value;
+    const to = document.getElementById("history-to").value;
+    if (from && to && from > to) {
+        document.getElementById("history-table-body").innerHTML = "";
+        showHistoryMessage("The start date must be on or before the end date.", true);
+        return;
+    }
+    const filtered = allHistoryReservations.filter(r => {
+        const date = String(r.check_in_date || "").slice(0, 10);
+        return (!from || date >= from) && (!to || date <= to);
+    });
+    renderHistory(filtered);
+    showHistoryMessage(filtered.length ? "" : "No reservations match the selected dates.", false);
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
+    const filters = document.getElementById("history-filters");
+    if (filters) filters.addEventListener("submit", applyHistoryFilters);
+    document.getElementById("history-clear")?.addEventListener("click", () => {
+        document.getElementById("history-filters").reset();
+        applyHistoryFilters();
+    });
     const session = getHistoryAuthSession();
 
     if (!session || !session.customerId) {
@@ -100,12 +130,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         const reservations = payload.reservations || [];
 
         if (reservations.length === 0) {
+            allHistoryReservations = [];
             showHistoryMessage("You don't have any past reservations yet.", false);
             return;
         }
 
-        renderHistory(reservations);
+        allHistoryReservations = reservations;
+        applyHistoryFilters();
     } catch (error) {
-        showHistoryMessage("Unable to load reservation history at this time.", true);
+        showHistoryMessage(error.message || "Unable to load reservation history at this time.", true);
     }
 });

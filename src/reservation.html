@@ -55,8 +55,10 @@ This page provides a reservation form for selecting a room, guest count, and che
             </div>
         </section>
         <section class="section section-tight">
-            <div class="container split">
+            <div class="container reservation-page-layout">
                 <form id="reservation-form">
+                    <div class="reservation-form-layout">
+                        <div class="reservation-fields">
                     <h3>Reservation Details</h3>
                     <div class="form-grid">
                         <div class="field"><label for="roomType">Room Size</label><select id="roomType" required>
@@ -65,7 +67,8 @@ This page provides a reservation form for selecting a room, guest count, and che
                         <div class="field"><label for="roomQty">Rooms of This Size</label><input id="roomQty"
                                 type="number" min="1" max="10" value="1"></div>
                         <div class="field"><label for="guests">Number of Guests</label><input id="guests" type="number"
-                                min="1" max="8" value="2" required></div>
+                                min="1" max="60" value="2" required>
+                            <p id="guest-capacity-message" class="hint" role="status" aria-live="polite"></p></div>
                         <div class="field"><label for="checkIn">Check-In Date</label><input id="checkIn" type="text"
                                 placeholder="Select a date" readonly autocomplete="off" required></div>
                         <div class="field"><label for="checkOut">Check-Out Date</label><input id="checkOut" type="text"
@@ -75,6 +78,14 @@ This page provides a reservation form for selecting a room, guest count, and che
                     <div class="cta-row"><button id="add-room" class="btn btn-ghost" type="button">Add Room to
                             Reservation</button></div>
                     <div id="reservation-message" class="message" role="status" aria-live="polite"></div>
+                        </div>
+                        <aside class="selected-room-preview" aria-live="polite">
+                            <p class="eyebrow">Selected Room</p>
+                            <img id="selected-room-image" src="" alt="Selected room preview">
+                            <h3 id="selected-room-name">Room Preview</h3>
+                            <p id="selected-room-caption" class="hint">Choose a room size to see its room photo.</p>
+                        </aside>
+                    </div>
                     <div id="room-cart-section" style="margin-top:20px">
                         <h3>Your Rooms</h3>
                         <ul id="room-cart" class="room-cart"></ul>
@@ -119,6 +130,9 @@ This page provides a reservation form for selecting a room, guest count, and che
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js"></script>
     <script src="assets/js/date-range-picker.js"></script>
     <script src="assets/js/reservation.js"></script>
+
+
+
 </body>
 
 </html>
