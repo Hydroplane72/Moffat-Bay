@@ -1,3 +1,4 @@
+
 /*
 Team Name: Red Team
 Members:
@@ -19,6 +20,39 @@ const CART_STORAGE_KEY = "mbl_reservation_cart";
 
 let roomTypesById = {};
 let cart = [];
+
+const ROOM_PREVIEW_IMAGES = {
+    "Double Full Beds": "assets/images/full.png",
+    "Queen": "assets/images/queen.png",
+    "Double Queen Beds": "assets/images/double queens.png",
+    "King": "assets/images/king.png"
+};
+
+function updateRoomPreview() {
+    const select = document.getElementById("roomType");
+    const image = document.getElementById("selected-room-image");
+    const name = document.getElementById("selected-room-name");
+    const caption = document.getElementById("selected-room-caption");
+    if (!select || !image || !name || !caption) return;
+
+    const roomType = roomTypesById[Number(select.value)];
+    if (!roomType) {
+        image.removeAttribute("src");
+        image.style.display = "none";
+        name.textContent = "Room Preview";
+        caption.textContent = "Choose a room size to see its room photo.";
+        return;
+    }
+
+    const imageUrl = ROOM_PREVIEW_IMAGES[roomType.room_type_name];
+    image.style.display = imageUrl ? "block" : "none";
+    if (imageUrl) {
+        image.src = imageUrl;
+        image.alt = `${roomType.room_type_name} room`;
+    }
+    name.textContent = roomType.room_type_name;
+    caption.textContent = `Sleeps up to ${roomType.max_occupancy} guests • $${roomType.price_per_night} / night`;
+}
 
 function getAuthSession() {
     try {
@@ -77,6 +111,7 @@ async function loadRoomTypes() {
 
     preselectRoomFromQuery();
     updateRateHint();
+    updateRoomPreview();
 }
 
 function preselectRoomFromQuery() {
@@ -91,13 +126,51 @@ function preselectRoomFromQuery() {
     }
 }
 
+function getCartCapacity() {
+    return cart.reduce((total, item) => {
+        const roomType = roomTypesById[item.roomTypeId];
+        const occupancy = roomType ? Number(roomType.max_occupancy) : 0;
+        return total + (occupancy * item.quantity);
+    }, 0);
+}
+
+function getSelectedCapacity() {
+    const select = document.getElementById("roomType");
+    const quantityInput = document.getElementById("roomQty");
+    if (!select || !quantityInput) return 0;
+
+    const roomType = roomTypesById[Number(select.value)];
+    const quantity = Math.max(1, Number(quantityInput.value) || 1);
+    return roomType ? Number(roomType.max_occupancy) * quantity : 0;
+}
+
+function updateGuestLimit() {
+    const guestsInput = document.getElementById("guests");
+    if (!guestsInput) return;
+
+    const capacity = cart.length > 0 ? getCartCapacity() : getSelectedCapacity();
+    if (capacity > 0) guestsInput.max = String(capacity);
+}
+
+function guestCountIsValid() {
+    const guestsInput = document.getElementById("guests");
+    if (!guestsInput || cart.length === 0) return false;
+
+    const guests = Number(guestsInput.value);
+    const capacity = getCartCapacity();
+    return Number.isInteger(guests) && guests > 0 && guests <= capacity;
+}
+
 function updateRateHint() {
     const select = document.getElementById("roomType");
     const hint = document.getElementById("room-rate-hint");
     const roomType = roomTypesById[Number(select.value)];
     if (hint && roomType) {
-        hint.textContent = `${roomType.room_type_name} sleeps up to ${roomType.max_occupancy} guests at $${roomType.price_per_night} / night.`;
+        const quantity = Math.max(1, Number(document.getElementById("roomQty").value) || 1);
+        const selectedCapacity = Number(roomType.max_occupancy) * quantity;
+        hint.textContent = `${roomType.room_type_name} sleeps up to ${roomType.max_occupancy} guests per room (${selectedCapacity} total for ${quantity} room${quantity === 1 ? "" : "s"}) at $${roomType.price_per_night} / night.`;
     }
+    updateGuestLimit();
 }
 
 function renderCart() {
@@ -140,10 +213,23 @@ function renderCart() {
         list.appendChild(li);
     });
 
-    totalEl.textContent = cart.length > 0 ? `Estimated Total: $${total.toFixed(2)} (${nights} night${nights === 1 ? "" : "s"})` : "";
+    const capacity = getCartCapacity();
+    totalEl.textContent = cart.length > 0
+        ? `Estimated Total: $${total.toFixed(2)} (${nights} night${nights === 1 ? "" : "s"}) • Sleeps up to ${capacity} guests`
+        : "";
 
+    updateGuestLimit();
+    const capacityMessage = document.getElementById("guest-capacity-message");
+    if (capacityMessage) {
+        const guestCount = Number(document.getElementById("guests").value);
+        const tooManyGuests = cart.length > 0 && (!Number.isInteger(guestCount) || guestCount < 1 || guestCount > capacity);
+        capacityMessage.textContent = tooManyGuests
+            ? `Your selected rooms can accommodate up to ${capacity} guest${capacity === 1 ? "" : "s"}. Adjust the guest count or add another room.`
+            : "";
+        capacityMessage.classList.toggle("error", tooManyGuests);
+    }
     const allAvailable = cart.every((item) => item.available !== false);
-    continueButton.disabled = !(cart.length > 0 && allAvailable && nights > 0);
+    continueButton.disabled = !(cart.length > 0 && allAvailable && nights > 0 && guestCountIsValid());
 }
 
 function getCheckIn() {
@@ -241,9 +327,16 @@ function handleContinueToSummary() {
         return;
     }
 
+    const guests = Number(document.getElementById("guests").value);
+    const capacity = getCartCapacity();
+    if (!Number.isInteger(guests) || guests < 1 || guests > capacity) {
+        showMessage(`Your selected rooms can accommodate up to ${capacity} guest${capacity === 1 ? "" : "s"}. Adjust the guest count or add another room.`, true);
+        return;
+    }
+
     const payload = {
         customerId: session.customerId,
-        guests: Number(document.getElementById("guests").value),
+        guests,
         checkIn: getCheckIn(),
         checkOut: getCheckOut(),
         rooms: cart.map((item) => ({
@@ -262,7 +355,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updateAuthGatedVisibility();
     loadRoomTypes();
 
-    document.getElementById("roomType").addEventListener("change", updateRateHint);
+    document.getElementById("roomType").addEventListener("change", () => {
+        updateRateHint();
+        updateRoomPreview();
+    });
+    document.getElementById("roomQty").addEventListener("input", updateRateHint);
+    document.getElementById("guests").addEventListener("input", renderCart);
     document.getElementById("add-room").addEventListener("click", handleAddRoom);
     document.getElementById("continue-to-summary").addEventListener("click", handleContinueToSummary);
     document.getElementById("checkIn").addEventListener("change", refreshAvailability);

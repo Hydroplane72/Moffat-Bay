@@ -59,6 +59,26 @@ def _fetch_room_type_prices(connection, room_type_ids) -> Dict[int, Decimal]:
     return {int(row["room_type_id"]): Decimal(str(row["price_per_night"])) for row in rows}
 
 
+def _fetch_room_type_capacities(connection, room_type_ids) -> Dict[int, int]:
+    """Return max occupancy for each requested room type."""
+    if not room_type_ids:
+        return {}
+
+    placeholders = ", ".join(["%s"] * len(room_type_ids))
+    cursor = connection.cursor(dictionary=True)
+
+    try:
+        cursor.execute(
+            f"SELECT room_type_id, max_occupancy FROM RoomTypes WHERE room_type_id IN ({placeholders})",
+            tuple(room_type_ids),
+        )
+        rows = cursor.fetchall()
+    finally:
+        cursor.close()
+
+    return {int(row["room_type_id"]): int(row["max_occupancy"]) for row in rows}
+
+
 def _fetch_room_type_map(connection) -> Dict[int, int]:
     """Map room_id -> room_type_id for every room in the lodge."""
     cursor = connection.cursor(dictionary=True)
@@ -171,6 +191,25 @@ def create_reservation(connection, customer_id, guests, check_in, check_out, roo
     if guests <= 0:
         return ReservationResult(success=False, reason="Number of guests must be greater than zero.")
 
+    try:
+        requested_by_type = _normalize_room_requests(room_requests)
+    except (KeyError, TypeError, ValueError):
+        return ReservationResult(success=False, reason="Each room must include a room_type_id and a positive quantity.")
+
+    if any(quantity <= 0 for quantity in requested_by_type.values()):
+        return ReservationResult(success=False, reason="Room quantities must be greater than zero.")
+
+    capacities = _fetch_room_type_capacities(connection, list(requested_by_type.keys()))
+    if len(capacities) != len(requested_by_type):
+        return ReservationResult(success=False, reason="One or more selected room types no longer exist.")
+
+    total_capacity = sum(capacities[room_type_id] * quantity for room_type_id, quantity in requested_by_type.items())
+    if guests > total_capacity:
+        return ReservationResult(
+            success=False,
+            reason=f"The selected rooms can accommodate up to {total_capacity} guests.",
+        )
+
     availability = check_room_availability(connection, check_in, check_out, room_requests)
     if not availability.ok:
         return ReservationResult(success=False, reason=availability.reason)
@@ -179,7 +218,6 @@ def create_reservation(connection, customer_id, guests, check_in, check_out, roo
     check_out_date = _parse_date(check_out)
     nights = (check_out_date - check_in_date).days
 
-    requested_by_type = _normalize_room_requests(room_requests)
     prices = _fetch_room_type_prices(connection, list(requested_by_type.keys()))
     total_price = sum(prices[t] * nights * qty for t, qty in requested_by_type.items())
 

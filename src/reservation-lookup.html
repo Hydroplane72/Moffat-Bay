@@ -47,7 +47,7 @@ row expands it to show the room line items that made up that stay's total.
             <div class="container">
                 <p class="eyebrow">Your Stays</p>
                 <h1>Reservation History</h1>
-                <p>Review your past reservations. Click a row to see the room line items that made up its total.</p>
+                <p>Review your reservations, filter by check-in date, and click a row to see room details.</p>
                 <div class="page-hero-media"><img class="page-hero-photo"
                         src="https://images.unsplash.com/photo-1652204247950-69c7379377cc?auto=format&amp;fit=crop&amp;w=1600&amp;q=72"
                         alt="Whale-watching boat cruising the Salish Sea near Bellingham, Washington." decoding="async"
@@ -58,6 +58,12 @@ row expands it to show the room line items that made up that stay's total.
             <div class="container">
                 <div class="summary-box">
                     <h3>Past Reservations</h3>
+                    <form id="history-filters" class="history-filters">
+                        <label>Check-in from <input id="history-from" type="date"></label>
+                        <label>Check-in through <input id="history-to" type="date"></label>
+                        <button type="submit">Apply Filters</button>
+                        <button type="button" id="history-clear">Clear Filters</button>
+                    </form>
                     <div id="history-message" class="message" role="status" aria-live="polite"></div>
                     <table id="history-table" class="history-table">
                         <thead>
